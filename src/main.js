@@ -4,22 +4,33 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+
 Vue.config.productionTip = false
 
-router.beforeEach((to,form,next) =>{
-  /*路由变化修改title*/
-  if(to.meta.title){
-    document.title=to.meta.title
-  }else{
-    document.title="一起画(17hua.me)"
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.title)) {
+    document.title = to.meta.title
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    // if (!auth.loggedIn()) {
+    //   next({
+    //     path: '/index',
+    //     query: { redirect: to.fullPath }
+    //   })
+    // } else {
+    //   next()
+    // }
+  } else {
+    document.title = "一起画(17hua.me)"
   }
-  next();
+  next()// 确保一定要调用 next()
 })
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
