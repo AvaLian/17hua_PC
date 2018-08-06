@@ -47,6 +47,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
+  @import "../../assets/style/hfpublic.css";
 
   $navbarHeight: 110px;
   $copyrightHeight: 124px;
@@ -96,37 +97,6 @@
       .follow {
         display: flex;
         align-items: center;
-        color: $fBColor;
-        .third-app {
-          display: flex;
-          margin-left: 20px;
-          &-item {
-            margin-right: 20px;
-            position: relative;
-            cursor: pointer;
-            .iconfont {
-              font-size: 24px;
-              transition: all .1s;
-            }
-            &:last-child {
-              margin-right: 0;
-            }
-            .qrcode {
-              display: none;
-              position: absolute;
-              top: 24px;
-              left: 50%;
-              transform: translateX(-50%);
-              box-shadow: 0px 1px 6px rgba(0, 0, 0, .1);
-            }
-            &:hover .qrcode {
-              display: block;
-            }
-            &:hover .iconfont {
-              color: $themeColor
-            }
-          }
-        }
       }
     }
   }

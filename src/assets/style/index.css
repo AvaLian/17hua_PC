@@ -1,3 +1,27 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto; }
 
+.flex-row-bc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5a5a5a;
+  line-height: 1.2;
+  margin-bottom: 40px; }
+  .section-title-txt {
+    color: #fe405c;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 2; }
+.section-1 .section-title {
+  color: #fff; }
+  .section-1 .section-title-txt {
+    color: #fff; }
 
 /*# sourceMappingURL=index.css.map */

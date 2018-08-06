@@ -3,7 +3,7 @@
     <div class="top">
       <div class="tel">
         <i class="iconfont icon-dianhua"></i>
-        <span>400-128-1717</span>
+        <span>{{tel}}</span>
       </div>
       <div class="third-app">
         <div class="third-app-item">
@@ -44,10 +44,13 @@
         navIndex: 1
       }
     },
-    methods: {
-      getRouter(add) {
-        this.$route.path != add ? this.$router.push({ path: add }) : "";
+    computed:{
+      tel(){
+        console.log(this.$store);
+        return this.$store.state.tel;
       }
+    },
+    methods: {
     },
     watch: {
       $route(to, from) {
@@ -61,6 +64,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
+  @import "../../assets/style/hfpublic.css";
 
   $topHeight: 40px;
   $navbarHeight: 88px;
@@ -77,38 +81,6 @@
       .tel {
         color: $themeColor;
       }
-      .third-app {
-        display: flex;
-        color: $f9EColor;
-        margin-left: 30px;
-        &-item {
-          margin-right: 20px;
-          position: relative;
-          cursor: pointer;
-          .iconfont {
-            font-size: 24px;
-            transition: all .1s;
-          }
-          &:last-child {
-            margin-right: 0;
-          }
-          .qrcode {
-            display: none;
-            position: absolute;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0px 1px 6px rgba(0, 0, 0, .1);
-          }
-          &:hover .qrcode {
-            display: block;
-          }
-          &:hover .iconfont {
-            color: $themeColor
-          }
-        }
-
-      }
     }
     /*菜单*/
     .menu {
@@ -117,10 +89,14 @@
         display: flex;
         height: 100%;
         .navbar-item {
+          margin-right: 20px;
+          &:last-child{
+            margin-right: 0;
+          }
           .navbar-item-cn {
             height: 100%;
             display: flex;
-            margin: 0 20px;
+            padding: 0 10px;
             justify-content: center;
             align-items: center;
             color: $fMColor;
@@ -139,7 +115,6 @@
               bottom: 0;
               border-bottom: 2px solid $themeColor;
             }
-
           }
         }
 

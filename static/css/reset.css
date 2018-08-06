@@ -89,13 +89,3 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.container{
-  width:1200px;
-  margin:0 auto;
-}
-
-.flex-row-bc{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
