@@ -85,7 +85,6 @@
         </div>
         <!--<img src="../../static/images/obj-img/teacher.jpg" alt="" style="width: 100%">-->
         <div class="teachers">
-          师资力量
         </div>
       </div>
     </div>
