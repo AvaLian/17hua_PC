@@ -46,7 +46,6 @@
     },
     computed:{
       tel(){
-        console.log(this.$store);
         return this.$store.state.tel;
       }
     },

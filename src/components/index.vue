@@ -4,7 +4,7 @@
     <!--轮播图-->
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide v-for="(e,i) in bannerImg" :style="{'background':'url('+e.imgUrl+') center/100% no-repeat'}">I'm Slide {{i+1}}</swiper-slide>
+      <swiper-slide v-for="(e,i) in bannerImg" :key="i" :style="{'background':'url('+e.imgUrl+') center/100% no-repeat'}">I'm Slide {{i+1}}</swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -83,7 +83,10 @@
           <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
           <p>淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
         </div>
-        <img src="../../static/images/obj-img/teacher.jpg" alt="" style="width: 100%">
+        <!--<img src="../../static/images/obj-img/teacher.jpg" alt="" style="width: 100%">-->
+        <div class="teachers">
+          师资力量
+        </div>
       </div>
     </div>
 
