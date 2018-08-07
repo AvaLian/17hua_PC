@@ -1,7 +1,7 @@
 @import "./variable.scss";
 
 .container{
-  max-width:960px;
+  max-width:1200px;
   margin:0 auto;
 }
 
@@ -21,10 +21,11 @@
     color:$f5AColor;
     line-height: 1.2;
     margin-bottom: 40px;
+    font-size: 16px;
     &-txt{
       color:$themeColor;
       font-weight: 700;
-      font-size:28px;
+      font-size:30px;
       line-height:2;
     }
   }
@@ -40,18 +41,8 @@
 
 }
 
-//.section-1{
-//  .section-title{
-//    display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    color:black;
-//    &-txt{
-//      color:black;
-//      font-weight: 700;
-//      font-size:28px;
-//    }
-//  }
-//}
+.box-shadow{
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
 
 

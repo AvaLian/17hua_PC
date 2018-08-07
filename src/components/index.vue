@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section courses">
       <div class="container">
       <div class="section">
         <div class="section-title">
@@ -73,19 +73,18 @@
           <p>专业课程体系标准</p>
         </div>
       </div>
-        <img src="../../static/images/obj-img/courses.jpg" alt="" style="width: 100%">
+        <vcourses></vcourses>
     </div>
     </div>
 
+    <!--师资力量-->
     <div class="section" style="background: #f6f6f6">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
           <p>淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
         </div>
-        <!--<img src="../../static/images/obj-img/teacher.jpg" alt="" style="width: 100%">-->
-        <div class="teachers">
-        </div>
+        <vteacher :data="teachers"></vteacher>
       </div>
     </div>
 
@@ -97,7 +96,7 @@
           <p>来自多领域的合作方式，建立强大企业纽带，让未来不设限！</p>
         </div>
         <ul class="coller">
-          <li v-for="e in coll">
+          <li class="coller-item" v-for="(e,i) in coll" :key="i">
             <a href="#"><img :src="e.imgUrl" alt=""></a>
           </li>
         </ul>
@@ -122,16 +121,19 @@
 
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-  import countup from './ForIndex/vcountup'
+
   import digit from './ForIndex/digit'
+  import vteacher from './ForIndex/vteacher'
+  import vcourses from './ForIndex/vcourses'
+
+
   export default {
     name: "index",
     components: {
-      swiper,swiperSlide, countup,digit
+      swiper,swiperSlide,digit,vteacher,vcourses
     },
     data() {
       return {
-        rollNumber:98,
         bannerImg:[
           {
             imgUrl:"../../static/images/obj-img/banner.jpg"
@@ -229,15 +231,58 @@
           {
             imgUrl:"../../static/images/obj-img/coll6.jpg"
           }
+        ],
+        teachers:[
+          {
+            level:1,
+            imgUrl:"../../static/images/teachers/teacher1.jpg",
+            id:1,
+            name:"王燮达",
+            brief:"1996年毕业于中国美术学院雕塑专业。中国雕塑学会会员、中国工艺美术学会雕塑专业委员会会员、全国城市雕塑创作设计资格证书持有者。他的作品充满既轻盈又高古，既灵动又深邃，既纯净又博大的各种形式趣味",
+            bgColor:"linear-gradient(#f4f2f3, #d6d6d6)"
+          },
+          {
+            level:0,
+            imgUrl:"../../static/images/teachers/teacher2.png",
+            id:2,
+            name:"管岑",
+            enname:"Cara",
+            bgColor:"linear-gradient(#95e8cc,#42b2b3)"
+          },
+          {
+            level:0,
+            imgUrl:"../../static/images/teachers/teacher3.png",
+            id:3,
+            name:"柳慧",
+            enname:"Jessie",
+            bgColor:"linear-gradient(#91dae0,#4070bc)"
+          }
         ]
       }
-    }
+    },
+
   }
 </script>
 
 <style lang="scss" scoped>
+
+    /*nav{*/
+      /*width:600px;*/
+      /*background:#eeeeee;*/
+      /*padding:0 10px;*/
+      /*& a{*/
+        /*text-decoration: none;*/
+        /*color:#000;*/
+        /*display: inline-block;*/
+        /*width:150px;*/
+        /*text-align:center;*/
+        /*background:#aaaaaa;*/
+        /*padding:10px;*/
+      /*}*/
+  /*}*/
+
   .container{
-    padding: 40px 0;
+    padding: 80px 0;
   }
 
   /*轮播图*/
@@ -264,8 +309,7 @@
     align-items: center;
     justify-content: space-between;
     &-item{
-      width:300px;
-      height: 240px;
+      flex:0 0 32%;
       margin-top: 10px;
       border-radius: 10px;
       overflow: hidden;
@@ -279,7 +323,7 @@
         line-height: 48px;
         text-align: center;
         color:#fff;
-        font-size:20px;
+        font-size:18px;
         position: absolute;
         left:0;
         bottom: 0;
@@ -312,7 +356,7 @@
         height: 0;
       }
       div{
-        flex:1;
+        flex:0 0 50%;
       }
       .marginLeft50{
         margin-right: 50px;
@@ -325,6 +369,7 @@
     &-digit{
       display: flex;
       justify-content: space-between;
+      margin-top: 100px;
     }
   }
 
@@ -335,8 +380,12 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      img{
-        max-width:300px ;
+      margin-top: 60px;
+      &-item{
+        flex:0 0 33%;
+        img{
+        max-width: 300px;
+      }
       }
     }
   }

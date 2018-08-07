@@ -14,7 +14,9 @@
 
   export default {
     name: 'App',
-    components: {vheader, vfooter}
+    components: {vheader, vfooter},
+    screenWidth: document.body.clientWidth,
+    screenHight: document.documentElement.clientHeight
   }
 </script>
 

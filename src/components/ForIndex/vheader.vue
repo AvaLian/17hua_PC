@@ -44,6 +44,7 @@
         navIndex: 1
       }
     },
+    props: ['SCWidth'],
     computed:{
       tel(){
         return this.$store.state.tel;
