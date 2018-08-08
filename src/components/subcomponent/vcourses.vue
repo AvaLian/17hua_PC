@@ -2,39 +2,36 @@
   <div class="courses box-shadow">
     <div class="courses-left" >
       <!--:style="{'top':active*(-128)+'px'}"-->
-        <ul class="courses-nav" :style="{'top':-scrollHeigth+'px'}">
-          <li class="courses-nav-item" @click="toggle(index)" v-for="(tab,index) in tabs" :class="{active: active == index}">
+      <transition name="fade">
+        <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'px'}">
+          <li class="courses-nav-item transition" @click="toggle(i)" v-for="(tab,i) in tabs" :class="{active: actCurView.active == i}">
             <a class="courses-nav-item-a" href="javascript:void(0)">{{ tab.name }}</a>
           </li>
         </ul>
-
-      <div class="icon" @click="toggle(active+1)"><i class="iconfont icon-jiantou1"></i></div>
+      </transition>
+      <div class="icon" @click="toggle(actCurView.active+1)"><i class="iconfont icon-jiantou1"></i></div>
     </div>
-    <component class="courses-con" :is="currentView" :data="tabs[active]"></component>
+    <component class="courses-con" :is="actCurView.view" :data="tabs[actCurView.active]"></component>
   </div>
 </template>
 
 <script>
-  import first from './first';
-  import second from './second';
-  import third from './third';
+
   import detail from './vcourses-detail';
     export default {
         name: "vcourses",
         components: {
-          first,
-          second,
-          third,
           detail
         },
         data(){
             return{
-              currentView: 'detail',
-              active: 0,
-              activeHeight:0,
-              scrollHeigth:0,
-              tasHeight:128,
-              showNum:4,
+              actCurView:{
+                view:"detail",  //激活块的组件
+                active:0,  //激活块的index
+                scrollHeigth:0, //激活块移动的距离
+                tasHeight:128, //每个块的高度
+                showNum:4,// 一屏显示几个块
+              },
               tabs: [
                 {
                   name: 'VIP一对一',
@@ -82,31 +79,25 @@
             }
         },
         methods: {
-          toggle(i) {
-            this.active = i;
+          toggle(i) { // tabs切换
+            this.actCurView.active = i;
 
-            if(this.active>this.tabs.length-1) {this.active=0;this.scrollHeigth=0}
-            this.currentView =this.tabs[i].view;
+            if(this.actCurView.active>this.tabs.length-1) {  //判断index的值是否大于tabs总长度
+              this.actCurView.active=0;
+              this.actCurView.scrollHeigth=0;
+            }
+            this.actCurView.view =this.tabs[this.actCurView.active].view;
 
             // 判断tabs个数
-            if(this.tabs.length<=this.showNum) return false;
-            // 判断当前选中（包含）tab前总高度
-            this.activeHeight=(i+1)*this.tasHeight;
+            if(this.tabs.length<=this.actCurView.showNum) return false;
 
-
-            console.log(this.activeHeight,(this.tasHeight*(this.showNum)));
-            if(this.activeHeight>=(this.tasHeight*this.showNum)) {
-              console.log(this.showNum,this.active,this.active+2-this.showNum);
-              this.scrollHeigth=this.tasHeight*(this.active+2-this.showNum);
+            if(this.actCurView.active<this.actCurView.showNum-1) { //当前激活块小于（显示个数-1）
+              this.actCurView.scrollHeigth=0;
+            }else if( this.actCurView.active<this.tabs.length-1) {  //当前激活块大于等于显示个数且小于（总长度-1）
+              this.actCurView.scrollHeigth=this.actCurView.tasHeight*(this.actCurView.active+2-this.actCurView.showNum);
+            }else if(this.actCurView.active==this.tabs.length-1){   //最后一个
+              this.actCurView.scrollHeigth=this.actCurView.tasHeight*(this.tabs.length-this.actCurView.showNum);
             }
-            // else if(this.activeHeight<=this.tasHeight*(this.tabs.length-2)) {this.scrollHeigth=0;}
-
-
-            // if(this.activeHeight>=(this.tasHeight*(this.tabs.length-1))) {
-            //   console.log(this.activeHeight,this.tasHeight,this.tabs.length-this.active);
-            //   this.scrollHeigth=this.tasHeight*(this.tabs.length-this.active);
-            // }
-            // else if(this.activeHeight<=this.tasHeight*(this.tabs.length-2)) {this.scrollHeigth=0;}
           }
         }
     }
@@ -114,6 +105,10 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
+  $tasHeight:128px; //与移动距离相关
+  .transition{
+    transition: all .4s; //切换过滤效果
+  }
   .courses{
     display: flex;
     &-left{
@@ -123,12 +118,12 @@
       position: relative;
       .icon{
         width: 100%;
-        color:#ffaf00;
+        color:$orange;
         cursor: pointer;
         text-align: center;
         position: absolute;
         bottom: 0;
-        background: #fff;
+        background: $ffColor;
         .iconfont{
           font-size: 48px;
         }
@@ -141,11 +136,13 @@
       position: absolute;
       left:0;
       &-item{
-        height: 128px;
-        line-height: 128px;
+        height: $tasHeight;
+        line-height: $tasHeight;
         text-align: center;
         &-a{
           width: 80%;
+          color:$fMColor;
+          font-size: 20px;
           display: inline-block;
           position: relative;
         }
@@ -155,24 +152,20 @@
           position: absolute;
           left:0;
           bottom: 0;
-          border-bottom: 1px solid $borderColor;
+          @include border-1px(1px,$borderColor);
         }
         &.active{
-          background: #ffaf00;
-          :after{
-            content: "";
-            width: 100%;
-            position: absolute;
-            left:0;
-            bottom: 0;
-            border-bottom: 1px solid $ffColor;
+          @include border-1px(1px,$ffColor);
+          background: $orange;
+          .courses-nav-item-a {
+            color: $ffColor;
           }
         }
       }
      }
     &-con{
       flex:1;
-      background: #fff;
+      background: $ffColor;
     }
 
   }

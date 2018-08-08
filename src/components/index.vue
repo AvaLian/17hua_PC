@@ -65,6 +65,7 @@
       </div>
     </div>
 
+    <!--教学课程-->
     <div class="section courses">
       <div class="container">
       <div class="section">
@@ -121,11 +122,9 @@
 
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-
-  import digit from './ForIndex/digit'
-  import vteacher from './ForIndex/vteacher'
-  import vcourses from './ForIndex/vcourses'
-
+  import digit from './subcomponent/digit'
+  import vteacher from './subcomponent/vteacher'
+  import vcourses from './subcomponent/vcourses'
 
   export default {
     name: "index",
@@ -265,21 +264,6 @@
 </script>
 
 <style lang="scss" scoped>
-
-    /*nav{*/
-      /*width:600px;*/
-      /*background:#eeeeee;*/
-      /*padding:0 10px;*/
-      /*& a{*/
-        /*text-decoration: none;*/
-        /*color:#000;*/
-        /*display: inline-block;*/
-        /*width:150px;*/
-        /*text-align:center;*/
-        /*background:#aaaaaa;*/
-        /*padding:10px;*/
-      /*}*/
-  /*}*/
 
   .container{
     padding: 80px 0;

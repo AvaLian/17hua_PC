@@ -1,0 +1,150 @@
+<template>
+  <div class="s-menu">
+    <div class="s-menu-large flex-row-bc" v-show="reNodepoMosth(SCWidth,true)">
+      <div class="logo">
+        <img src="../../../static/images/logo.png"/>
+      </div>
+      <ul class="navbar">
+        <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
+          <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
+                       :key="index">
+            {{todo.zwname}}
+          </router-link>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="s-menu-small" v-show="reNodepoMosth(SCWidth,false)">
+      <div class="s-menu-small-header flex-row-bc">
+        <div class="logo">
+          <img class="logo-img" src="../../../static/images/logo.png"/>
+        </div>
+        <img class="icon-menu" ref="iconmenu" @click="maClick=!maClick" src="//image.17hua.me/upload/image/201711/15113344010141089.png">
+      </div>
+      <ul class="navbar" v-show="maClick">
+        <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
+          <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
+                       :key="index">
+            {{todo.zwname}}
+          </router-link>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "s-menu",
+    data() {
+      return {
+        navIndex: 1,
+        maClick: false
+      }
+    },
+    props: ['SCWidth'],
+    watch: {
+      $route(to, from) {
+        this.$router.options.routes.map((item, index) => {
+          if (item.name && item.name == to.name) this.navIndex = index
+        })
+      }
+    },
+    methods: {
+      reNodepoMosth(width, statue) {
+        return width < 860 ? (statue ? false : true) : statue ? true : false;
+      },
+    },
+    mounted() {
+      document.addEventListener('click', (e) => {
+        // console.log(!this.$refs.iconmenu.contains(e.target));
+        if (!this.$refs.iconmenu.contains(e.target)) {
+          this.maClick = false;
+        }
+      })
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  $navbarHeight: 8.8rem; //菜单高度
+  $navbarMHeight: 5rem; //菜单高度
+
+  /*菜单公共部分样式*/
+  .navbar {
+    display: flex;
+    box-sizing: border-box;
+    &-item{
+      display: block;
+      &-cn{
+        display: block;
+        color: $fMColor;
+        &:hover{
+          @extend .navbar-item-active
+        }
+      }
+      .navbar-item-active {
+        color: $themeColor;
+      }
+    }
+  }
+
+  .s-menu {
+    &-large {
+      height: $navbarHeight;
+      .navbar {
+        height: 100%;
+        &-item {
+          margin-right: 20px;
+          &:last-child {
+            margin-right: 0;
+          }
+          .navbar-item-cn {
+            height: 100%;
+            display: flex;
+            padding: 0 1rem;
+            justify-content: center;
+            align-items: center;
+          }
+          .navbar-item-active {
+            position: relative;
+            @include border-1px(2px, $themeColor);
+          }
+        }
+      }
+    }
+    &-small {
+      height: $navbarMHeight;
+      position: relative;
+      &-header {
+        height: 100%;
+        padding: 0 1rem;
+        @include border-1px(1px, $borderColor);
+        .logo-img{
+          width: 8rem;
+        }
+        .icon-menu{
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+      .navbar {
+        width: 100%;
+        padding: 0 1rem;
+        flex-direction: column;
+        position: absolute;
+        top: $navbarMHeight;
+        background: $ffColor;
+        &-item {
+          height: 4rem;
+          line-height: 4rem;
+        }
+      }
+    }
+  }
+
+
+</style>

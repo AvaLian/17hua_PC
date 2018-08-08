@@ -26,7 +26,7 @@
     color:$ffColor;
     &-top{
       padding:0  200px 40px 0;
-      border-bottom:1px solid $ffColor ;
+      @include border-1px(1px,$ffColor);
     }
     &-name{
       font-size:28px;
@@ -41,7 +41,7 @@
       border-radius: 4px;
       text-align: center;
       padding: 14px 20px;
-      background: #ffaf00;
+      background: $orange;
     }
     &-bottom{
       padding: 20px 0;
