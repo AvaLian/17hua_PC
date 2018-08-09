@@ -119,7 +119,15 @@
     &-small {
       height: $navbarMHeight;
       position: relative;
+      /*position: fixed;
+      width: 100%;
+      background: $ffColor;
+      top:0;
+      left:0;
+      z-index: 9999;*/
       &-header {
+
+
         height: 100%;
         padding: 0 1rem;
         @include border-1px(1px, $borderColor);
@@ -136,6 +144,7 @@
         padding: 0 1rem;
         flex-direction: column;
         position: absolute;
+        z-index: 99;
         top: $navbarMHeight;
         background: $ffColor;
         &-item {

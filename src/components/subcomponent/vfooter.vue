@@ -41,12 +41,10 @@
     </div>
     <div class="vfooter-small" v-show="reNodepoMosth(SCWidth,false)">
       <div class="copyright">
-        <div class="logo">
-          <img src="../../../static/images/qrcode-wx.jpg" alt="">
-          <div class="txt">
-            <p class="txt-c txt-ch">一袋信息科技有限公司所有</p>
-            <p class="txt-c txt-cr"> Copyright © 2017 一袋信息科技，沪ICP备17027245号-1</p>
-          </div>
+        <img class="logo-img" src="../../../static/images/qrcode-wx.jpg" alt="">
+        <div class="txt">
+          <p class="txt-c txt-ch">一袋信息科技有限公司所有</p>
+          <p class="txt-c txt-cr"> Copyright © 2017 一袋信息科技，沪ICP备17027245号-1</p>
         </div>
       </div>
     </div>

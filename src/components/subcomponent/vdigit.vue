@@ -4,9 +4,9 @@
         <span class="digit-con-num">{{num}}</span>
         <div class="digit-con-percent">
           <div class="arrowicons" v-if="up">
-            <i class="iconfont icon-jiantou iconfont-1" style="font-size:20px;"></i>
-            <i class="iconfont icon-jiantou iconfont-2" style="font-size:14px;"></i>
-            <i class="iconfont icon-jiantou iconfont-3" style="font-size:10px;"></i>
+            <i class="iconfont icon-jiantou iconfont-1"></i>
+            <i class="iconfont icon-jiantou iconfont-2"></i>
+            <i class="iconfont icon-jiantou iconfont-3"></i>
           </div>
           <span class="digit-con-percent-fuhao">%</span>
         </div>
@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        name: "digit",
+        name: "vdigit",
         data(){
             return{
               desWord:["服务效率","满意度","用户反馈"]
@@ -45,12 +45,43 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
+
+
+  .boxArea{
+    &-small{
+      .digit{
+        &-con{
+          &-num{
+            font-size: 4rem;
+          }
+          .iconfont{
+            &-1{
+              font-size: $RS18 !important;
+            }
+            &-2{
+              font-size: $RS12 !important;
+            }
+            &-3{
+              font-size: 8px !important;
+            }
+          }
+        }
+        &-des{
+          font-size: $RS14;
+        }
+      }
+
+
+    }
+  }
+
+
   .digit{
     &-con{
       display: flex;
       position: relative;
       &-num{
-        font-size:68px;
+        font-size:6.8rem;
         margin-right: 6px;
       }
       &-percent{
@@ -68,17 +99,22 @@
         .arrowicons{
           position: relative;
           .iconfont{
+            &-1{
+              font-size: $RS20;
+            }
             &-2{
               opacity:.7 ;
               position: absolute;
               left: -8px;
               top:-4px;
+              font-size: $RS14;
             }
             &-3{
               opacity:.4;
               position: absolute;
               right: 0px;
               top:-10px;
+              font-size: $RS10;
             }
           }
         }

@@ -1,10 +1,14 @@
 <template>
-  <div class="index">
-
+  <div class="index" :class="pageClass">
     <!--轮播图-->
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide v-for="(e,i) in bannerImg" :key="i" :style="{'background':'url('+e.imgUrl+') center/100% no-repeat'}">I'm Slide {{i+1}}</swiper-slide>
+      <swiper-slide v-for="(e,i) in bannerImg" :key="i">
+          <img class="swiper-slide-img" :src="e.imgUrl" alt="">
+          <div class="swiper-slide-con">
+            I'm Slide {{i+1}}
+          </div>
+      </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -12,16 +16,16 @@
     <!--领先价值-->
     <div class="section exhibi">
       <div class="container">
-      <div class="section-title">
-        <h4 class="section-title-txt">打造行业领先价值</h4>
-        <p>开启创意绘画创造力、发挥绘画天性、在快乐中成长和学习</p>
-      </div>
-      <ul class="exhibition">
-        <li class="exhibition-item" v-for="(e,i) in exhibition" :key="i">
-          <img :src="e.imgUrl" alt="">
-          <p class="exhibition-item-txt" :style="{'background':e.bgColor}">{{e.des}}</p>
-        </li>
-      </ul>
+        <div class="section-title">
+          <h4 class="section-title-txt">打造行业领先价值</h4>
+          <p :class="{'none':SCWTag>1}">开启创意绘画创造力、发挥绘画天性、在快乐中成长和学习</p>
+        </div>
+        <ul class="exhibition">
+          <li class="exhibition-item" v-for="(e,i) in exhibition" :key="i">
+            <img class="exhibition-item-img" :src="e.imgUrl" alt="">
+            <p class="exhibition-item-txt" :style="{'background':e.bgColor}">{{e.des}}</p>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -30,20 +34,20 @@
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">人性化教学理念</h4>
-          <p>优质的创意绘画教学、强大的师资力量、人性化的便民服务</p>
+          <p :class="{'none':SCWTag>1}">优质的创意绘画教学、强大的师资力量、人性化的便民服务。</p>
         </div>
         <ul class="teachidea">
           <li class="teachidea-item" v-for="(e,i) in teachIdea" :key="i" >
-            <div class="teachidea-item-des" :class="{'marginLeft50':(i+1)%2}">
+            <div class="teachidea-item-div teachidea-item-des">
               <img class="teachidea-item-des-icon" :src="e.iconUrl" alt="">
               <div class="teachidea-item-des-title" :style="{'color':e.color}">
                 <h6>{{e.title}}</h6>
                 <h6>{{e.subtitle}}</h6>
               </div>
-              <p>{{e.txt}}</p>
+              <p :class="{'none':SCWTag>1}">{{e.txt}}</p>
             </div>
-            <div class="teachidea-item-img" :style="{'order':(i+1)%2?0:-1}" :class="{'marginLeft50':(i)%2}">
-              <img :src="e.imgUrl" alt="">
+            <div class="teachidea-item-div" :style="{'order':(i+1)%2?0:SCWTag>1?0:-1}">
+              <img class="teachidea-item-img"  :src="e.imgUrl" alt="">
             </div>
           </li>
         </ul>
@@ -55,46 +59,46 @@
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">高质量的服务理念</h4>
-          <p>从服务效率到用户反馈，用最优质的服务让用户满意</p>
+          <p :class="{'none':SCWTag>1}">从服务效率到用户反馈，用最优质的服务让用户满意</p>
         </div>
         <div class="satisfa-digit">
-          <digit :num="87" :des="0"></digit>
-          <digit :num="98" :des="1"></digit>
-          <digit :num="96" :des="2"></digit>
+          <vdigit :num="87" :des="0"></vdigit>
+          <vdigit :num="98" :des="1"></vdigit>
+          <vdigit :num="96" :des="2"></vdigit>
         </div>
       </div>
     </div>
 
     <!--教学课程-->
-    <div class="section courses">
-      <div class="container">
-      <div class="section">
-        <div class="section-title">
-          <h4 class="section-title-txt">绘画课程体系标准</h4>
-          <p>专业课程体系标准</p>
-        </div>
-      </div>
-        <vcourses></vcourses>
-    </div>
-    </div>
+    <!--<div class="section courses">-->
+      <!--<div class="container">-->
+      <!--<div class="section">-->
+        <!--<div class="section-title">-->
+          <!--<h4 class="section-title-txt">绘画课程体系标准</h4>-->
+          <!--<p :class="{'none':SCWTag>1}">专业课程体系标准</p>-->
+        <!--</div>-->
+      <!--</div>-->
+        <!--<vcourses></vcourses>-->
+    <!--</div>-->
+    <!--</div>-->
 
     <!--师资力量-->
-    <div class="section" style="background: #f6f6f6">
-      <div class="container">
-        <div class="section-title">
-          <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
-          <p>淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
-        </div>
-        <vteacher :data="teachers"></vteacher>
-      </div>
-    </div>
+    <!--<div class="section" style="background: #f6f6f6">-->
+      <!--<div class="container">-->
+        <!--<div class="section-title">-->
+          <!--<h4 class="section-title-txt">严格筛选，组建强大师资</h4>-->
+          <!--<p :class="{'none':SCWTag>1}">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>-->
+        <!--</div>-->
+        <!--<vteacher :data="teachers"></vteacher>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <!--合作伙伴-->
     <div class="section coll">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">与合作伙伴共创未来</h4>
-          <p>来自多领域的合作方式，建立强大企业纽带，让未来不设限！</p>
+          <p :class="{'none':SCWTag>1}">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</p>
         </div>
         <ul class="coller">
           <li class="coller-item" v-for="(e,i) in coll" :key="i">
@@ -109,8 +113,8 @@
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">联系我们</h4>
-          <p>如果你有任何问题，我们将为你解答。如果你又需要任何帮助，我们将提供协助。</p>
-          <p>请随时联系我们！</p>
+          <p :class="{'none':SCWTag>1}">如果你有任何问题，我们将为你解答。如果你又需要任何帮助，我们将提供协助。</p>
+          <p :class="{'none':SCWTag>1}">请随时联系我们！</p>
         </div>
 
         <div class="contact-btn">联系我们</div>
@@ -122,14 +126,25 @@
 
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-  import digit from './subcomponent/digit'
+  import vdigit from './subcomponent/vdigit'
   import vteacher from './subcomponent/vteacher'
   import vcourses from './subcomponent/vcourses'
 
   export default {
     name: "index",
     components: {
-      swiper,swiperSlide,digit,vteacher,vcourses
+      swiper,swiperSlide,vdigit,vteacher,vcourses
+    },
+    computed:{
+      screenWidth(){
+        return this.$store.state.screenSize.w;
+      },
+      SCWTag(){
+        return this.$store.state.SCWTag;
+      },
+      pageClass(){
+        return this.$store.state.pageClass[this.$store.state.SCWTag];
+      }
     },
     data() {
       return {
@@ -258,26 +273,89 @@
           }
         ]
       }
-    },
-
+    }
   }
 </script>
 
 <style lang="scss" scoped>
 
-  .container{
-    padding: 80px 0;
+  .boxArea{
+    &-large{
+      .exhibition-item,.coller-item{
+        flex:0 0 32%;
+      }
+      .teachidea-item-div{
+        flex:0 0 50%;
+      }
+      .teachidea-item-des{
+        flex: 0 0 40%;
+      }
+      .satisfa{
+        &-digit{
+          margin-top: 6rem;
+        }
+      }
+    }
+    &-middle{
+      .exhibition-item{
+        flex:0 0 49%;
+      }
+      .coller-item,.teachidea-item-div{
+        flex:0 50%;
+      }
+      .teachidea-item-des{
+        flex: 0 0 44%;
+      }
+
+      .satisfa{
+        &-digit{
+          margin-top: 4rem;
+        }
+      }
+    }
+    &-small{
+      .exhibition-item,.coller-item,.teachidea-item-div {
+        flex: 0 0 100%;
+      }
+
+      .teachidea-item-des{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-icon{
+          width:4.4rem;
+          height: 4.4rem;
+          margin-right:1rem;
+        }
+        &-title{
+          font-size:$RS20;
+        }
+      }
+
+      .satisfa{
+        &-digit{
+          margin-top: 2rem;
+        }
+      }
+
+    }
   }
+
 
   /*轮播图*/
   .swiper-container{
     width:100%;
-    height:500px;
     .swiper-slide{
-      width:100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      .swiper-slide-img{
+        width: 100%;
+      }
+      .swiper-slide-con{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transition: translate(-50%,-50%);
+      }
     }
   }
 
@@ -287,50 +365,62 @@
       border-bottom:1px solid $borderColor;
     }
     &tion{
-    display:flex;
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    &-item{
-      flex:0 0 32%;
-      margin-top: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
+      display:flex;
+      flex-wrap: wrap;
       display: flex;
-      justify-content: center;
       align-items: center;
-      &-txt{
-        width:100%;
-        height: 48px;
-        line-height: 48px;
-        text-align: center;
-        color:#fff;
-        font-size:18px;
-        position: absolute;
-        left:0;
-        bottom: 0;
+      justify-content: space-between;
+      &-item{
+        margin-top: 1rem;
+        border-radius: .8rem;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-img{
+          width: 100%;
+        }
+        &-txt{
+          width:100%;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          color:#fff;
+          font-size:$RS18;
+          position: absolute;
+          left:0;
+          bottom: 0;
+        }
       }
     }
-  }
   }
 
   /*教学理念*/
   .teachidea{
     &-item{
       display: flex;
+      flex-wrap: wrap;
       color:$f5AColor;
       line-height: 1.2;
       align-items:center;
+      justify-content: space-between;
+      font-size:$RS20;
+      &-div{
+        box-sizing: border-box;
+      }
       &-des{
         &-icon{
-          width: 42px;
+          width: 6.4rem;
+          height: 6.4rem;
         }
         &-title{
-          margin: 10px 0;
-          font-size:20px;
+          margin: 2rem 0;
+          font-size:$RS24;
         }
+      }
+      &-img{
+        width: 100%;
       }
       &:after{
         content: "";
@@ -339,21 +429,16 @@
         clear: both;
         height: 0;
       }
-      div{
-        flex:0 0 50%;
-      }
-      .marginLeft50{
-        margin-right: 50px;
-      }
     }
   }
 
   /*服务理念*/
   .satisfa{
     &-digit{
+      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
-      margin-top: 100px;
+
     }
   }
 
@@ -364,9 +449,9 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      margin-top: 60px;
+      /*margin-top: 60px;*/
       &-item{
-        flex:0 0 33%;
+        text-align: center;
         img{
         max-width: 300px;
       }

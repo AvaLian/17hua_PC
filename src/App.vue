@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <vheader></vheader>
-    <!--<transition name="fade">-->
-      <!--<router-view></router-view>-->
-    <!--</transition>-->
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
     <vfooter></vfooter>
   </div>
 </template>
@@ -17,6 +17,8 @@
     components: {vheader, vfooter},
     data(){
       return{
+        smallSCWidth:600,
+        middleSCWidth:1200,
         screenWidth: document.body.clientWidth,
         screenHight: document.documentElement.clientHeight,
       }
@@ -24,12 +26,14 @@
     created(){
       this.$store.commit('cScreenWidth', this.screenWidth);
       this.$store.commit('cScreenHight', this.screenHight);
+      this.fw(this.screenWidth);
     },
     watch: {
       screenWidth (val) {
         if (!this.timer) {
           this.screenWidth = val;
           this.$store.commit('cScreenWidth', this.screenWidth);
+          this.fw(this.screenWidth);
           this.timer = true;
           let that = this;
           setTimeout(function() {
@@ -57,7 +61,19 @@
           that.screenHight = window.screenHight = document.documentElement.clientHeight+60;
           this.$store.commit('cScreenWidth', this.screenWidth);
           this.$store.commit('cScreenHight', this.screenHight);
+          this.fw(this.screenWidth);
         })()
+      }
+    },
+    methods:{
+      fw(width){
+        if(width<this.smallSCWidth){
+          this.$store.commit('cSCWTag', 2);
+        }else if(width<=this.middleSCWidth){
+          this.$store.commit('cSCWTag', 1);
+        }else{
+          this.$store.commit('cSCWTag', 0);
+        }
       }
     }
   }
