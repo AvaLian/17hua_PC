@@ -21,7 +21,8 @@
           </div>
           <img class="icon-menu" ref="iconmenu" @click="maClick=!maClick" src="//image.17hua.me/upload/image/201711/15113344010141089.png">
         </div>
-        <ul class="navbar" v-show="maClick" :style="{'top':headerHeight[1].SHeigth+'rem'}">
+        <transition name="fade">
+          <ul class="navbar" v-show="maClick" :style="{'top':headerHeight[1].SHeigth+'rem'}">
           <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
             <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
                          :key="index">
@@ -29,6 +30,7 @@
             </router-link>
           </li>
         </ul>
+        </transition>
       </div>
     </div>
   </div>
@@ -61,10 +63,8 @@
     },
     mounted() {
       document.addEventListener('click', (e) => {
-        // console.log(!this.$refs.iconmenu.contains(e.target));
-        if (!this.$refs.iconmenu.contains(e.target)) {
-          this.maClick = false;
-        }
+        if (!!this.$refs.iconmenu.contains(e.target)) return
+        this.maClick = false;
       })
     },
     methods: {
@@ -162,6 +162,15 @@
       .s-menu-large{
         padding: 0 1rem;
       }
+  }
+
+
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.25s ease-out;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 
 

@@ -91,7 +91,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .app-content{
+    margin-top: 1px;
+  }
   .boxArea{
     &-large{
       .app-content{
