@@ -1,23 +1,22 @@
 <template>
   <div class="courses box-shadow">
     <div class="courses-left" >
-      <!--:style="{'top':active*(-128)+'px'}"-->
       <transition name="fade">
-        <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'px'}">
+        <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'rem'}">
           <li class="courses-nav-item transition" @click="toggle(i)" v-for="(tab,i) in tabs" :class="{active: actCurView.active == i}">
             <a class="courses-nav-item-a" href="javascript:void(0)">{{ tab.name }}</a>
           </li>
         </ul>
       </transition>
-      <div class="icon" @click="toggle(actCurView.active+1)"><i class="iconfont icon-jiantou1"></i></div>
+      <div class="courses-left-arrow" @click="toggle(actCurView.active+1)"><i class="iconfont icon-jiantou1"></i></div>
     </div>
-    <component class="courses-con" :is="actCurView.view" :data="tabs[actCurView.active]"></component>
+    <component class="courses-con" :is="actCurView.view" :data="tabs[actCurView.active]" style="overflow: hidden;"></component>
   </div>
 </template>
 
 <script>
 
-  import detail from './vcourses-detail';
+  import detail from './s-dcourse';
     export default {
         name: "vcourses",
         components: {
@@ -29,7 +28,7 @@
                 view:"detail",  //激活块的组件
                 active:0,  //激活块的index
                 scrollHeigth:0, //激活块移动的距离
-                tasHeight:128, //每个块的高度
+                tasHeight:8, //每个块的高度
                 showNum:4,// 一屏显示几个块
               },
               tabs: [
@@ -75,6 +74,20 @@
                   des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
                   con:"课程内容：基础入门、刮画、甩酷、创意绘画"
                 },
+                {
+                  name: '12e32e',
+                  view: 'detail',
+                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
+                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
+                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
+                },
+                {
+                  name: 'cdefr',
+                  view: 'detail',
+                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
+                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
+                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
+                },
               ],
             }
         },
@@ -105,18 +118,18 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
-  $tasHeight:128px; //与移动距离相关
+  $tasHeight:8rem; //与移动距离相关
   .transition{
     transition: all .4s; //切换过滤效果
   }
   .courses{
     display: flex;
     &-left{
-      flex:0 0 200px;
-      height: 550px;
+      flex:0 0 14%;
+      height: $tasHeight*4+4rem;
       overflow: hidden;
       position: relative;
-      .icon{
+      &-arrow{
         width: 100%;
         color:$orange;
         cursor: pointer;
@@ -141,24 +154,21 @@
         text-align: center;
         &-a{
           width: 80%;
+          margin: 0 auto;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           color:$fMColor;
-          font-size: 20px;
+          font-size: $RS16;
           display: inline-block;
           position: relative;
-        }
-        :after{
-          content: "";
-          width: 100%;
-          position: absolute;
-          left:0;
-          bottom: 0;
           @include border-1px(1px,$borderColor);
         }
         &.active{
-          @include border-1px(1px,$ffColor);
           background: $orange;
           .courses-nav-item-a {
             color: $ffColor;
+            @include border-1px(1px,$ffColor);
           }
         }
       }
@@ -167,6 +177,26 @@
       flex:1;
       background: $ffColor;
     }
-
   }
+
+  .boxArea{
+    &-middle,&-small{
+      .courses-nav-item-a{
+        width: 100%;
+        font-size: $RS14;
+      }
+    }
+
+    &-middle {
+      .courses-left {
+        flex: 0 0 20%;
+      }
+    }
+    &-small {
+      .courses-left {
+        flex: 0 0 30%;
+      }
+    }
+  }
+
 </style>

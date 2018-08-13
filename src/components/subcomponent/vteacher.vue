@@ -1,6 +1,8 @@
 <template>
     <div class="vteacher">
       <ul class="vteacher-master">
+        <!--:style="{'background':e.bgColor}"-->
+        <!--:style="{'background':'url('+e.imgUrl+')'}"-->
         <li class="vteacher-master-item" v-for="e in data" :key="e.id" v-if="e.level" :style="{'background':e.bgColor}">
           <div class="vteacher-master-item-img"><img :src="e.imgUrl" alt=""></div>
           <div class="vteacher-master-item-con">
@@ -49,33 +51,33 @@
         border-radius: 4px;
         box-shadow: 0 0 20px rgba(0,0,0,.2);
         overflow: hidden;
-        position: relative;
+        display: flex;
+        &-img{
+          flex: 0 0 60%;
+          overflow: hidden;
+        }
         &-con{
-          width: 30%;
-          position: absolute;
-          right: 10%;
-          top:50%;
-          transform: translateY(-50%);
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          /*padding: 10%;*/
+          box-sizing: border-box;
           .vteacher-item-con-name{
-            font-size: 24px;
+            font-size: $RS24;
           }
           &-pro{
             color: $themeColor;
-            margin: 20px 0 40px 0;
+            margin: 8% 0 10% 0;
+            font-size: $RS18;
           }
           &-des{
             line-height: 1.6;
             text-align: justify;
           }
           &-btn{
-            width: 100px;
-            margin-top: 30px;
-            color:$ffColor;
-            border-radius: 4px;
-            padding: 14px 20px;
-            text-align: center;
-            background: $themeColor;
-            box-shadow: 0 0 20px $themeColor;
+            margin-top: 3rem;
+            @include vbtn-shaow($ffColor,$themeColor,(0 0 20px $themeColor))
           }
         }
       }
@@ -86,14 +88,15 @@
       justify-content: space-between;
       margin-top: 100px;
       &-item{
-        flex:0 0 45%;
-        border-radius: 10px;
+        flex:0 0 46%;
+        border-radius: 4px;
         background: $ffColor;
         &-img{
           width: 100%;
-          height: 580px;
+          height: 34rem;
           position: relative;
           img{
+            height: 110%;
             position: absolute;
             left:50%;
             transform: translateX(-50%);
@@ -105,23 +108,44 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 20px;
+          padding: 2rem;
           &-name{
             font-size: 24px;
             letter-spacing: 14px;
           }
           .vteacher-item-con-name{
-            font-size: 22px;
-            margin: 10px 0 20px 0;
+            font-size: $RS22;
+            margin: 1rem 0 2rem 0;
           }
           &-btn{
             color:$themeColor;
             border-radius: 4px;
-            padding: 8px 20px;
+            padding: .8rem 2rem;
             border:1px solid $themeColor;
           }
         }
       }
+    }
+  }
+
+
+  .boxArea{
+    &-middle{
+      /*.vteacher-master-item-con{*/
+        /*padding: 5%;*/
+      /*}*/
+    }
+    &-small{
+
+      .vteacher-tutor-item{
+        flex: 0 0 100%;
+        &:not(:first-child){
+          margin-top: 4rem;
+        }
+      }
+      /*.vteacher-tutor-item-img{*/
+        /*height: 20rem;*/
+      /*}*/
     }
   }
 </style>

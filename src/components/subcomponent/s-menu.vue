@@ -1,38 +1,36 @@
 <template>
   <div class="s-menu">
-    <div class="s-menu-large flex-row-bc" v-show="reNodepoMosth(SCWidth,true)">
-      <div class="logo">
-        <img src="../../../static/images/logo.png"/>
-      </div>
-      <ul class="navbar">
-        <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
-          <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
-                       :key="index">
-            {{todo.zwname}}
-          </router-link>
-        </li>
-      </ul>
-    </div>
-
-
-    <div class="s-menu-small" v-show="reNodepoMosth(SCWidth,false)">
-      <div class="s-menu-small-header flex-row-bc">
-        <div class="logo">
-          <img class="logo-img" src="../../../static/images/logo.png"/>
+    <div class="container">
+      <div class="s-menu-large flex-row-bc" :style="{'height':headerHeight[isScroll].LHeigth+'rem'}" v-show="reNodepoMosth(SCWidth,true)">
+        <div class="logo" @click="gotoIndex">
+          <img src="../../../static/images/logo.png"/>
         </div>
-        <img class="icon-menu" ref="iconmenu" @click="maClick=!maClick" src="//image.17hua.me/upload/image/201711/15113344010141089.png">
+        <ul class="navbar">
+          <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
+            <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
+                         :key="index">
+              {{todo.zwname}}
+            </router-link>
+          </li>
+        </ul>
       </div>
-      <ul class="navbar" v-show="maClick">
-        <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
-          <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
-                       :key="index">
-            {{todo.zwname}}
-          </router-link>
-        </li>
-      </ul>
+      <div class="s-menu-small" :style="{'height':headerHeight[isScroll].SHeigth+'rem'}" v-show="reNodepoMosth(SCWidth,false)">
+        <div class="s-menu-small-header flex-row-bc">
+          <div class="logo" @click="gotoIndex">
+            <img class="logo-img" src="../../../static/images/logo.png"/>
+          </div>
+          <img class="icon-menu" ref="iconmenu" @click="maClick=!maClick" src="//image.17hua.me/upload/image/201711/15113344010141089.png">
+        </div>
+        <ul class="navbar" v-show="maClick" :style="{'top':headerHeight[1].SHeigth+'rem'}">
+          <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
+            <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
+                         :key="index">
+              {{todo.zwname}}
+            </router-link>
+          </li>
+        </ul>
+      </div>
     </div>
-
-
   </div>
 </template>
 
@@ -46,17 +44,20 @@
       }
     },
     props: ['SCWidth'],
+    computed:{
+      isScroll(){
+        return this.$store.state.isScroll
+      },
+      headerHeight(){
+        return this.$store.state.headerHeight
+      }
+    },
     watch: {
       $route(to, from) {
         this.$router.options.routes.map((item, index) => {
           if (item.name && item.name == to.name) this.navIndex = index
         })
       }
-    },
-    methods: {
-      reNodepoMosth(width, statue) {
-        return width < 860 ? (statue ? false : true) : statue ? true : false;
-      },
     },
     mounted() {
       document.addEventListener('click', (e) => {
@@ -65,13 +66,19 @@
           this.maClick = false;
         }
       })
+    },
+    methods: {
+      reNodepoMosth(width, statue) {
+        return width < 860 ? (statue ? false : true) : statue ? true : false;
+      },
+      gotoIndex(){
+        this.$router.push({path:'/index'})
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  $navbarHeight: 8.8rem; //菜单高度
-  $navbarMHeight: 5rem; //菜单高度
 
   /*菜单公共部分样式*/
   .navbar {
@@ -93,8 +100,8 @@
   }
 
   .s-menu {
+    background: $ffColor;
     &-large {
-      height: $navbarHeight;
       .navbar {
         height: 100%;
         &-item {
@@ -117,17 +124,13 @@
       }
     }
     &-small {
-      height: $navbarMHeight;
-      position: relative;
-      /*position: fixed;
+      position: fixed;
       width: 100%;
       background: $ffColor;
       top:0;
       left:0;
-      z-index: 9999;*/
+      z-index: 9999;
       &-header {
-
-
         height: 100%;
         padding: 0 1rem;
         @include border-1px(1px, $borderColor);
@@ -145,7 +148,7 @@
         flex-direction: column;
         position: absolute;
         z-index: 99;
-        top: $navbarMHeight;
+        margin-top: -1px;
         background: $ffColor;
         &-item {
           height: 4rem;
@@ -153,6 +156,12 @@
         }
       }
     }
+  }
+
+  .boxArea-middle{
+      .s-menu-large{
+        padding: 0 1rem;
+      }
   }
 
 

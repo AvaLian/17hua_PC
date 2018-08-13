@@ -1,18 +1,8 @@
 <template>
-  <div class="index" :class="pageClass">
+  <div class="index">
     <!--轮播图-->
-    <swiper :options="swiperOption">
-      <!-- slides -->
-      <swiper-slide v-for="(e,i) in bannerImg" :key="i">
-          <img class="swiper-slide-img" :src="e.imgUrl" alt="">
-          <div class="swiper-slide-con">
-            I'm Slide {{i+1}}
-          </div>
-      </swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
-
+    <vbanner :content="bannerImg"></vbanner>
+    
     <!--领先价值-->
     <div class="section exhibi">
       <div class="container">
@@ -61,37 +51,33 @@
           <h4 class="section-title-txt">高质量的服务理念</h4>
           <p :class="{'none':SCWTag>1}">从服务效率到用户反馈，用最优质的服务让用户满意</p>
         </div>
-        <div class="satisfa-digit">
-          <vdigit :num="87" :des="0"></vdigit>
-          <vdigit :num="98" :des="1"></vdigit>
-          <vdigit :num="96" :des="2"></vdigit>
-        </div>
+        <vdigits :num="3"></vdigits>
       </div>
     </div>
 
     <!--教学课程-->
-    <!--<div class="section courses">-->
-      <!--<div class="container">-->
-      <!--<div class="section">-->
-        <!--<div class="section-title">-->
-          <!--<h4 class="section-title-txt">绘画课程体系标准</h4>-->
-          <!--<p :class="{'none':SCWTag>1}">专业课程体系标准</p>-->
-        <!--</div>-->
-      <!--</div>-->
-        <!--<vcourses></vcourses>-->
-    <!--</div>-->
-    <!--</div>-->
+    <div class="section courses">
+      <div class="container">
+        <div class="section">
+          <div class="section-title">
+            <h4 class="section-title-txt">绘画课程体系标准</h4>
+            <p :class="{'none':SCWTag>1}">专业课程体系标准</p>
+          </div>
+        </div>
+          <vcourses></vcourses>
+      </div>
+    </div>
 
     <!--师资力量-->
-    <!--<div class="section" style="background: #f6f6f6">-->
-      <!--<div class="container">-->
-        <!--<div class="section-title">-->
-          <!--<h4 class="section-title-txt">严格筛选，组建强大师资</h4>-->
-          <!--<p :class="{'none':SCWTag>1}">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>-->
-        <!--</div>-->
-        <!--<vteacher :data="teachers"></vteacher>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="section" style="background: #f6f6f6">
+      <div class="container">
+        <div class="section-title">
+          <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
+          <p :class="{'none':SCWTag>1}">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
+        </div>
+        <vteacher :data="teachers"></vteacher>
+      </div>
+    </div>
 
     <!--合作伙伴-->
     <div class="section coll">
@@ -116,8 +102,7 @@
           <p :class="{'none':SCWTag>1}">如果你有任何问题，我们将为你解答。如果你又需要任何帮助，我们将提供协助。</p>
           <p :class="{'none':SCWTag>1}">请随时联系我们！</p>
         </div>
-
-        <div class="contact-btn">联系我们</div>
+        <vcontact></vcontact>
       </div>
     </div>
 
@@ -125,15 +110,17 @@
 </template>
 
 <script>
-  import {swiper, swiperSlide} from 'vue-awesome-swiper'
-  import vdigit from './subcomponent/vdigit'
+
+  import vbanner from './subcomponent/vbroadcast'
+  import vdigits from './subcomponent/vdigits'
   import vteacher from './subcomponent/vteacher'
   import vcourses from './subcomponent/vcourses'
+  import vcontact from './subcomponent/vcontact'
 
   export default {
     name: "index",
     components: {
-      swiper,swiperSlide,vdigit,vteacher,vcourses
+      vbanner,vdigits,vteacher,vcourses,vcontact
     },
     computed:{
       screenWidth(){
@@ -141,9 +128,6 @@
       },
       SCWTag(){
         return this.$store.state.SCWTag;
-      },
-      pageClass(){
-        return this.$store.state.pageClass[this.$store.state.SCWTag];
       }
     },
     data() {
@@ -160,13 +144,7 @@
           }
         ],
         swiperOption: {
-          autoplay:8000,
-          speed:3000,
-          loop:true,
-          effect:'fade',
-          autoplayDisableOnInteraction : false,
-          pagination : '.swiper-pagination',
-          paginationClickable :true
+
         },
         exhibition:[
           {
@@ -228,22 +206,22 @@
         ],
         coll:[
           {
-            imgUrl:"../../static/images/obj-img/coll1.jpg"
+            imgUrl:"../../static/images/coller/coll1.jpg"
           },
           {
-            imgUrl:"../../static/images/obj-img/coll2.jpg"
+            imgUrl:"../../static/images/coller/coll2.jpg"
           },
           {
-            imgUrl:"../../static/images/obj-img/coll3.jpg"
+            imgUrl:"../../static/images/coller/coll3.jpg"
           },
           {
-            imgUrl:"../../static/images/obj-img/coll4.jpg"
+            imgUrl:"../../static/images/coller/coll4.jpg"
           },
           {
-            imgUrl:"../../static/images/obj-img/coll5.jpg"
+            imgUrl:"../../static/images/coller/coll5.jpg"
           },
           {
-            imgUrl:"../../static/images/obj-img/coll6.jpg"
+            imgUrl:"../../static/images/coller/coll6.jpg"
           }
         ],
         teachers:[
@@ -273,11 +251,15 @@
           }
         ]
       }
-    }
+    },
+
   }
 </script>
 
 <style lang="scss" scoped>
+  .container{
+    padding:5%;
+  }
 
   .boxArea{
     &-large{
@@ -289,11 +271,6 @@
       }
       .teachidea-item-des{
         flex: 0 0 40%;
-      }
-      .satisfa{
-        &-digit{
-          margin-top: 6rem;
-        }
       }
     }
     &-middle{
@@ -307,17 +284,11 @@
         flex: 0 0 44%;
       }
 
-      .satisfa{
-        &-digit{
-          margin-top: 4rem;
-        }
-      }
     }
     &-small{
       .exhibition-item,.coller-item,.teachidea-item-div {
         flex: 0 0 100%;
       }
-
       .teachidea-item-des{
         display: flex;
         align-items: center;
@@ -330,31 +301,6 @@
         &-title{
           font-size:$RS20;
         }
-      }
-
-      .satisfa{
-        &-digit{
-          margin-top: 2rem;
-        }
-      }
-
-    }
-  }
-
-
-  /*轮播图*/
-  .swiper-container{
-    width:100%;
-    .swiper-slide{
-      position: relative;
-      .swiper-slide-img{
-        width: 100%;
-      }
-      .swiper-slide-con{
-        position: absolute;
-        left:50%;
-        top:50%;
-        transition: translate(-50%,-50%);
       }
     }
   }
@@ -432,16 +378,6 @@
     }
   }
 
-  /*服务理念*/
-  .satisfa{
-    &-digit{
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-
-    }
-  }
-
   /*合作伙伴*/
   .coll{
     &er{
@@ -449,43 +385,15 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      /*margin-top: 60px;*/
       &-item{
         text-align: center;
+        margin-top: 1rem;
         img{
-        max-width: 300px;
-      }
+          width:26rem;
+        }
       }
     }
   }
 
-  /*联系我们*/
-  .contact{
-    &-btn{
-      width: 100px;
-      margin: 0 auto;
-      text-align: center;
-      padding:14px 20px;
-      color:$themeColor;
-      border-radius: 4px;
-      background: $ffColor;
-      cursor: pointer;
-    }
-  }
+</style>
 
-</style>
-<style lang="scss">
-  /*轮播图锚点*/
-  .swiper-pagination-bullet{
-    width:10px;
-    height: 10px;
-    border-radius: 10px;
-    border:1px solid $themeColor;
-    background: none;
-    opacity: 1;
-  }
-  .swiper-pagination-bullet-active{
-    width:20px !important;
-    background: $themeColor;
-  }
-</style>

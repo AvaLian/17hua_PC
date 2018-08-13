@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" :class="pageClass">
     <vheader></vheader>
     <transition name="fade">
-      <router-view></router-view>
+      <router-view :class="{'app-content':isScroll || SCWTag}"></router-view>
     </transition>
     <vfooter></vfooter>
   </div>
@@ -75,11 +75,35 @@
           this.$store.commit('cSCWTag', 0);
         }
       }
+    },
+    computed:{
+      SCWTag(){
+        return this.$store.state.SCWTag;
+      },
+      pageClass(){
+        return this.$store.state.pageClass[this.$store.state.SCWTag];
+      },
+      isScroll(){
+        return this.$store.state.isScroll;
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+
+  .boxArea{
+    &-large{
+      .app-content{
+        padding-top:6rem;
+      }
+    }
+    &-middle,&-small{
+      .app-content{
+        padding-top:5rem;
+      }
+    }
+  }
 
 
 </style>

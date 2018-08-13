@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        name: "vcourses-detail",
+        name: "s-dcourse",
         props:['data']
     }
 </script>
@@ -21,30 +21,38 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 100px;
+    padding: 0 10%;
     box-sizing: border-box;
     color:$ffColor;
     &-top{
-      padding:0  200px 40px 0;
+      padding: 5% 0;
       @include border-1px(1px,$ffColor);
     }
     &-name{
-      font-size:28px;
+      font-size:$RS28;
     }
     &-des{
-      font-size: 20px;
+      font-size: $RS20;
       line-height: 1.6;
-      margin: 20px 0 40px 0;
+      margin: 2% 0 3% 0;
     }
     &-btn{
-      width: 100px;
-      border-radius: 4px;
-      text-align: center;
-      padding: 14px 20px;
-      background: $orange;
+     @include vbtn($ffColor,$orange)
     }
     &-bottom{
-      padding: 20px 0;
+      padding: 5% 0;
+      line-height: 1.6;
+    }
+  }
+
+  .boxArea{
+    &-small {
+      .vcourses-detail{
+        padding: 0 1rem;
+      }
+      .vcourses-detail-des{
+        font-size: $RS16;
+      }
     }
   }
 </style>

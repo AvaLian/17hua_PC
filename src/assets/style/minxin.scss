@@ -17,3 +17,26 @@
     display: none;
   }
 }
+
+@mixin vbtn($color,$bgColor){
+  width: 100px;
+  font-size: $RS18;
+  color:$color;
+  background: $bgColor;
+  text-align: center;
+  padding: 1.4rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@mixin vbtn-shaow($color,$bgColor,$shadow){
+  width: 100px;
+  font-size: $RS18;
+  color:$color;
+  background: $bgColor;
+  box-shadow: $shadow;
+  text-align: center;
+  padding: 1.4rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
