@@ -1,64 +1,125 @@
 <template>
-    <div>
-      <div class="amap-page-container">
-        <el-amap vid="amapDemo" :zoom="zoom" :center="center" class="amap-demo" :plugin="plugin" :zoomEnable="zoomEnable">
-          <el-amap-info-window  :position="mywindow.position" :content="mywindow.content" :visible="mywindow.visible" :events="mywindow.events"></el-amap-info-window>
-          <el-amap-marker :position="marker.position" :events="marker.events" :visible="marker.visible" :draggable="marker.draggable"></el-amap-marker>
-          <!--<el-amap-circle :center="circle.center" :radius="circle.radius" :fillOpacity="circle.fillOpacity" :events="circle.events" :strokeColor="circle.strokeColor" :strokeStyle="circle.strokeStyle" :fillColor="circle.fillColor"></el-amap-circle>-->
-        </el-amap>
+  <div>
+    <vbanner :swiperOption="{autoplay:0,pagination:null}"></vbanner>
+    <div class="contact">
+      <div class="container">
+        <div class="contact-item">
+          <div class="contact-item-title">
+            <i class="iconfont icon-dianhua1"></i>
+            <p>客服电话</p>
+          </div>
+          <div class="contact-item-con">400-128-1717</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-title">
+            <i class="iconfont icon-dingwei"></i>
+            <p>企业地址</p>
+          </div>
+          <div class="contact-item-con">宁波市 高新区 秀东尚座55号 2-213</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-title">
+            <i class="iconfont icon-erweima"></i>
+            <p>客服电话</p>
+          </div>
+          <div class="contact-item-con">
+            <img src="../../static/images/qrcode-wx.jpg" alt="">
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "about-us",
-        data () {
-          return {
-            zoom: 16,
-            zoomEnable:true,
-            center: [121.629408,29.87454],
-            marker: {
-              position:[121.629408,29.87454],
-              events: {
-                click: () => {
-                  this.mywindow.visible=!this.mywindow.visible;
-                },
-                dragend: (e) => {
-                  this.markers[0].position = [e.lnglat.lng, e.lnglat.lat]
-                }
-              },
-              visible: true,
-              draggable: false,
-              clickable:true,
-            },
-            mywindow: {
-              position: [121.629408,29.87454],
-              // content: '<h4>该点数据信息</h4><div class="text item">Information A: ...</div><div class="text item">Information B: ...</div>',
-              content: '我在“宁波秀东尚座“附近',
-              visible: true,
-              events: {
-                close () {
-                  this.mywindow.visible = false
-                }
-              }
-            },
-            plugin: {
-              pName: 'Scale',
-              events: {
-                init (instance) {
-                  console.log(instance)
-                }
-              }
-            }
-          }
-        }
+  import vbanner from './subcomponent/vbroadcast'
+  export default {
+    name: "about-us",
+    components: {
+      vbanner
+    },
+    data() {
+      return {
+
+      }
     }
+  }
 </script>
 
 <style lang="scss" scoped>
-  .amap-page-container {
-    width:100%;
-    height: 40rem;
+  @import "../assets/style/icon.css";
+  .contact{
+    .container{
+      padding:5%;
+    }
+    @include border-1px(1px,$borderColor);
+    .container{
+      display: flex;
+      justify-content: space-between;
+    }
+    &-item{
+      &-title{
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+        position: relative;
+        .iconfont{
+          font-size: $RS30;
+          line-height: 2;
+        }
+      }
+      &-con{
+        flex: 1;
+        padding: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+
+  .boxArea{
+    &-large,&-middle{
+      .contact {
+        &-item {
+          &-title {
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: 0px;
+              width: 2rem;
+              left: 50%;
+              transform: translateX(-50%);
+              border-bottom: 1px solid $borderColor;
+            }
+          }
+        }
+      }
+    }
+    &-small{
+      .contact {
+        .container {
+          flex-direction: column;
+        }
+        &-item {
+          display: flex;
+          align-items: center;
+          &-title {
+            position: relative;
+            &:after {
+              content: "";
+              width: 0.5rem;
+              height: 4rem;
+              position: absolute;
+              top:50%;
+              transform: translateY(-50%);
+              right:0;
+              border-bottom: none;
+              border-right: 1px solid $borderColor;
+            }
+          }
+        }
+      }
+    }
   }
 </style>
+

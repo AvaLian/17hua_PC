@@ -2,7 +2,7 @@
   <div class="index">
     <!--轮播图-->
     <vbanner :content="bannerImg"></vbanner>
-    
+
     <!--领先价值-->
     <div class="section exhibi">
       <div class="container">
@@ -132,20 +132,19 @@
     },
     data() {
       return {
-        bannerImg:[
-          {
-            imgUrl:"../../static/images/obj-img/banner.jpg"
-          },
-          {
-            imgUrl:"../../static/images/obj-img/banner.jpg"
-          },
-          {
-            imgUrl:"../../static/images/obj-img/banner.jpg"
-          }
-        ],
-        swiperOption: {
 
-        },
+          bannerImg:[
+            {
+              imgUrl:"../../static/images/obj-img/banner.jpg"
+            },
+            {
+              imgUrl:"../../static/images/obj-img/banner.jpg"
+            },
+            {
+              imgUrl:"../../static/images/obj-img/banner.jpg"
+            }
+          ],
+
         exhibition:[
           {
             imgUrl:"//image.17hua.me/upload/image/201711/1510724651425663.png",

@@ -6,9 +6,11 @@ import router from './router'
 import store from './store'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 Vue.use(VueAwesomeSwiper)
 
 import VueAMap from 'vue-amap';
+
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
   key: 'your amap key',
@@ -38,7 +40,6 @@ router.beforeEach((to, from, next) => {
   }
   next()// 确保一定要调用 next()
 })
-
 
 
 /* eslint-disable no-new */

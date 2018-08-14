@@ -1,42 +1,53 @@
 <template>
-  <swiper :options="swiperOption">
-    <!-- slides -->
-    <swiper-slide v-for="(e,i) in content" :key="i">
-      <img class="swiper-slide-img" :src="e.imgUrl" alt="">
-      <div class="swiper-slide-con">
-        I'm Slide {{i+1}}
-      </div>
-    </swiper-slide>
-    <!-- Optional controls -->
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div class="banner">
+
+
+      <swiper :options="swiperOption"  v-if="content">
+        <swiper-slide v-for="(e,i) in content" :key="i">
+          <img class="swiper-slide-img" :src="e.imgUrl" alt="">
+          <div class="swiper-slide-con">
+            I'm Slide {{i+1}}
+          </div>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+
+
+      <swiper-slide v-else>
+        <smap></smap>
+      </swiper-slide>
+
+
+  </div>
 </template>
 
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
+  import smap from './s-map'
 
   export default {
     name: "vbroadcast",
     components: {
       swiper, swiperSlide,
+      smap
     },
     props: {
       swiperOption: {
         type: Object,
         default: function () {
           return {
-            autoplay:8000,
-            speed:3000,
-            loop:true,
-            effect:'fade',
-            autoplayDisableOnInteraction : false,
-            pagination : '.swiper-pagination',
-            paginationClickable :true
+            autoplay: 8000,
+            speed: 3000,
+            loop: true,
+            effect: 'fade',
+            autoplayDisableOnInteraction: false,
+            pagination: '.swiper-pagination',
+            paginationClickable: true
           }
         }
       },
       content: {
-        type: Array
+        type: Object
       }
     }
   }
@@ -46,6 +57,7 @@
   /*轮播图*/
   .swiper-container {
     width: 100%;
+    height: 100%;
     .swiper-slide {
       position: relative;
       .swiper-slide-img {
