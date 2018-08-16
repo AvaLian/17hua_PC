@@ -1,0 +1,29 @@
+{
+  "teachers":{
+    "master":[
+      {
+        "type": 1,
+        "imgUrl": "../../static/images/teachers/teacher1.jpg",
+        "id": 1,
+        "name": "王燮达",
+        "brief": "1996年毕业于中国美术学院雕塑专业。中国雕塑学会会员、中国工艺美术学会雕塑专业委员会会员、全国城市雕塑创作设计资格证书持有者。他的作品充满既轻盈又高古，既灵动又深邃，既纯净又博大的各种形式趣味"
+      }
+    ],
+    "tutor": [
+      {
+        "type": 0,
+        "imgUrl": "../../static/images/teachers/teacher2.png",
+        "id": 2,
+        "name": "管岑",
+        "enname": "Cara"
+      },
+      {
+        "type": 0,
+        "imgUrl": "../../static/images/teachers/teacher3.png",
+        "id": 3,
+        "name": "柳慧",
+        "enname": "Jessie"
+      }
+    ]
+  }
+}

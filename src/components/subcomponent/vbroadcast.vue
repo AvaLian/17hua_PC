@@ -1,7 +1,6 @@
 <template>
   <div class="banner">
 
-
       <swiper :options="swiperOption"  v-if="content">
         <swiper-slide v-for="(e,i) in content" :key="i">
           <img class="swiper-slide-img" :src="e.imgUrl" alt="">
@@ -9,7 +8,7 @@
             I'm Slide {{i+1}}
           </div>
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-pagination" slot="pagination" v-if="content.length>2"></div>
       </swiper>
 
 
@@ -47,7 +46,7 @@
         }
       },
       content: {
-        type: Object
+        type: Array
       }
     }
   }

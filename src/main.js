@@ -6,11 +6,9 @@ import router from './router'
 import store from './store'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-
 Vue.use(VueAwesomeSwiper)
 
 import VueAMap from 'vue-amap';
-
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
   key: 'your amap key',
@@ -19,6 +17,10 @@ VueAMap.initAMapApiLoader({
   v: '1.4.4'
 });
 
+import axios from 'axios'
+// Vue.prototype.$http = axios;
+import http from './utils/http'
+Vue.prototype.$http = http;
 
 Vue.config.productionTip = false
 

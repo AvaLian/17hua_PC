@@ -4,7 +4,6 @@
       <el-amap-info-window isCustom="true" :position="mywindow.position" :content="mywindow.content"
                            :offset="mywindow.offset"></el-amap-info-window>
       <el-amap-marker :content="marker.content" :events="marker.events"></el-amap-marker>
-
     </el-amap>
   </div>
 </template>
@@ -35,8 +34,6 @@
           '<span style="display:block;width:0;height:0;border-width:10px 10px 0;border-style:solid;border-color: #999 transparent transparent;position:absolute;bottom:-10px;left:50%;margin-left:-10px;">' +
           '<em style=" display:block;width:0;height:0;border-width:10px 10px 0;border-style:solid;border-color:#fff transparent transparent;position:absolute;bottom:1px; left:-10px;"></em></span>' +
           '<p>我在 <a style="color:inherit;font-weight: 700;">秀东尚座</a> 附近></p></div></div>',
-
-
         },
         plugin: {
           pName: 'Scale',
