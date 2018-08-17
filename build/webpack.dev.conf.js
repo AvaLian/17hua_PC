@@ -57,7 +57,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     before(app){
       app.get('/api/teachers',(req,res)=>{
         res.json({
-          errno:0,
+          success:true,
           data:teachers
         })
       })

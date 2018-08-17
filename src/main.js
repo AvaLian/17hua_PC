@@ -5,9 +5,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+
+//vue-awesomeswiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper)
 
+//vue-amap
 import VueAMap from 'vue-amap';
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
@@ -17,10 +20,11 @@ VueAMap.initAMapApiLoader({
   v: '1.4.4'
 });
 
-import axios from 'axios'
-// Vue.prototype.$http = axios;
+//http请求和请求地址
 import http from './utils/http'
 Vue.prototype.$http = http;
+import api from './utils/api'
+Vue.prototype.$api = api
 
 Vue.config.productionTip = false
 

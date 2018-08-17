@@ -3,6 +3,7 @@
     <!--轮播图-->
     <vbanner :content="bannerImg"></vbanner>
 
+
     <!--领先价值-->
     <div class="section exhibi">
       <div class="container">
@@ -46,7 +47,7 @@
 
     <!--服务理念-->
     <div class="section section-1 satisfa"
-         style="background: url('//image.17hua.me/upload/image/201709/1506601704878228.png')">
+         style="background: url('../../static/images/obj-img/IMG_5635.jpg') center/100%">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">高质量的服务理念</h4>
@@ -76,7 +77,7 @@
           <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
           <p :class="{'none':SCWTag>1}">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
         </div>
-        <vteacher :data="teachers"></vteacher>
+        <vteacher :data="tutors"></vteacher>
       </div>
     </div>
 
@@ -97,7 +98,7 @@
 
     <!--联系我们-->
     <div class="section section-1 contact"
-         style="background: url('//image.17hua.me/upload/image/201709/1506601704878228.png')">
+         style="background: url('../../static/images/obj-img/DSC4172.jpg') center/100% no-repeat">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">联系我们</h4>
@@ -118,7 +119,7 @@
   import vteacher from './subcomponent/vteacher'
   import vcourses from './subcomponent/vcourses'
   import vcontact from './subcomponent/vcontact'
-  import api from '../utils/api'
+
 
   export default {
     name: "index",
@@ -131,6 +132,9 @@
       },
       SCWTag() {
         return this.$store.state.SCWTag;
+      },
+      tutors(){
+        return this.$store.state.tutors;
       }
     },
     data() {
@@ -148,32 +152,32 @@
         ],
         exhibition: [
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/IMG_6309.jpg",
             des: "开启创造力",
             bgColor: "rgba(255,128,155,.8)"
           },
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/IMG_6219.jpg",
             des: "提高独立思考能力",
             bgColor: "rgba(248,193,64,.8)"
           },
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/IMG_6787.jpg",
             des: "提升亲情纽带关系",
             bgColor: "rgba(57,205,181,.8)"
           },
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/IMG_6750.jpg",
             des: "发挥孩子天性",
             bgColor: "rgba(189,117,243,.8)"
           },
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/DSC4231.jpg",
             des: "在快乐中成长、学习",
             bgColor: "rgba(58,194,232,.8)"
           },
           {
-            imgUrl: "//image.17hua.me/upload/image/201711/1510724651425663.png",
+            imgUrl: "../../static/images/obj-img/WechatIMG35.jpg",
             des: "收获满意答卷",
             bgColor: "rgba(255,128,155,.8)"
           },
@@ -224,36 +228,14 @@
             imgUrl: "../../static/images/coller/coll6.jpg"
           }
         ],
-        teachers: [
-          {
-            level: 1,
-            imgUrl: "../../static/images/teachers/teacher1.jpg",
-            id: 1,
-            name: "王燮达",
-            brief: "1996年毕业于中国美术学院雕塑专业。中国雕塑学会会员、中国工艺美术学会雕塑专业委员会会员、全国城市雕塑创作设计资格证书持有者。他的作品充满既轻盈又高古，既灵动又深邃，既纯净又博大的各种形式趣味",
-            bgColor: "linear-gradient(#f4f2f3, #d6d6d6)"
-          },
-          {
-            level: 0,
-            imgUrl: "../../static/images/teachers/teacher2.png",
-            id: 2,
-            name: "管岑",
-            enname: "Cara",
-            bgColor: "linear-gradient(#95e8cc,#42b2b3)"
-          },
-          {
-            level: 0,
-            imgUrl: "../../static/images/teachers/teacher3.png",
-            id: 3,
-            name: "柳慧",
-            enname: "Jessie",
-            bgColor: "linear-gradient(#91dae0,#4070bc)"
-          }
-        ]
       }
     },
     created() {
-      // this.$http.get(api.teachers).then(res=>{
+
+      this.$store.dispatch('apiTutors')
+
+
+      // this.$http.get(this.$api.right).then(res=>{
       //   console.log("请求导师数据",res);
       // }).catch(err=>{
       //   console.log("err:",err);

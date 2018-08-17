@@ -18,7 +18,7 @@
           <h4 class="section-title-txt">资深团队，深耕教研</h4>
           <p :class="{'none':SCWTag>1}">专注、创新、共享</p>
         </div>
-        <vteacher :data="teachers"></vteacher>
+        <vteacher :data="tutors"></vteacher>
       </div>
     </div>
 
@@ -72,6 +72,9 @@
     computed:{
       SCWTag() {
         return this.$store.state.SCWTag;
+      },
+      tutors(){
+        return this.$store.state.tutors;
       }
     }
   }

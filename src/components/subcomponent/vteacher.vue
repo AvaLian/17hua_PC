@@ -1,10 +1,10 @@
 <template>
     <div class="vteacher">
-      <ul class="vteacher-master">
-        <!--:style="{'background':e.bgColor}"-->
-        <!--:style="{'background':'url('+e.imgUrl+')'}"-->
-        <li class="vteacher-master-item" v-for="e in data" :key="e.id" v-if="e.level" :style="{'background':e.bgColor}">
-          <div class="vteacher-master-item-img"><img :src="e.imgUrl" alt=""></div>
+      <ul class="vteacher-master" v-if="data.master">
+        <li class="vteacher-master-item" v-for="(e,i) in data.master" :key="e.id" :style="{'background':bgColor.m[i]}">
+          <div class="vteacher-master-item-img">
+            <img :src="e.imgUrl" alt="">
+          </div>
           <div class="vteacher-master-item-con">
             <p class="vteacher-item-con-name">{{e.name}}</p>
             <p class="vteacher-master-item-con-pro">艺术大师</p>
@@ -14,9 +14,9 @@
         </li>
       </ul>
 
-      <ul class="vteacher-tutor">
-        <li class="vteacher-tutor-item"  v-for="e in data" :key="e.id" v-if="!e.level" >
-          <div class="vteacher-tutor-item-img" :style="{'background':e.bgColor}">
+      <ul class="vteacher-tutor" v-if="data.tutor">
+        <li class="vteacher-tutor-item"  v-for="(e,i) in data.tutor" :key="e.id">
+          <div class="vteacher-tutor-item-img" :style="{'background':bgColor.t[i]}">
             <img :src="e.imgUrl" alt="">
           </div>
           <div class="vteacher-tutor-item-con">
@@ -34,9 +34,17 @@
         name: "vteacher",
         props:{
             data:{
-              type:Array
+              type:Object
             }
-        }
+        },
+      data(){
+          return{
+            bgColor:{
+              m:["linear-gradient(#f4f2f3, #d6d6d6)"],
+              t:["linear-gradient(#95e8cc,#42b2b3)","linear-gradient(#91dae0,#4070bc)"]
+            }
+          }
+      }
     }
 </script>
 
@@ -54,14 +62,17 @@
         display: flex;
         &-img{
           flex: 0 0 60%;
+          height: 40rem;
           overflow: hidden;
+          img{
+            height: 100%;
+          }
         }
         &-con{
-          flex: 1;
+          flex: 0 0 20%;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          /*padding: 10%;*/
           box-sizing: border-box;
           .vteacher-item-con-name{
             font-size: $RS24;
@@ -130,22 +141,19 @@
 
 
   .boxArea{
-    &-middle{
-      /*.vteacher-master-item-con{*/
-        /*padding: 5%;*/
-      /*}*/
-    }
     &-small{
-
       .vteacher-tutor-item{
         flex: 0 0 100%;
         &:not(:first-child){
-          margin-top: 4rem;
+          margin-top: 6rem;
         }
       }
-      /*.vteacher-tutor-item-img{*/
-        /*height: 20rem;*/
-      /*}*/
+      .vteacher-master-item{
+        flex-direction: column;
+        &-con{
+          padding: 1rem;
+        }
+      }
     }
   }
 </style>

@@ -1,7 +1,12 @@
 import Vue from "vue"
 import Vuex from "vuex"
-
 Vue.use(Vuex)
+
+
+import http from '../utils/http'
+import api from '../utils/api'
+const $http = http
+const $api = api
 
 const state = {
   screenSize:{
@@ -22,8 +27,10 @@ const state = {
     }
   ],//是否滚动页面对应的固定头部（高度）
   name:"一起画(17hua.me)",
-  tel:"400-128-1717"
+  tel:"400-128-1717",
+  tutors:{},
 }
+
 const mutations= {
   cScreenWidth (state,param) {
     state.screenSize.w=param;
@@ -36,11 +43,29 @@ const mutations= {
   },
   cisScroll (state,param) {
     state.isScroll=param;
+  },
+  cTutors(state,param){
+    state.tutors=param;
   }
 }
+
+const actions={
+
+  //获取大师和导师数据
+  apiTutors ({state,commit}) {
+    $http.get($api.teachers).then(res=>{
+      var res=res.data
+      commit("cTutors",res.data)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  }
+}
+
 const store = new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions,
 })
 export default store
 

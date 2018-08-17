@@ -17,7 +17,8 @@
 <script>
 
   import detail from './s-dcourse';
-    export default {
+
+  export default {
         name: "vcourses",
         components: {
           detail
@@ -35,7 +36,7 @@
                 {
                   name: 'VIP一对一',
                   view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
+                  imgUrl:"../../static/images/obj-img/IMG_6317_1.jpg",
                   des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
                   con:"课程内容：基础入门、刮画、甩酷、创意绘画"
                 },
