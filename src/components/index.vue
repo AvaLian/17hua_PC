@@ -3,7 +3,6 @@
     <!--轮播图-->
     <vbanner :content="bannerImg"></vbanner>
 
-
     <!--领先价值-->
     <div class="section exhibi">
       <div class="container">
@@ -77,7 +76,7 @@
           <h4 class="section-title-txt">严格筛选，组建强大师资</h4>
           <p :class="{'none':SCWTag>1}">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</p>
         </div>
-        <vteacher :data="tutors"></vteacher>
+        <vteacher></vteacher>
       </div>
     </div>
 
@@ -88,11 +87,7 @@
           <h4 class="section-title-txt">与合作伙伴共创未来</h4>
           <p :class="{'none':SCWTag>1}">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</p>
         </div>
-        <ul class="coller">
-          <li class="coller-item" v-for="(e,i) in coll" :key="i">
-            <a href="#"><img :src="e.imgUrl" alt=""></a>
-          </li>
-        </ul>
+        <vcoller></vcoller>
       </div>
     </div>
 
@@ -119,12 +114,13 @@
   import vteacher from './subcomponent/vteacher'
   import vcourses from './subcomponent/vcourses'
   import vcontact from './subcomponent/vcontact'
+  import vcoller from './subcomponent/vcoller'
 
 
   export default {
     name: "index",
     components: {
-      vbanner, vdigits, vteacher, vcourses, vcontact
+      vbanner, vdigits, vteacher, vcourses, vcontact,vcoller
     },
     computed: {
       screenWidth() {
@@ -208,32 +204,10 @@
             imgUrl: "../../static/images/obj-img/rx-brow-img.jpg"
           }
         ],
-        coll: [
-          {
-            imgUrl: "../../static/images/coller/coll1.jpg"
-          },
-          {
-            imgUrl: "../../static/images/coller/coll2.jpg"
-          },
-          {
-            imgUrl: "../../static/images/coller/coll3.jpg"
-          },
-          {
-            imgUrl: "../../static/images/coller/coll4.jpg"
-          },
-          {
-            imgUrl: "../../static/images/coller/coll5.jpg"
-          },
-          {
-            imgUrl: "../../static/images/coller/coll6.jpg"
-          }
-        ],
+
       }
     },
     created() {
-
-      this.$store.dispatch('apiTutors')
-
 
       // this.$http.get(this.$api.right).then(res=>{
       //   console.log("请求导师数据",res);
@@ -283,12 +257,12 @@
         align-items: center;
         justify-content: center;
         &-icon {
-          width: 4.4rem;
-          height: 4.4rem;
-          margin-right: 1rem;
+          width: 44px;
+          height: 44px;
+          margin-right: 10px;
         }
         &-title {
-          font-size: $RS20;
+          font-size: $FS20;
         }
       }
     }
@@ -306,8 +280,8 @@
       align-items: center;
       justify-content: space-between;
       &-item {
-        margin-top: 1rem;
-        border-radius: .8rem;
+        margin-top: 10px;
+        border-radius: 10px;
         overflow: hidden;
         position: relative;
         display: flex;
@@ -318,11 +292,12 @@
         }
         &-txt {
           width: 100%;
-          height: 48px;
-          line-height: 48px;
-          text-align: center;
+          height: 20%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           color: #fff;
-          font-size: $RS18;
+          font-size: $FS18;
           position: absolute;
           left: 0;
           bottom: 0;
@@ -340,18 +315,18 @@
       line-height: 1.2;
       align-items: center;
       justify-content: space-between;
-      font-size: $RS20;
+      font-size: $FS20;
       &-div {
         box-sizing: border-box;
       }
       &-des {
         &-icon {
-          width: 6.4rem;
-          height: 6.4rem;
+          width: 64px;
+          height: 64px;
         }
         &-title {
-          margin: 2rem 0;
-          font-size: $RS24;
+          margin: 20px 0;
+          font-size: $FS24;
         }
       }
       &-img {
@@ -367,22 +342,6 @@
     }
   }
 
-  /*合作伙伴*/
-  .coll {
-    &er {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      &-item {
-        text-align: center;
-        margin-top: 1rem;
-        img {
-          width: 26rem;
-        }
-      }
-    }
-  }
 
 </style>
 

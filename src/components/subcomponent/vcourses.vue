@@ -1,16 +1,19 @@
 <template>
   <div class="courses box-shadow">
     <div class="courses-left" >
-      <transition name="fade">
-        <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'rem'}">
+
+        <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'px'}">
           <li class="courses-nav-item transition" @click="toggle(i)" v-for="(tab,i) in tabs" :class="{active: actCurView.active == i}">
             <a class="courses-nav-item-a" href="javascript:void(0)">{{ tab.name }}</a>
           </li>
         </ul>
-      </transition>
+
       <div class="courses-left-arrow" @click="toggle(actCurView.active+1)"><i class="iconfont icon-jiantou1"></i></div>
     </div>
-    <component class="courses-con" :is="actCurView.view" :data="tabs[actCurView.active]" style="overflow: hidden;"></component>
+
+    <!--<component class="courses-con" :is="actCurView.view" :data="tabs[actCurView.active]" style="overflow: hidden;"></component>-->
+    <component class="courses-con" is="detail" :data="tabs[actCurView.active]" style="overflow: hidden;"></component>
+
   </div>
 </template>
 
@@ -29,67 +32,9 @@
                 view:"detail",  //激活块的组件
                 active:0,  //激活块的index
                 scrollHeigth:0, //激活块移动的距离
-                tasHeight:8, //每个块的高度
+                tasHeight:90, //每个块的高度
                 showNum:4,// 一屏显示几个块
               },
-              tabs: [
-                {
-                  name: 'VIP一对一',
-                  view: 'detail',
-                  imgUrl:"../../static/images/obj-img/IMG_6317_1.jpg",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: '暑期大师班',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: '普通班',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: '精品小班',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: 'hhhhhh',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: 'aaaa',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: '12e32e',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-                {
-                  name: 'cdefr',
-                  view: 'detail',
-                  imgUrl:"//image.17hua.me/upload/image/201709/1506601704878228.png",
-                  des:"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
-                  con:"课程内容：基础入门、刮画、甩酷、创意绘画"
-                },
-              ],
             }
         },
         methods: {
@@ -113,13 +58,21 @@
               this.actCurView.scrollHeigth=this.actCurView.tasHeight*(this.tabs.length-this.actCurView.showNum);
             }
           }
+        },
+        computed:{
+          tabs(){
+            return this.$store.state.courses
+          }
+        },
+        created(){
+          this.$store.dispatch('apiCourses')
         }
     }
 </script>
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
-  $tasHeight:8rem; //与移动距离相关
+  $tasHeight:90px; //与移动距离相关
   .transition{
     transition: all .4s; //切换过滤效果
   }
@@ -127,17 +80,20 @@
     display: flex;
     &-left{
       flex:0 0 14%;
-      height: $tasHeight*4+4rem;
+      height: $tasHeight*4+40px;
       overflow: hidden;
       position: relative;
       &-arrow{
         width: 100%;
         color:$orange;
         cursor: pointer;
-        text-align: center;
+        height: 40px;
         position: absolute;
         bottom: 0;
         background: $ffColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .iconfont{
           font-size: 48px;
         }
@@ -160,7 +116,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           color:$fMColor;
-          font-size: $RS16;
+          font-size: $FS16;
           display: inline-block;
           position: relative;
           @include border-1px(1px,$borderColor);
@@ -181,23 +137,14 @@
   }
 
   .boxArea{
-    &-middle,&-small{
-      .courses-nav-item-a{
-        width: 100%;
-        font-size: $RS14;
-      }
-    }
-
-    &-middle {
-      .courses-left {
-        flex: 0 0 20%;
-      }
-    }
     &-small {
       .courses-left {
         flex: 0 0 30%;
       }
     }
   }
+
+
+
 
 </style>

@@ -58,14 +58,14 @@
         &-item{
           &-con{
             &-num{
-              font-size: 4rem;
+              font-size: 40px;
             }
             .iconfont{
               &-1{
-                font-size: $RS18 !important;
+                font-size: $FS18 !important;
               }
               &-2{
-                font-size: $RS12 !important;
+                font-size: $FS12 !important;
               }
               &-3{
                 font-size: 8px !important;
@@ -73,7 +73,7 @@
             }
           }
           &-des{
-            font-size: $RS14;
+            font-size: $FS14;
           }
         }
       }
@@ -89,7 +89,7 @@
         display: flex;
         position: relative;
         &-num{
-          font-size:6.8rem;
+          font-size:68px;
           margin-right: 6px;
         }
         &-percent{
@@ -108,21 +108,21 @@
             position: relative;
             .iconfont{
               &-1{
-                font-size: $RS20;
+                font-size: $FS20;
               }
               &-2{
                 opacity:.7 ;
                 position: absolute;
                 left: -8px;
                 top:-4px;
-                font-size: $RS14;
+                font-size: $FS14;
               }
               &-3{
                 opacity:.4;
                 position: absolute;
                 right: 0px;
                 top:-10px;
-                font-size: $RS10;
+                font-size: $FS10;
               }
             }
           }

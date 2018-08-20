@@ -2,23 +2,64 @@
   <div class="advantage">
 
     <vbanner :content="bannerImg"></vbanner>
+
     <div class="section">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">严选精英画师</h4>
           <p :class="{'none':SCWTag>1}">来自中国美院、上海美院，真正万中选一的好老师</p>
         </div>
-        <img src="../../static/images/advantage/selectPro.jpg" alt="">
+        <img style="width: 100%" src="../../static/images/advantage/selectPro.jpg" alt="">
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" style="border-bottom: 1px solid #eee;">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">资深团队，深耕教研</h4>
           <p :class="{'none':SCWTag>1}">专注、创新、共享</p>
         </div>
         <vteacher :data="tutors"></vteacher>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="section-title">
+          <h4 class="section-title-txt">一对一绘画更有效</h4>
+          <p :class="{'none':SCWTag>1}">人性化教学，针对不同孩子采用不同授课方式</p>
+        </div>
+        <div class="contrast">
+          <div class="contrast-item contrast-right">
+            <div class="contrast-item-img contrast-right-img">
+              <img src="../../static/images/advantage/IMG_6725.png" alt="">
+            </div>
+
+            <ul class="contrast-item-list">
+              <li v-for="e in ways.right">
+                <i class="iconfont icon-dui"></i>
+                <span>{{e}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="contrast-txt">
+            <img src="../../static/images/logo.png" alt="">
+            <p>VS</p>
+            <p>其他绘画机构</p>
+          </div>
+          <div class="contrast-item contrast-wrong">
+            <div class="contrast-item-img">
+              <img src="../../static/images/advantage/500945286.png" alt="">
+            </div>
+            <ul class="contrast-item-list">
+              <li v-for="e in ways.wrong">
+                <i class="iconfont icon-cuo"></i>
+                <span>{{e}}
+              </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -41,32 +82,10 @@
             imgUrl: "../../static/images/obj-img/banner.jpg"
           }
         ],
-        teachers: [
-          {
-            level: 1,
-            imgUrl: "../../static/images/teachers/teacher1.jpg",
-            id: 1,
-            name: "王燮达",
-            brief: "1996年毕业于中国美术学院雕塑专业。中国雕塑学会会员、中国工艺美术学会雕塑专业委员会会员、全国城市雕塑创作设计资格证书持有者。他的作品充满既轻盈又高古，既灵动又深邃，既纯净又博大的各种形式趣味",
-            bgColor: "linear-gradient(#f4f2f3, #d6d6d6)"
-          },
-          {
-            level: 0,
-            imgUrl: "../../static/images/teachers/teacher2.png",
-            id: 2,
-            name: "管岑",
-            enname: "Cara",
-            bgColor: "linear-gradient(#95e8cc,#42b2b3)"
-          },
-          {
-            level: 0,
-            imgUrl: "../../static/images/teachers/teacher3.png",
-            id: 3,
-            name: "柳慧",
-            enname: "Jessie",
-            bgColor: "linear-gradient(#91dae0,#4070bc)"
-          }
-        ]
+        ways:{
+          right:["无时不刻1对1互动","导师人性化引导","孩子开心、快乐学习","提升自信心、人际交往能力","提高观察力和主动发现问题能力","有效提高创意思维和绘画能力"],
+          wrong:["经常走神","人机绘画缺少交流","无聊、枯燥","没有人际交往能力、自信心下降","只能学到片面，不能深刻体会","死板教学，让孩子创意造成局限"]
+        }
       }
     },
     computed:{
@@ -76,10 +95,52 @@
       tutors(){
         return this.$store.state.tutors;
       }
-    }
+    },
+
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../assets/style/icon.css";
+  .container {
+    padding: 5%;
+  }
 
+  .contrast{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    &-item{
+      border: 1px solid $borderColor;
+      &-img{
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      border-radius: 8px;
+      &-list{
+        padding: 5%;
+        line-height:2;
+      }
+      .iconfont{
+        font-size: 20px;
+        margin-right: 4px;
+      }
+    }
+    &-txt{
+      text-align: center;
+    }
+    &-right{
+      box-shadow: 0 0 30px rgba(0,0,0,.3);
+      &-img{
+        box-shadow: 0 0 30px rgba(0,0,0,.3);
+      }
+      .iconfont{
+        color:$themeColor;
+      }
+    }
+    &-wrong{
+      color:$f9EColor
+    }
+  }
 </style>

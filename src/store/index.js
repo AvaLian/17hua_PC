@@ -18,17 +18,19 @@ const state = {
   isScroll:0, //是否滚动固定头部标志
   headerHeight:[
     {
-      LHeigth: 8.8,
-      SHeigth: 5
+      LHeigth: 88,
+      SHeigth: 40
     },
     {
-      LHeigth: 6,
-      SHeigth: 5
+      LHeigth: 60,
+      SHeigth: 40
     }
   ],//是否滚动页面对应的固定头部（高度）
   name:"一起画(17hua.me)",
   tel:"400-128-1717",
   tutors:{},
+  courses:{},
+  coller:[]
 }
 
 const mutations= {
@@ -46,6 +48,12 @@ const mutations= {
   },
   cTutors(state,param){
     state.tutors=param;
+  },
+  cCourses(state,param){
+    state.courses=param;
+  },
+  cColler(state,param){
+    state.coller=param;
   }
 }
 
@@ -56,6 +64,26 @@ const actions={
     $http.get($api.teachers).then(res=>{
       var res=res.data
       commit("cTutors",res.data)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+  //获取课程数据
+  apiCourses ({state,commit}) {
+    $http.get($api.courses).then(res=>{
+      var res=res.data
+      commit("cCourses",res.data)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+  //获取合作伙伴数据
+  apiColler ({state,commit}) {
+    $http.get($api.coller).then(res=>{
+      var res=res.data
+      commit("cColler",res.data)
     }).catch(err=>{
       console.log("err:",err);
     })

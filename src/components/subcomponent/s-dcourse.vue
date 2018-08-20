@@ -1,5 +1,6 @@
 <template>
-    <div class="vcourses-detail" :style="{'background':'url('+data.imgUrl+')'}">
+
+    <div class="vcourses-detail" v-if="data" :style="{'background':'url('+data.imgUrl+')'}" >
       <div class="vcourses-detail-top">
         <p class="vcourses-detail-name">{{data.name}}</p>
         <p class="vcourses-detail-des">{{data.des}}
@@ -29,10 +30,10 @@
       @include border-1px(1px,$ffColor);
     }
     &-name{
-      font-size:$RS28;
+      font-size:$FS28;
     }
     &-des{
-      font-size: $RS20;
+      font-size: $FS20;
       line-height: 1.6;
       margin: 2% 0 3% 0;
     }
@@ -48,10 +49,10 @@
   .boxArea{
     &-small {
       .vcourses-detail{
-        padding: 0 1rem;
+        padding: 0 10px;
       }
       .vcourses-detail-des{
-        font-size: $RS16;
+        font-size: $FS16;
       }
     }
   }

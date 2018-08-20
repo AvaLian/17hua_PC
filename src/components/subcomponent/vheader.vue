@@ -84,7 +84,6 @@
         justify-content: flex-end;
         @include border-1px(1px,$borderColor);
       }
-
       .tel {
         color: $themeColor;
       }

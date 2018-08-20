@@ -83,7 +83,7 @@
           .navbar-item {
             display: flex;
             height: 100%;
-            margin-right: 40px;
+            margin-right: 30px;
             .navbar-item-cn {
               display: flex;
               align-items: center;
@@ -97,14 +97,14 @@
       }
       /*版权*/
       .copyright {
-        padding: 50px 0;
+        padding:50px 0;
         .logo {
           display: flex;
           align-items: center;
           .txt {
-            margin-left: 20px;
+            margin-left:$FS20;
             &-c{
-              line-height: 24px;
+              line-height: $FS24;
             }
             &-ch {
               color: $f5AColor;
@@ -121,19 +121,18 @@
       }
     }
     &-small{
-      padding: 1rem 0;
-      font-size: $RS12;
+      padding: 2% 0;
+      font-size:$FS12;
       color:$f9EColor;
       text-align: center;
       background: #f9f9f9;
       .logo-img{
-        width: 8rem;
-        margin-bottom: 1rem;
+        width:20%;
       }
       .txt-ch{
-        font-size: $RS14;
+        font-size: $FS14;
         color:$f5AColor;
-        margin: .6rem 0 .4rem 0;
+        margin: 4% 0 2% 0;
       }
     }
   }

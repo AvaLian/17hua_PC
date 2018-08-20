@@ -18,34 +18,13 @@
 
 
 .boxArea{
-  &-large{
-    .section{
-      &-title{
-        font-size: $RS18;
-        &-txt{
-          font-size:$RS30;
-          line-height:2;
-        }
-      }
-    }
-  }
-  &-middle{
-    .section{
-      &-title{
-        font-size: $RS16;
-        &-txt{
-          font-size:$RS28;
-          line-height:2;
-        }
-      }
-    }
-  }
   &-small{
     .section{
       &-title{
-        font-size: $RS14;
+        font-size: $FS14;
+        margin-bottom: 0;
         &-txt{
-          font-size:$RS24;
+          font-size:$FS24;
         }
       }
     }
@@ -62,6 +41,8 @@
     &-txt{
       color:$themeColor;
       font-weight: 700;
+      font-size: 40px;
+      margin-bottom: 20px;
     }
   }
 

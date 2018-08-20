@@ -20,23 +20,23 @@
 
 @mixin vbtn($color,$bgColor){
   width: 100px;
-  font-size: $RS18;
+  font-size: $FS18;
   color:$color;
   background: $bgColor;
   text-align: center;
-  padding: 1.4rem 2rem;
+  padding: 20px 10px;
   border-radius: 4px;
   cursor: pointer;
 }
 
 @mixin vbtn-shaow($color,$bgColor,$shadow){
   width: 100px;
-  font-size: $RS18;
+  font-size: $FS18;
   color:$color;
   background: $bgColor;
   box-shadow: $shadow;
   text-align: center;
-  padding: 1.4rem 2rem;
+  padding: 20px 10px;
   border-radius: 4px;
   cursor: pointer;
 }
