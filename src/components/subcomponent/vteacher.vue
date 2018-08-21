@@ -152,7 +152,7 @@
       }
       .vteacher-master-item {
         flex-direction: column;
-
+        box-shadow: 0 0 50px rgba(0, 0, 0, .2);
         &-img{
           margin-right: 0;
           img{

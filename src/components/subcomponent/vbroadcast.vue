@@ -1,20 +1,23 @@
 <template>
   <div class="banner">
 
-      <swiper :options="swiperOption"  v-if="content">
-        <swiper-slide v-for="(e,i) in content" :key="i">
-          <img class="swiper-slide-img" :src="e.imgUrl" alt="">
-          <div class="swiper-slide-con">
-            I'm Slide {{i+1}}
-          </div>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination" v-if="content.length>2"></div>
+      <swiper :options="swiperOption" >
+        <slot></slot>
+        <!--<swiper-slide v-for="(e,i) in content" :key="i">-->
+          <!--&lt;!&ndash;<img class="swiper-slide-img" :src="e.imgUrl" alt="">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="swiper-slide-con">&ndash;&gt;-->
+            <!--&lt;!&ndash;I'm Slide {{i+1}}&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+          <!--<slot></slot>-->
+        <!--</swiper-slide>-->
+        <div class="swiper-pagination" slot="pagination" v-if="isPage"></div>
       </swiper>
 
 
-      <swiper-slide v-else>
-        <smap></smap>
-      </swiper-slide>
+      <!--<swiper-slide v-else>-->
+        <!--<smap></smap>-->
+      <!--</swiper-slide>-->
 
 
   </div>
@@ -22,13 +25,12 @@
 
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-  import smap from './s-map'
+
 
   export default {
     name: "vbroadcast",
     components: {
-      swiper, swiperSlide,
-      smap
+      swiper, swiperSlide
     },
     props: {
       swiperOption: {
@@ -47,6 +49,10 @@
       },
       content: {
         type: Array
+      },
+      isPage:{
+        type:Boolean,
+        default:true
       }
     }
   }
@@ -69,6 +75,8 @@
         transition: translate(-50%, -50%);
       }
     }
+
+
   }
 </style>
 <style lang="scss">

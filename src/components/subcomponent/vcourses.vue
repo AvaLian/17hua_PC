@@ -109,6 +109,7 @@
         height: $tasHeight;
         line-height: $tasHeight;
         text-align: center;
+        background: #fff;
         &-a{
           width: 80%;
           margin: 0 auto;

@@ -1,6 +1,12 @@
 <template>
   <div>
     <vbanner :swiperOption="{autoplay:0,pagination:null}"></vbanner>
+    <vbanner :isPage="false">
+      <swiper-slide>
+        <smap></smap>
+      </swiper-slide>
+    </vbanner>
+
     <div class="contact">
       <div class="container">
         <div class="contact-item">
@@ -33,10 +39,12 @@
 
 <script>
   import vbanner from './subcomponent/vbroadcast'
+  import smap from './subcomponent/s-map'
   export default {
     name: "about-us",
     components: {
-      vbanner
+      vbanner,
+      smap
     },
     data() {
       return {

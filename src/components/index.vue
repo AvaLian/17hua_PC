@@ -1,7 +1,30 @@
 <template>
   <div class="index">
     <!--轮播图-->
-    <vbanner :content="bannerImg"></vbanner>
+    <vbanner :content="bannerImg">
+      <swiper-slide>
+        <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
+        <div class="swiper-slide-con">
+          <div class="container">
+            <h2>想画画<br>就到17画酷</h2>
+            <p>从小白到绘画小天才</p>
+            <vbutton>
+              查看视频
+            </vbutton>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
+        <div class="swiper-slide-con">
+          <div class="container">
+            <h2>你们的进步<br>就是我们最大的收获</h2>
+            <p>17画酷用真诚服务每一个人</p>
+          </div>
+        </div>
+      </swiper-slide>
+    </vbanner>
 
     <!--领先价值-->
     <div class="section exhibi">
@@ -57,7 +80,7 @@
     </div>
 
     <!--教学课程-->
-    <div class="section courses">
+    <div class="section">
       <div class="container">
         <div class="section">
           <div class="section-title">
@@ -81,7 +104,7 @@
     </div>
 
     <!--合作伙伴-->
-    <div class="section coll">
+    <div class="section">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">与合作伙伴共创未来</h4>
@@ -93,7 +116,7 @@
 
     <!--联系我们-->
     <div class="section section-1 contact"
-         style="background: url('../../static/images/obj-img/DSC4172.jpg') center/100% no-repeat">
+         style="background: url('../../static/images/obj-img/DSC4172.jpg') center/100%">
       <div class="container">
         <div class="section-title">
           <h4 class="section-title-txt">联系我们</h4>
@@ -115,12 +138,12 @@
   import vcourses from './subcomponent/vcourses'
   import vcontact from './subcomponent/vcontact'
   import vcoller from './subcomponent/vcoller'
-
+  import vbutton from './subcomponent/s-btn'
 
   export default {
     name: "index",
     components: {
-      vbanner, vdigits, vteacher, vcourses, vcontact,vcoller
+      vbanner, vdigits, vteacher, vcourses, vcontact,vcoller,vbutton
     },
     computed: {
       screenWidth() {
@@ -220,9 +243,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    padding: 5%;
-  }
+
 
   .boxArea {
     &-large {
@@ -342,6 +363,9 @@
     }
   }
 
+
+</style>
+<style lang="scss" >
 
 </style>
 

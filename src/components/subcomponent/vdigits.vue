@@ -3,7 +3,7 @@
       <li class="vdigits-item" v-for="(e,i) in objs" :key="i">
         <div class="vdigits-item-con">
           <span class="vdigits-item-con-num">{{e.p}}</span>
-          <div class="vdigits-item-con-percent">
+          <div class="vdigits-item-con-percent" :class="{'flexEnd':!up}">
           <div class="arrowicons" v-if="up">
             <i class="iconfont icon-jiantou iconfont-1"></i>
             <i class="iconfont icon-jiantou iconfont-2"></i>
@@ -100,6 +100,7 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+
           &-fuhao{
             position: relative;
             top:-4px;
@@ -145,5 +146,8 @@
       }
     }
 
+    .flexEnd{
+      justify-content: flex-end;
+    }
   }
 </style>
