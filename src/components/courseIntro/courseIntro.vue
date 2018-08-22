@@ -1,8 +1,8 @@
 <template>
   <div class="courseIntro">
-    <vbanner :isPage="false">
+    <vbanner :swiperOption="swiperOption">
       <swiper-slide>
-        <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
+        <img class="swiper-slide-img" src="./images/DSC4172.jpg" alt="">
         <div class="swiper-slide-con">
           <div class="container">
             <h2>与国际接轨，联合国内外<br>艺术家研发课程</h2>
@@ -21,7 +21,8 @@
         <ul class="ability">
           <li class="ability-item" v-for="(e,i) in ability">
             <div class="ability-item-title">
-              <i class="ability-item-title-icon" :style="{'background':'url('+e.icon+') center/100% no-repeat'}"></i>
+              <!--<i class="ability-item-title-icon" :style="{'background':'url('+e.icon+') center/100% no-repeat'}"></i>-->
+              <!--<img  class="ability-item-title-icon" :src="e.icon" alt="">-->
               <span>{{e.txt}}</span>
             </div>
             <p class="ability-item-des">{{e.des}}</p>
@@ -69,21 +70,21 @@
 
         <div class="core">
           <div class="core-item core-img">
-            <img src="../../static/images/courseIntro/IMG_6787.jpg" alt="">
+            <img src="./images/IMG_6787.jpg" alt="">
           </div>
           <div class="core-item core-text core-text-1">
             <h5>创意绘画</h5>
             <p>提升孩子形和像的把控能力，融入创意的色彩，绘画不一样的作品。</p>
           </div>
           <div class="core-item core-img">
-            <img src="../../static/images/courseIntro/IMG_6680.jpg" alt="">
+            <img src="./images/IMG_6680.jpg" alt="">
           </div>
           <div class="core-item core-text core-text-2">
             <h5>创意甩酷</h5>
             <p>融入不同的绘画类型，让孩子懂得更多的创意模式。</p>
           </div>
           <div class="core-item core-img">
-            <img src="../../static/images/courseIntro/IMG_6365.jpg" alt="">
+            <img src="./images/IMG_6365.jpg" alt="">
           </div>
           <div class="core-item core-text  core-text-3">
             <h5>创意刮画</h5>
@@ -96,8 +97,8 @@
 </template>
 
 <script>
-  import vbanner from './subcomponent/vbroadcast'
-  import vcourses from './subcomponent/vcourses'
+  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import vcourses from '../subcomponent/vcourses'
 
   export default {
     name: "courseIntro",
@@ -111,29 +112,27 @@
     },
     data() {
       return {
-        bannerImg: [
-          {
-            imgUrl: "../../static/images/obj-img/banner.jpg"
-          }
-        ],
+        swiperOption:{
+          pagination : null
+        },
         ability: [
           {
-            icon: "../../static/images/courseIntro/icon-broad.png",
+            icon: "./images/courseIntro/icon-broad.png",
             txt: "理解艺术",
             des: "通过17画酷的课程和画师的引导，让孩子全面的理解艺术的奥义，让孩子知道什么才是艺术。"
           },
           {
-            icon: "../../static/images/courseIntro/icon-face.png",
+            icon: "./images/courseIntro/icon-face.png",
             txt: "分析思考",
             des: "通过理解艺术的奥义，引导思考，并提升交流能力，培养自信心。"
           },
           {
-            icon: "../../static/images/courseIntro/icon-chat.png",
+            icon: "./images/courseIntro/icon-chat.png",
             txt: "引导讨论",
             des: "画师通过孩子提出的问题进行针对性的专业回答，并且举一反三，全面的吸收多方面的内容。"
           },
           {
-            icon: "../../static/images/courseIntro/icon-broad.png",
+            icon: "./images/courseIntro/icon-broad.png",
             txt: "4C能力",
             des: "增强判断性思维，提升绘画创造力，提高合作能力和甲流能力。"
           },

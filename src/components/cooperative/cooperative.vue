@@ -1,8 +1,8 @@
 <template>
     <div class="cooperative">
-      <vbanner :isPage="false">
+      <vbanner :swiperOption="swiperOption">
         <swiper-slide>
-          <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
+          <img class="swiper-slide-img" src="./images/100477778.jpg" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <h2>携手合作伙伴<br>共创未来</h2>
@@ -18,7 +18,7 @@
             <h4 class="section-title-txt">合作伙伴遍布全球</h4>
             <p :class="{'none':SCWTag>1}">中国、新加坡、加拿大、美国</p>
           </div>
-          <img style="width: 100%" src="../../static/images/cooperative/map.png" alt="">
+          <img style="width: 100%" src="./images/map.png" alt="">
         </div>
       </div>
 
@@ -36,8 +36,8 @@
 </template>
 
 <script>
-    import vbanner from './subcomponent/vbroadcast'
-    import vcoller from './subcomponent/vcoller'
+    import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+    import vcoller from '../subcomponent/vcoller'
     export default {
         name: "cooperative",
         components:{
@@ -50,11 +50,9 @@
       },
       data(){
           return{
-            bannerImg:[
-              {
-                imgUrl: "../../static/images/obj-img/banner.jpg"
-              }
-            ]
+            swiperOption:{
+              pagination : null
+            }
           }
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <vbanner :swiperOption="{autoplay:0,pagination:null}"></vbanner>
-    <vbanner :isPage="false">
+    <!--<vbanner :swiperOption="{autoplay:0,pagination:null}"></vbanner>-->
+    <vbanner :swiperOption="swiperOption">
       <swiper-slide>
         <smap></smap>
       </swiper-slide>
@@ -29,7 +29,7 @@
             <p>客服电话</p>
           </div>
           <div class="contact-item-con">
-            <img src="../../static/images/qrcode-wx.jpg" alt="">
+            <img src="./images/qrcode-wx.jpg" alt="">
           </div>
         </div>
       </div>
@@ -38,8 +38,8 @@
 </template>
 
 <script>
-  import vbanner from './subcomponent/vbroadcast'
-  import smap from './subcomponent/s-map'
+  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import smap from '../subcomponent/s-map'
   export default {
     name: "about-us",
     components: {
@@ -48,14 +48,16 @@
     },
     data() {
       return {
-
+        swiperOption:{
+          pagination : null
+        }
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  @import "../assets/style/icon.css";
+  @import "../../assets/style/icon.css";
   .contact{
     .container{
       padding:5%;

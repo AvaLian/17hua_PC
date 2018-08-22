@@ -1,8 +1,8 @@
 <template>
     <div class="faculty">
-      <vbanner :isPage="false">
+      <vbanner :swiperOption="swiperOption">
         <swiper-slide>
-          <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
+          <img class="swiper-slide-img" src="../../static/images/faculty/eddy-klaus-33079.jpg" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <h2>精英师资力量<br>定制专属名师来辅导</h2>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-  import vbanner from './subcomponent/vbroadcast'
+  import vbanner from './subcomponent/vbroadcast/vbroadcast'
   import vteacher from './subcomponent/vteacher'
     export default {
         name: "faculty",
@@ -62,11 +62,9 @@
         },
         data() {
           return {
-            bannerImg: [
-              {
-                imgUrl: "../../static/images/obj-img/banner.jpg"
-              }
-            ],
+            swiperOption:{
+              pagination : null
+            },
             standard:[
               {
                 icon:"../../static/images/faculty/icon-school.png",

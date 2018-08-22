@@ -14,12 +14,12 @@ import NotFound from "@/components/notFound"
 Vue.use(Router)
 
 const Index = resolve => {require(['@/components/index'], resolve)};
-const Advan = resolve => {require(['@/components/advantage'], resolve)};
-const CourIntro = resolve => {require(['@/components/courseIntro'], resolve)};
+const Advan = resolve => {require(['@/components/advantage/advantage'], resolve)};
+const CourIntro = resolve => {require(['@/components/courseIntro/courseIntro'], resolve)};
 const WOMouth = resolve => {require(['@/components/wordOfMouth'], resolve)};
 const Faculty = resolve => {require(['@/components/faculty'], resolve)};
-const Cooper = resolve => {require(['@/components/cooperative'], resolve)};
-const AboutUs = resolve => {require(['@/components/aboutUs'], resolve)};
+const Cooper = resolve => {require(['@/components/cooperative/cooperative'], resolve)};
+const AboutUs = resolve => {require(['@/components/aboutUs/aboutUs'], resolve)};
 
 export default new Router({
   mode:"history",

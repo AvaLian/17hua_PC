@@ -6,4 +6,5 @@ export default {
   teachers:'/teachers', //导师数据
   courses:'/courses', //课程数据
   coller:'/coller', //合作数据
+  comments:'/comments', //妈妈有话讲数据
 }

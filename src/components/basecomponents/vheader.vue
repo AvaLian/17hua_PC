@@ -10,13 +10,13 @@
             <div class="third-app-item">
               <i class="iconfont icon-weibo"></i>
               <div class="qrcode">
-                <img src="../../../static/images/qrcode-wx.jpg" alt="">
+                <img src="./images/qrcode-wx.jpg" alt="">
               </div>
             </div>
             <div class="third-app-item">
               <i class="iconfont icon-weixin"></i>
               <div class="qrcode">
-                <img src="../../../static/images/qrcode-wx.jpg" alt="">
+                <img src="./images/qrcode-wx.jpg" alt="">
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import smenu from './s-menu'
+  import smenu from '../subcomponent/s-menu'
   export default {
     name: "vheader",
     components:{smenu},
@@ -69,7 +69,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
-  @import "../../assets/style/hfpublic.css";
+  @import "hfpublic.css";
 
   $topHeight: 40px;   //顶部高度
 

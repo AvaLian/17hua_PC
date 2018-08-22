@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import vheader from "./components/subcomponent/vheader"
-  import vfooter from "./components/subcomponent/vfooter"
+  import vheader from "./components/basecomponents/vheader"
+  import vfooter from "./components/basecomponents/vfooter"
 
   export default {
     name: 'App',
@@ -91,7 +91,6 @@
 </script>
 
 <style lang="scss" scoped>
-
   .boxArea {
     &-large{
       .app-content {
@@ -105,11 +104,8 @@
     }
     &-small {
       .app-content {
-        padding-top: 2rem;
+        padding-top: 50px;
       }
     }
   }
-
-
-
 </style>

@@ -17,6 +17,7 @@ var appData = require('../data.json')
 var teachers = appData.teachers
 var courses = appData.courses
 var coller = appData.coller
+var comments = appData.comment
 
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
@@ -62,17 +63,23 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           success:true,
           data:teachers
         })
-      })
+      }),
       app.get('/api/courses',(req,res)=>{
         res.json({
           success:true,
           data:courses
         })
-      })
+      }),
       app.get('/api/coller',(req,res)=>{
         res.json({
           success:true,
           data:coller
+        })
+      }),
+      app.get('/api/comments',(req,res)=>{
+        res.json({
+          success:true,
+          data:comments
         })
       })
     }

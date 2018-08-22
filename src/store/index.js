@@ -30,7 +30,8 @@ const state = {
   tel:"400-128-1717",
   tutors:{},
   courses:{},
-  coller:[]
+  coller:[],
+  comment:[]
 }
 
 const mutations= {
@@ -54,6 +55,9 @@ const mutations= {
   },
   cColler(state,param){
     state.coller=param;
+  },
+  cComments(state,param){
+    state.comment=param;
   }
 }
 
@@ -84,6 +88,17 @@ const actions={
     $http.get($api.coller).then(res=>{
       var res=res.data
       commit("cColler",res.data)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+
+  //获取妈妈有话讲数据
+  apicComments ({state,commit}) {
+    $http.get($api.comments).then(res=>{
+      var res=res.data
+      commit("cComments",res.data)
     }).catch(err=>{
       console.log("err:",err);
     })

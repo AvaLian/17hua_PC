@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <!--轮播图-->
-    <vbanner :content="bannerImg">
+    <vbanner>
       <swiper-slide>
         <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
         <div class="swiper-slide-con">
@@ -14,7 +14,6 @@
           </div>
         </div>
       </swiper-slide>
-
       <swiper-slide>
         <img class="swiper-slide-img" src="../../static/images/obj-img/banner.jpg" alt="">
         <div class="swiper-slide-con">
@@ -132,7 +131,7 @@
 
 <script>
 
-  import vbanner from './subcomponent/vbroadcast'
+  import vbanner from './subcomponent/vbroadcast/vbroadcast'
   import vdigits from './subcomponent/vdigits'
   import vteacher from './subcomponent/vteacher'
   import vcourses from './subcomponent/vcourses'
@@ -158,17 +157,6 @@
     },
     data() {
       return {
-        bannerImg: [
-          {
-            imgUrl: "../../static/images/obj-img/banner.jpg"
-          },
-          {
-            imgUrl: "../../static/images/obj-img/banner.jpg"
-          },
-          {
-            imgUrl: "../../static/images/obj-img/banner.jpg"
-          }
-        ],
         exhibition: [
           {
             imgUrl: "../../static/images/obj-img/IMG_6309.jpg",
@@ -365,7 +353,5 @@
 
 
 </style>
-<style lang="scss" >
 
-</style>
 
