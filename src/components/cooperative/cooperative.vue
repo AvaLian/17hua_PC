@@ -14,21 +14,21 @@
 
       <div class="section">
         <div class="container">
-          <div class="section-title">
-            <h4 class="section-title-txt">合作伙伴遍布全球</h4>
-            <p :class="{'none':SCWTag>1}">中国、新加坡、加拿大、美国</p>
-          </div>
-          <img style="width: 100%" src="./images/map.png" alt="">
+          <vtitle>
+            <span slot="title">合作伙伴遍布全球</span>
+            <span slot="subtitle">中国、新加坡、加拿大、美国</span>
+          </vtitle>
+          <img class="width100" src="./images/map.png" alt="合作伙伴遍布全球">
         </div>
       </div>
 
       <!--合作伙伴-->
       <div class="section">
         <div class="container">
-          <div class="section-title">
-            <h4 class="section-title-txt">与合作伙伴共创未来</h4>
-            <p :class="{'none':SCWTag>1}">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</p>
-          </div>
+          <vtitle>
+            <span slot="title">与合作伙伴共创未来</span>
+            <span slot="subtitle">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</span>
+          </vtitle>
           <vcoller></vcoller>
         </div>
       </div>
@@ -37,16 +37,12 @@
 
 <script>
     import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+    import vtitle from "../subcomponent/vtitle"
     import vcoller from '../subcomponent/vcoller'
     export default {
-        name: "cooperative",
-        components:{
-          vbanner,vcoller
-        },
-      computed: {
-        SCWTag() {
-          return this.$store.state.SCWTag;
-        }
+      name: "cooperative",
+      components:{
+        vbanner,vcoller,vtitle
       },
       data(){
           return{

@@ -59,8 +59,6 @@
         transition: translate(-50%, -50%);
       }
     }
-
-
   }
 </style>
 <style lang="scss">

@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <!--<vbanner :swiperOption="{autoplay:0,pagination:null}"></vbanner>-->
+  <div class="about-us">
     <vbanner :swiperOption="swiperOption">
       <swiper-slide>
         <smap></smap>
       </swiper-slide>
     </vbanner>
 
-    <div class="contact">
+    <div class="section section-borderBottom contact">
       <div class="container">
         <div class="contact-item">
           <div class="contact-item-title">
@@ -49,7 +48,8 @@
     data() {
       return {
         swiperOption:{
-          pagination : null
+          pagination : null,
+          loop:false
         }
       }
     }
@@ -59,10 +59,6 @@
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
   .contact{
-    .container{
-      padding:5%;
-    }
-    @include border-1px(1px,$borderColor);
     .container{
       display: flex;
       justify-content: space-between;

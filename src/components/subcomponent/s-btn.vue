@@ -14,7 +14,6 @@
   .s-btn{
     width: 100px;
     font-size: $FS18;
-
     text-align: center;
     padding: 14px 30px;
     border-radius: 4px;

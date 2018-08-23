@@ -1,23 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
-// import Index from "@/components/index"
-// import Advan from "@/components/advantage"
-// import CourIntro from "@/components/courseIntro"
-// import WOMouth from "@/components/wordOfMouth"
-// import Faculty from "@/components/faculty"
-// import Cooper from "@/components/cooperative"
-// import AboutUs from "@/components/aboutUs"
 import NotFound from "@/components/notFound"
 
 Vue.use(Router)
 
-const Index = resolve => {require(['@/components/index'], resolve)};
+const Index = resolve => {require(['@/components/index/index'], resolve)};
 const Advan = resolve => {require(['@/components/advantage/advantage'], resolve)};
 const CourIntro = resolve => {require(['@/components/courseIntro/courseIntro'], resolve)};
-const WOMouth = resolve => {require(['@/components/wordOfMouth'], resolve)};
-const Faculty = resolve => {require(['@/components/faculty'], resolve)};
+const WOMouth = resolve => {require(['@/components/wordOfMouth/wordOfMouth'], resolve)};
+const Faculty = resolve => {require(['@/components/faculty/faculty'], resolve)};
 const Cooper = resolve => {require(['@/components/cooperative/cooperative'], resolve)};
 const AboutUs = resolve => {require(['@/components/aboutUs/aboutUs'], resolve)};
 

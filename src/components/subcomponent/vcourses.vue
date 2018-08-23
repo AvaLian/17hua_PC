@@ -1,13 +1,11 @@
 <template>
-  <div class="courses box-shadow">
+  <div class="courses">
     <div class="courses-left" >
-
         <ul class="courses-nav transition" :style="{'top':-actCurView.scrollHeigth+'px'}">
           <li class="courses-nav-item transition" @click="toggle(i)" v-for="(tab,i) in tabs" :class="{active: actCurView.active == i}">
             <a class="courses-nav-item-a" href="javascript:void(0)">{{ tab.name }}</a>
           </li>
         </ul>
-
       <div class="courses-left-arrow" @click="toggle(actCurView.active+1)"><i class="iconfont icon-jiantou1"></i></div>
     </div>
 
@@ -78,9 +76,10 @@
   }
   .courses{
     display: flex;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
     &-left{
       flex:0 0 14%;
-      height: $tasHeight*4+40px;
+      height: $tasHeight*4+50px;
       overflow: hidden;
       position: relative;
       &-arrow{

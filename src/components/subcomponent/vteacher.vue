@@ -1,7 +1,8 @@
 <template>
   <div class="vteacher">
     <ul class="vteacher-master" v-if="tutors.master">
-      <li class="vteacher-master-item" v-for="(e,i) in tutors.master" :key="e.id" :style="{'background':bgColor.m[i]}">
+      <li class="vteacher-master-item boxRadius" v-for="(e,i) in tutors.master" :key="e.id"
+          :style="{'background':bgColor.m[i]}">
         <div class="vteacher-master-item-img">
           <img :src="e.imgUrl" alt="">
         </div>
@@ -15,7 +16,7 @@
     </ul>
 
     <ul class="vteacher-tutor" v-if="tutors.tutor">
-      <li class="vteacher-tutor-item" v-for="(e,i) in tutors.tutor" :key="e.id">
+      <li class="vteacher-tutor-item boxRadius" v-for="(e,i) in tutors.tutor" :key="e.id">
         <div class="vteacher-tutor-item-img" :style="{'background':bgColor.t[i]}">
           <img :src="e.imgUrl" alt="">
         </div>
@@ -40,12 +41,12 @@
         }
       }
     },
-    computed:{
-      tutors(){
+    computed: {
+      tutors() {
         return this.$store.state.tutors
       }
     },
-    created(){
+    created() {
       this.$store.dispatch('apiTutors')
     }
   }
@@ -59,7 +60,6 @@
     }
     &-master {
       &-item {
-        border-radius: 4px;
         box-shadow: 0 0 100px rgba(0, 0, 0, .2);
         overflow: hidden;
         display: flex;
@@ -103,12 +103,13 @@
       margin-top: 100px;
       &-item {
         flex: 0 0 46%;
-        border-radius: 4px;
         background: $ffColor;
         &-img {
           width: 100%;
           height: 340px;
           position: relative;
+          border-top-right-radius: $boxRadius;
+          border-top-left-radius: $boxRadius;
           img {
             height: 110%;
             position: absolute;
@@ -153,9 +154,9 @@
       .vteacher-master-item {
         flex-direction: column;
         box-shadow: 0 0 50px rgba(0, 0, 0, .2);
-        &-img{
+        &-img {
           margin-right: 0;
-          img{
+          img {
             width: 100%;
           }
         }

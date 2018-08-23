@@ -2,7 +2,7 @@
     <div class="faculty">
       <vbanner :swiperOption="swiperOption">
         <swiper-slide>
-          <img class="swiper-slide-img" src="../../static/images/faculty/eddy-klaus-33079.jpg" alt="">
+          <img class="swiper-slide-img" src="./images/eddy-klaus-33079.jpg" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <h2>精英师资力量<br>定制专属名师来辅导</h2>
@@ -13,17 +13,17 @@
       </vbanner>
 
 
-      <div class="section" style="background: #eee">
+      <div class="section section-bgColor">
         <div class="container">
-          <div class="section-title">
-            <h4 class="section-title-txt">精英画师三大标准</h4>
-            <p :class="{'none':SCWTag>1}">专业、经验、严格</p>
-          </div>
+          <vtitle>
+            <span slot="title">精英画师三大标准</span>
+            <span slot="subtitle">专业、经验、严格</span>
+          </vtitle>
           <ul class="standard">
             <li class="standard-item" v-for="(e,i) in standard" :key="i" >
               <div class="standard-item-bg" :style="{'background':e.bgColor}"></div>
               <div class="standard-item-con">
-                <i class="standard-item-con-icon" :style="{'background':'url('+e.icon+') center/100%' }"></i>
+                <i class="standard-item-con-icon" :class="e.icon"></i>
                 <span>{{e.txt}}</span>
               </div>
             </li>
@@ -32,12 +32,12 @@
       </div>
 
 
-      <div class="section" style="border-bottom: 1px solid #eee;">
+      <div class="section section-borderBottom">
         <div class="container">
-          <div class="section-title">
-            <h4 class="section-title-txt">资深团队，深耕教研</h4>
-            <p :class="{'none':SCWTag>1}">专注、创新、共享</p>
-          </div>
+          <vtitle>
+            <span slot="title">资深团队，深耕教研</span>
+            <span slot="subtitle">专注、创新、共享</span>
+          </vtitle>
           <vteacher :data="tutors"></vteacher>
         </div>
       </div>
@@ -45,17 +45,15 @@
 </template>
 
 <script>
-  import vbanner from './subcomponent/vbroadcast/vbroadcast'
-  import vteacher from './subcomponent/vteacher'
-    export default {
+  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import vteacher from '../subcomponent/vteacher'
+  import vtitle from "../subcomponent/vtitle"
+  export default {
         name: "faculty",
         components: {
-          vbanner,vteacher
+          vbanner,vteacher,vtitle
         },
         computed: {
-          SCWTag() {
-            return this.$store.state.SCWTag;
-          },
           tutors(){
             return this.$store.state.tutors;
           }
@@ -67,17 +65,17 @@
             },
             standard:[
               {
-                icon:"../../static/images/faculty/icon-school.png",
+                icon:"icon-school",
                 txt:"专业美院毕业",
                 bgColor:"#4fc8ff"
               },
               {
-                icon:"../../static/images/faculty/icon-hot.png",
+                icon:"icon-hot",
                 txt:"2年以上工作经验",
                 bgColor:"#add597"
               },
               {
-                icon:"../../static/images/faculty/icon-mirror.png",
+                icon:"icon-mirror",
                 txt:"500:1严格筛选",
                 bgColor:"#ffc13c"
               }
@@ -89,9 +87,6 @@
 </script>
 
 <style lang="scss" scoped>
-  /*.container {*/
-    /*padding: 5%;*/
-  /*}*/
   .standard{
     display: flex;
     justify-content: space-between;
@@ -122,6 +117,18 @@
           height: 44px;
           display: inline-block;
           margin-bottom: 10%;
+          background-position: center;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          &.icon-hot{
+            background-image: url("./images/icon-hot.png");
+          }
+          &.icon-mirror{
+            background-image: url("./images/icon-mirror.png");
+          }
+          &.icon-school{
+            background-image: url("./images/icon-school.png");
+          }
         }
       }
     }

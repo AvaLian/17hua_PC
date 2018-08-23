@@ -101,6 +101,7 @@
         .logo {
           display: flex;
           align-items: center;
+
           .txt {
             margin-left:$FS20;
             &-c{

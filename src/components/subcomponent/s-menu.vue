@@ -80,7 +80,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .logo{
+    cursor: pointer;
+  }
   /*菜单公共部分样式*/
   .navbar {
     display: flex;

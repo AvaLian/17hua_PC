@@ -1,5 +1,4 @@
 <template>
-
     <div class="vcourses-detail" v-if="data" :style="{'background':'url('+data.imgUrl+')'}" >
       <div class="vcourses-detail-top">
         <p class="vcourses-detail-name">{{data.name}}</p>
