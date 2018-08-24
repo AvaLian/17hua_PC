@@ -10,13 +10,13 @@
             <div class="third-app-item">
               <i class="iconfont icon-weibo"></i>
               <div class="qrcode">
-                <img src="./images/qrcode-wx.jpg" alt="">
+                <img src="../../../static/images/qrcode-wx.jpg" alt="">
               </div>
             </div>
             <div class="third-app-item">
               <i class="iconfont icon-weixin"></i>
               <div class="qrcode">
-                <img src="./images/qrcode-wx.jpg" alt="">
+                <img src="../../../static/images/qrcode-wx.jpg" alt="">
               </div>
             </div>
           </div>

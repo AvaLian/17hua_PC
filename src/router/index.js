@@ -10,6 +10,8 @@ const Advan = resolve => {require(['@/components/advantage/advantage'], resolve)
 const CourIntro = resolve => {require(['@/components/courseIntro/courseIntro'], resolve)};
 const WOMouth = resolve => {require(['@/components/wordOfMouth/wordOfMouth'], resolve)};
 const Faculty = resolve => {require(['@/components/faculty/faculty'], resolve)};
+const FacultyIndex = resolve => {require(['@/components/faculty/faculty_index/faculty_index'], resolve)};
+const FacultyDetail = resolve => {require(['@/components/faculty/faculty_detail/faculty_detail'], resolve)};
 const Cooper = resolve => {require(['@/components/cooperative/cooperative'], resolve)};
 const AboutUs = resolve => {require(['@/components/aboutUs/aboutUs'], resolve)};
 
@@ -54,10 +56,24 @@ export default new Router({
       path: '/faculty',
       name: 'Faculty',
       zwname:"师资力量",
-      meta: {
-        title: '师资力量'
-      },
-      component: Faculty
+      redirect: '/faculty',
+      component: Faculty,
+      children:[
+        { path: '/faculty',
+          name: 'faculty',
+          component: FacultyIndex,
+          meta: {
+            title: '师资力量'
+          }
+        },
+        { path: '/facultyDetail',
+          name: 'FacultyDetail',
+          component: FacultyDetail,
+          meta: {
+            title: '师资详情'
+          }
+        }
+      ]
     },{
       path: '/cooper',
       name: 'Cooper',

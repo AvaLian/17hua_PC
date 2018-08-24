@@ -50,13 +50,20 @@
     watch: {
       $route(to, from) {
         this.$router.options.routes.map((item, index) => {
-          if (item.name && item.name == to.name) this.navIndex = index
+          if(!item.children){
+            if (item.name && item.name == to.name) this.navIndex = index;
+            return false
+          }
+          item.children.map((item2)=>{
+            if (item2.name && item2.name == to.name) this.navIndex = index;
+          })
+
         })
       }
     },
     mounted() {
       document.addEventListener('click', (e) => {
-        if (!!this.$refs.iconmenu.contains(e.target)) return
+        if (!!this.$refs.iconmenu.contains(e.target)) return false;
         this.maClick = false;
       })
     },

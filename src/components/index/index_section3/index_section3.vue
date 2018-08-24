@@ -45,14 +45,15 @@
     </div>
 
     <!--联系我们-->
-    <div class="section section-1 contact">
+    <div class="section section-1 contact" style="position: relative">
       <div class="container">
         <vtitle>
           <span slot="title">联系我们</span>
           <span slot="subtitle">如果你有任何问题，我们将为你解答。如果你又需要任何帮助，我们将提供协助。</span>
           <span slot="subtitle1">请随时联系我们！</span>
         </vtitle>
-        <vbtnInfo>联系我们</vbtnInfo>
+        <vbtnInfo v-on:onShow="popupShow">联系我们</vbtnInfo>
+        <vmessage :isShow="isShow" v-on:onHide="popupHide"></vmessage>
       </div>
     </div>
   </div>
@@ -63,14 +64,29 @@
   import vdigits from '../../subcomponent/vdigits'
   import vteacher from '../../subcomponent/vteacher'
   import vcourses from '../../subcomponent/vcourses'
-  import vbtnInfo from '../../subcomponent/vbtn-info'
+
   import vcoller from '../../subcomponent/vcoller'
+  import vbtnInfo from '../../subcomponent/vbuttons/vbtn-info'
+  import vmessage from '../../subcomponent/vpopup/message/message'
 
   export default {
     name: "index_section3",
     components: {
-      vtitle,vdigits, vteacher, vcourses, vbtnInfo, vcoller
+      vtitle,vdigits, vteacher, vcourses, vcoller,vbtnInfo,vmessage
     },
+    data(){
+      return{
+        isShow:false
+      }
+    },
+    methods:{
+      popupShow(data){
+        this.isShow=data
+      },
+      popupHide(data){
+        this.isShow=data
+      }
+    }
   }
 </script>
 
@@ -83,7 +99,7 @@
   }
 </style>
 <style>
-  .vbtn-info{
+  .contact .vbtn-info{
     text-align: center;
   }
 </style>

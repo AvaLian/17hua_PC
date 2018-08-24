@@ -10,7 +10,7 @@
           <p class="vteacher-item-con-name">{{e.name}}</p>
           <p class="vteacher-master-item-con-pro">艺术大师</p>
           <div class="vteacher-master-item-con-des">{{e.brief}}</div>
-          <div class="vteacher-master-item-con-btn">查看详情</div>
+          <div class="vteacher-master-item-con-btn button ripple" @click="gotoFacultyDetail">查看详情</div>
         </div>
       </li>
     </ul>
@@ -23,7 +23,7 @@
         <div class="vteacher-tutor-item-con">
           <p class="vteacher-tutor-item-con-name">{{e.enname}}</p>
           <p class="vteacher-item-con-name">{{e.name}}导师</p>
-          <span class="vteacher-tutor-item-con-btn">查看详情</span>
+          <span class="vteacher-tutor-item-con-btn  button ripple" @click="gotoFacultyDetail">查看详情</span>
         </div>
       </li>
     </ul>
@@ -48,6 +48,12 @@
     },
     created() {
       this.$store.dispatch('apiTutors')
+    },
+    methods:{
+      gotoFacultyDetail(){
+        console.log(11111,this.$router);
+       this.$router.push({name: 'FacultyDetail'});
+      }
     }
   }
 </script>
@@ -90,6 +96,7 @@
             text-align: justify;
           }
           &-btn {
+            cursor: pointer;
             margin-top: 10%;
             @include vbtn-shaow($ffColor, $themeColor, (0 0 20px $themeColor))
           }
@@ -133,6 +140,7 @@
             margin: 3% 0 5% 0;
           }
           &-btn {
+            cursor: pointer;
             color: $themeColor;
             border-radius: 4px;
             padding: 10px 20px;
