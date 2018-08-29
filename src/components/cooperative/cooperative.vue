@@ -55,7 +55,5 @@
 </script>
 
 <style lang="scss" scoped>
-  /*.container {*/
-    /*padding: 5%;*/
-  /*}*/
+
 </style>

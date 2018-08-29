@@ -1,5 +1,6 @@
 <template>
   <div class="faculty_detail">
+
     <vbanner :swiperOption="swiperOption">
       <swiper-slide>
         <img class="swiper-slide-img" src="../../../../static/images/teachers/teacher-img.jpg" alt="">
@@ -17,8 +18,10 @@
         <div class="section-left">毕业院校</div>
         <ul class="section-right">
           <li class="section-right-item" v-for="(e,i) in data.college">
-            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.college.length-1 && i>1}"><i class="tag-inner"></i></div>
-            <div></div>{{e}}
+            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.college.length-1 && i>1}"><i
+              class="tag-inner"></i></div>
+            <div></div>
+            {{e}}
           </li>
         </ul>
       </div>
@@ -29,8 +32,10 @@
         <div class="section-left">个人作品展</div>
         <ul class="section-right">
           <li class="section-right-item" v-for="(e,i) in data.individual">
-            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.individual.length-1 && i>1}"><i class="tag-inner"></i></div>
-            <div></div>{{e}}
+            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.individual.length-1 && i>1}"><i
+              class="tag-inner"></i></div>
+            <div></div>
+            {{e}}
           </li>
         </ul>
       </div>
@@ -41,61 +46,127 @@
         <div class="section-left">作品群展</div>
         <ul class="section-right">
           <li class="section-right-item" v-for="(e,i) in data.exhibition">
-            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.exhibition.length-1 && i>1}"><i class="tag-inner"></i></div>
-            <div></div>{{e}}
+            <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.exhibition.length-1 && i>1}"><i
+              class="tag-inner"></i></div>
+            <div></div>
+            {{e}}
           </li>
         </ul>
       </div>
     </div>
 
 
-
-    <vbanner :swiperOption="swiperOption">
-      <swiper-slide>
+    <vbanner class="textarea" :swiperOption="swiperOption1" v-if="SCWTag<1">
+      <swiper-slide v-for="(e,i) in data.intro" :key="i">
         <img class="swiper-slide-img" src="./images/IMGP1160787.jpg" alt="">
         <div class="swiper-slide-con">
           <div class="container">
-            {{data.intro[0]}}
+            <i class="iconfont icon-quote"></i>
+            <p class="textarea-con">
+              {{e}}</p>
+            <i class="iconfont icon-quote"></i>
           </div>
         </div>
       </swiper-slide>
     </vbanner>
 
-
-
-    <div id="masonry">
-      <img src="http://img.htmleaf.com/1412/201412061559-1.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-2.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-3.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-4.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-6.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-8.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-9.jpg">
-      <img src="http://img.htmleaf.com/1412/201412061559-7.jpg">
-    </div>
-
-
+      <div class="waterfall-wrapper"  style="height:800px; margin: 5% 0;">
+        <vue-waterfall-easy ref="waterfall" :imgsArr="imgsArr" :maxCols="5"  @scrollReachBottom="getData"  @click="clickFn"></vue-waterfall-easy>
+      </div>
 
   </div>
 </template>
 
 <script>
   import vbanner from '../../subcomponent/vbroadcast/vbroadcast'
+  import vueWaterfallEasy from 'vue-waterfall-easy'
   export default {
     name: "faculty_detail",
     components: {
-      vbanner
+      vbanner,vueWaterfallEasy
     },
-    data(){
-      return{
-        swiperOption:{
-          pagination : null
+    computed: {
+      SCWTag(){
+        return this.$store.state.SCWTag;
+      }
+    },
+    data() {
+      return {
+        imgsArr:[
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-1.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-2.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-3.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-4.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-6.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-7.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-8.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-9.jpg",
+            href:"#"
+          },{
+            src:"http://img.htmleaf.com/1412/201412061559-1.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-2.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-3.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-4.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-6.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-7.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-8.jpg",
+            href:"#"
+          },
+          {
+            src:"http://img.htmleaf.com/1412/201412061559-9.jpg",
+            href:"#"
+          }
+        ],
+        swiperOption: {
+          pagination: null
         },
-        data:{
-          id:1,
-          name:"王燮达",
-          college:["1968 年 剩余中国辽宁省","1996 年 毕业于中国美术学院雕塑系"],
-          individual:[
+        swiperOption1:{
+        },
+        data: {
+          id: 1,
+          name: "王燮达",
+          college: ["1968 年 剩余中国辽宁省", "1996 年 毕业于中国美术学院雕塑系"],
+          individual: [
             "2014 年 王燮达 博罗那上海当代艺术展 JAMES COHAN画廊，上海",
             "2013 年 王燮达：主谓宾，JAMES COHAN 画廊，纽约",
             "2011 年 子曰·王燮达作品展，JAMES COHAN 画廊，上海",
@@ -103,7 +174,7 @@
             "2010 年 王燮达作品展，西班牙瓦伦西亚现代艺术博物馆 IVAM，瓦伦西亚，西班牙 2009 年 子曰·王燮达作品展，张江当代艺术馆，上海",
             "2008 年 子曰·王燮达雕塑作品展，上海雕塑艺术中心，上海 2007 年子曰·王燮达雕塑作品展，元典画廊，上海"
           ],
-          exhibition:[
+          exhibition: [
             "1989 年 民族杯全国书法展，山东博物馆",
             "1999 年 青年美术大展，刘海粟美术馆，上海",
             "2005 年 上海首届国际城市雕塑双年展，明圆艺术中心，上海",
@@ -119,10 +190,25 @@
             "2015 年“时空书写”抽象艺术在中国，上海当代艺术博物馆，上海第四节阿根廷“最后的世界”双年展，阿根廷",
             "2017 年 沉浸的灵光，上海BA艺术中心，上海"
           ],
-          intro:[
-            "谢大的雕塑由细长的元素组成的，像树枝一样有着不同的粗细，简单来说就是由金属作为媒介的线条绘画。作品蕴有一种不同寻常之感，作品表面散发出一种自发性，存在一种动作感。似乎是要强调这些雕塑的组合特征，这些完成于2004到2007的青铜雕塑被安排在一个U型的，几乎齐腰的白色的底座上。这些雕塑有着条状的和结块的肌理，以及一种亚光感；哪些闪亮的表面表现出被手触摸过很多次的痕迹，虽然这些雕塑的铜面像原始的物件，但是整体上的反应出一种抽象的快捷的现代感。虽然，这些作品由没有生命力的材料完成，但散发出一种意外的活力。原因很多是来自于这些雕塑的姿态，就像一个在不断的改变动作的打太极的人。于是，这些雕塑好像拥有一种动中有静和谐。在某种程度上，这些雕塑像一些触目的姿态，每一个表现出一种不同的性格特点。有些雕塑的细的腿深深扎根在铜的平板上，然而有些刺过白色底座的雕塑，像一个路易斯·布尔乔亚的蜘蛛。尽管燮达的作品是一种精准的抽象表达，他的雕塑唤起丰富联想。哪些圆形的突出部分可以理解成人的头部，而其他的一些部位却像鸟，树，武器以及史前的工具，燮达作品中也让人联想到建筑的元素，比如说拱廊，隐形的门户，或者领向无人之境的楼梯"
+          intro: [
+            "谢大的雕塑由细长的元素组成的，像树枝一样有着不同的粗细，简单来说就是由金属作为媒介的线条绘画。作品蕴有一种不同寻常之感，作品表面散发出一种自发性，存在一种动作感。似乎是要强调这些雕塑的组合特征，这些完成于2004到2007的青铜雕塑被安排在一个U型的，几乎齐腰的白色的底座上。这些雕塑有着条状的和结块的肌理，以及一种亚光感；哪些闪亮的表面表现出被手触摸过很多次的痕迹，虽然这些雕塑的铜面像原始的物件，但是整体上的反应出一种抽象的快捷的现代感。虽然，这些作品由没有生命力的材料完成，但散发出一种意外的活力。原因很多是来自于这些雕塑的姿态，就像一个在不断的改变动作的打太极的人。于是，这些雕塑好像拥有一种动中有静和谐。在某种程度上，这些雕塑像一些触目的姿态，每一个表现出一种不同的性格特点。有些雕塑的细的腿深深扎根在铜的平板上，然而有些刺过白色底座的雕塑，像一个路易斯·布尔乔亚的蜘蛛。尽管燮达的作品是一种精准的抽象表达，他的雕塑唤起丰富联想。哪些圆形的突出部分可以理解成人的头部，而其他的一些部位却像鸟，树，武器以及史前的工具，燮达作品中也让人联想到建筑的元素，比如说拱廊，隐形的门户，或者领向无人之境的楼梯",
+            "2222222222222222222222222222说就是由金属作为媒介的线条绘画。作品蕴有一种不同寻常之感，作品表面散发出一种自发性，存在一种动作感。似乎是要强调这些雕塑的组合特征，这些完成于2004到2007的青铜雕塑被安排在一个U型的，几乎齐腰的白色的底座上。这些雕塑有着条状的和结块的肌理，以及一种亚光感；哪些闪亮的表面表现出被手触摸过很多次的痕迹，虽然这些雕塑的铜面像原始的物件，但是整体上的反应出一种抽象的快捷的现代感。虽然，这些作品由没有生命力的材料完成，但散发出一种意外的活力。原因很多是来自于这些雕塑的姿态，就像一个在不断的改变动作的打太极的人。于是，这些雕塑好像拥有一种动中有静和谐。在某种程度上，这些雕塑像一些触目的姿态，每一个表现出一种不同的性格特点。有些雕塑的细的腿深深扎根在铜的平板上，然而有些刺过白色底座的雕塑，像一个路易斯·布尔乔亚的蜘蛛。尽管燮达的作品是一种精准的抽象表达，他的雕塑唤起丰富联想。哪些圆形的突出部分可以理解成人的头部，而其他的一些部位却像鸟，树，武器以及史前的工具，燮达作品中也让人联想到建筑的元素，比如说拱廊，隐形的门户，或者领向无人之境的楼梯",
+            "333333333333333同的粗细，简单来说就是由金属作为媒介的线条绘画。作品蕴有一种不同寻常之感，作品表面散发出一种自发性，存在一种动作感。似乎是要强调这些雕塑的组合特征，这些完成于2004到2007的青铜雕塑被安排在一个U型的，几乎齐腰的白色的底座上。这些雕塑有着条状的和结块的肌理，以及一种亚光感；哪些闪亮的表面表现出被手触摸过很多次的痕迹，虽然这些雕塑的铜面像原始的物件，但是整体上的反应出一种抽象的快捷的现代感。虽然，这些作品由没有生命力的材料完成，但散发出一种意外的活力。原因很多是来自于这些雕塑的姿态，就像一个在不断的改变动作的打太极的人。于是，这些雕塑好像拥有一种动中有静和谐。在某种程度上，这些雕塑像一些触目的姿态，每一个表现出一种不同的性格特点。有些雕塑的细的腿深深扎根在铜的平板上，然而有些刺过白色底座的雕塑，像一个路易斯·布尔乔亚的蜘蛛。尽管燮达的作品是一种精准的抽象表达，他的雕塑唤起丰富联想。哪些圆形的突出部分可以理解成人的头部，而其他的一些部位却像鸟，树，武器以及史前的工具，燮达作品中也让人联想到建筑的元素，比如说拱廊，隐形的门户，或者领向无人之境的楼梯"
           ],
-          imgs:[]
+          imgs: []
+        }
+      }
+    },
+    methods:{
+      getData() {
+        this.$refs.waterfall.waterfallOver()
+      },
+      clickFn(event, { index, value }) {
+        // 阻止a标签跳转
+        event.preventDefault()
+        // 只有当点击到图片时才进行操作
+        if (event.target.tagName.toLowerCase() == 'img') {
+          console.log('img clicked',index, value)
         }
       }
     }
@@ -130,27 +216,46 @@
 </script>
 
 <style lang="scss" scoped>
-  .swiper-slide .swiper-slide-con{
-    color:$fMColor;
+  @import "../../../assets/style/icon.css";
+  .swiper-slide .swiper-slide-con {
+    color: $fMColor;
   }
-  .section{
-    .container{
+
+  .section {
+    .container {
       display: flex;
     }
-    &-left{
-      width: 100px;
-      flex: 0 0 100px;
+    &-left {
+      width: 200px;
+      font-size: $FS20;
+      font-weight: 700;
     }
-    &-right{
+    &-right {
       flex: 1;
-      &-item{
+      &-item {
         display: flex;
         align-items: flex-start;
+        line-height: 1.6;
+        margin-bottom: 20px;
       }
     }
   }
 
-  .tag{
+
+  .textarea{
+    .swiper-slide-con{
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &-con{
+      line-height: 2;
+      font-size: 12px !important;
+    }
+  }
+  .tag {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -158,7 +263,10 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    &-inner{
+    margin-right: 10px;
+    position: relative;
+    top:8px;
+    &-inner {
       width: 8px;
       height: 8px;
       display: block;
@@ -166,53 +274,45 @@
       border-radius: inherit;
       background: $themeColor;
     }
-    &-solid{
+    &-solid {
       border: 1px solid $themeColor;
-      .tag-inner{
+      .tag-inner {
         background: $themeColor;
       }
     }
-    &-hollow{
+    &-hollow {
       border: 1px solid $themeColor;
-      .tag-inner{
-        border:inherit;
+      .tag-inner {
+        border: inherit;
         background: none;
       }
     }
   }
 
-
-
-
-  div#masonry {
-    display: -ms-flexbox;
-    -ms-flex-wrap: wrap;
-    -ms-flex-direction: column;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 100vw;
-    max-height: 800px;
-    font-size: 0;
-  }
-  div#masonry img {
-    width: 33.3%;
-    transition: .8s opacity;
-  }
-
-  div#masonry:hover img { opacity: 0.3; }
-  div#masonry:hover img:hover { opacity: 1; }
-
-  /* fallback for earlier versions of Firefox */
-
-  @supports not (flex-wrap: wrap) {
-    div#masonry { display: block; }
-    div#masonry img {
-      display: inline-block;
-      vertical-align: top;
+  .boxArea {
+    &-small {
+      .section {
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+        &-left {
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 
 
+</style>
+<style>
 
+  html,
+  body,
+  #app{
+    height: 100%;
+  }
+  .vue-waterfall-easy-container .vue-waterfall-easy-scroll{
+    overflow-y: auto !important;
+  }
 </style>

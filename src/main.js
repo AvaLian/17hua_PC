@@ -20,6 +20,12 @@ VueAMap.initAMapApiLoader({
   v: '1.4.4'
 });
 
+//视频播放插件
+import VueVideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
+Vue.use(VueVideoPlayer)
+
+
 //http请求和请求地址
 import http from './utils/http'
 Vue.prototype.$http = http;

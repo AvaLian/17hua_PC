@@ -24,7 +24,7 @@
         </div>
         <transition name="fade">
           <ul class="navbar" v-show="maClick">
-          <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
+          <li class="navbar-item" v-if="todo.zwname&&index>1" v-for="(todo,index) in this.$router.options.routes">
             <router-link class="navbar-item-cn" :class="navIndex === index ? ' navbar-item-active' : ''" :to="todo.path"
                          :key="index">
               {{todo.zwname}}
