@@ -2,7 +2,7 @@
   <div class="faculty_index">
     <vbanner :swiperOption="swiperOption">
       <swiper-slide>
-        <img class="swiper-slide-img" src="./images/eddy-klaus-33079.jpg" alt="">
+        <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
         <div class="swiper-slide-con">
           <div class="container">
             <h2>精英师资力量<br>定制专属名师来辅导</h2>
@@ -19,14 +19,26 @@
           <span slot="subtitle">专业、经验、严格</span>
         </vtitle>
         <ul class="standard">
-          <li class="standard-item" v-for="(e,i) in standard" :key="i" >
-            <div class="standard-item-bg" :style="{'background':e.bgColor}"></div>
-            <div class="standard-item-con">
-              <i class="standard-item-con-icon" :class="e.icon"></i>
-              <span>{{e.txt}}</span>
-            </div>
+          <li class="standard-item" >
+            <img class="width100" src="./images/icon1.png" alt="">
+          </li>
+          <li class="standard-item" >
+            <img class="width100" src="./images/icon2.png" alt="">
+          </li>
+          <li class="standard-item" >
+            <img class="width100" src="./images/icon3.png" alt="">
           </li>
         </ul>
+        <!--<ul class="standard">-->
+          <!--<li class="standard-item" v-for="(e,i) in standard" :key="i" >-->
+            <!--<img :src="" alt="">-->
+            <!--&lt;!&ndash;<div class="standard-item-bg" :style="{'background':e.bgColor}"></div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="standard-item-con">&ndash;&gt;-->
+              <!--&lt;!&ndash;<i class="standard-item-con-icon" :class="e.icon"></i>&ndash;&gt;-->
+              <!--&lt;!&ndash;<span>{{e.txt}}</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--</li>-->
+        <!--</ul>-->
       </div>
     </div>
 

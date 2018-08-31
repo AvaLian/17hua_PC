@@ -1,23 +1,29 @@
 <template>
   <div class="index">
-    <vbanner>
-      <swiper-slide>
-        <video-player  class="video-player"   ref="videoPlayer"
-                       :options="playerOptions"
-                       :playsinline="true"
-                       customEventName="customstatechangedeventname"
-                       @play="onPlayerPlay($event)"
-                       @pause="onPlayerPause($event)"
-                       @ended="onPlayerEnded($event)"
-                       @waiting="onPlayerWaiting($event)"
-                       @playing="onPlayerPlaying($event)"
-                       @timeupdate="onPlayerTimeupdate($event)"
-                       @statechanged="playerStateChanged($event)"
-                       @ready="playerReadied">
-        </video-player>
+    <vbanner :swiperOption="swiperOption" ref="ssss">
+      <swiper-slide style="position: relative;overflow: hidden">
+        <img class="swiper-slide-img" src="../../../static/images/obj-img/banner01.png" alt="">
+        <div class="swiper-slide-con" >
+          <div class="container">
+          <h2>你们的进步<br>就是我们最大的收获</h2>
+          <p>17画酷用真诚服务每一个人</p>
+          <!--<div class="fullScreen vjs-fullscreen-control vjs-control vjs-button"-->
+          <!--aria-live="polite"  @click="fullScreenHandle" aria-disabled="false">-->
+          <!--全屏-->
+          <!--</div>-->
+            <div  @click="fullScreenHandle">
+              全屏
+            </div>
+            <video-player  class="video-player vjs-custom-skin"   ref="videoPlayer" style="position: absolute;left:0;top:0; z-index: -1;"
+                           :options="playerOptions"
+                           :playsinline="true"
+                           customEventName="customstatechangedeventname">
+            </video-player>
+          </div>
+        </div>
       </swiper-slide>
       <swiper-slide>
-        <img class="swiper-slide-img" src="../../../static/images/obj-img/banner.jpg" alt="">
+        <img class="swiper-slide-img" src="../../../static/images/obj-img/banner01.png" alt="">
         <div class="swiper-slide-con">
           <div class="container">
             <h2>你们的进步<br>就是我们最大的收获</h2>
@@ -26,8 +32,6 @@
         </div>
       </swiper-slide>
     </vbanner>
-
-
 
     <!--领先价值-->
     <index_section_1></index_section_1>
@@ -71,18 +75,20 @@
       //   console.log("err:",err);
       // })
     },
+
     data(){
       return{
         playerOptions: {
+          height:"10",
           muted: false, // 默认情况下将会消除任何音频。
           language: 'zh-CN',
-          fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+          // fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
           playbackRates: [0.7, 1.0, 1.5, 2.0],
           sources: [{
             type: "video/mp4",
             src: "//image.17hua.me/upload/video/201709/1506411772545584.mp4"
           }],
-          poster: "../../../static/images/obj-img/banner.jpg",
+          poster: "../../../static/images/obj-img/banner01.png",
           notSupportedMessage: '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
           controlBar: {
             timeDivider: true,
@@ -90,46 +96,35 @@
             remainingTimeDisplay: false,
             fullscreenToggle: true  //全屏按钮
           }
-        }
+        },
+
       }
     },
     methods:{
-      // listen event
-      onPlayerPlay(player) {
-        // console.log('player play!', player)
-      },
-      onPlayerPause(player) {
-        // console.log('player pause!', player)
-      },
-      // ...player event
 
-      // or listen state event
-      playerStateChanged(playerCurrentState) {
-        // console.log('player current update state', playerCurrentState)
+      fullScreenHandle(){
+        if(!this.player.isFullscreen()){
+          this.player.requestFullscreen();
+          this.player.isFullscreen(true);
+          this.player.play();
+        }else{
+          this.player.exitFullscreen();
+          this.player.isFullscreen(false);
+          this.player.pause();
+        }
       },
+    },
 
-      // player is ready
-      playerReadied(player) {
-        console.log('the player is readied', player)
-        // you can use it to do something...
-        // player.[methods]
-      }
-    }
 
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .video-js .vjs-big-play-button{
-    margin:0 auto;
-
   }
 
+
 </style>
-<!--<style>-->
-  <!--.vjs_video_3-dimensions.vjs-fluid {-->
-    <!--padding-top: 0 !important;-->
-  <!--}-->
-<!--</style>-->
+
 
 

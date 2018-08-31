@@ -92,10 +92,10 @@
 
 <style lang="scss" scoped>
  .satisfa {
-    background-image: url("./images/IMG_5635.jpg");
+    background-image: url("./images/07.png");
   }
   .contact {
-    background-image: url("./images/DSC4172.jpg");
+    background-image: url("./images/12.png");
   }
 </style>
 <style>

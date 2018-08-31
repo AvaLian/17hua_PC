@@ -44,10 +44,10 @@
 
 <style lang="scss" scoped>
   .xdxx{
-    background-image: url("./images/DSC4230.jpg");
+    background-image: url("./images/rectangle15.png");
   }
   .experience{
-    background-image: url("./images/baTranig.jpg");
+    background-image: url("./images/17rectangle.jpg");
     &-btn{
       @include vbtn($themeColor,#fff)
     }

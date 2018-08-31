@@ -40,28 +40,28 @@
       return {
         teachIdea: [
           {
-            iconUrl: require("./images/rx-brush.png"),
+            iconUrl: require("./images/01.png"),
             color: "#fe425b",
             title: "优质绘画教学",
             subtitle: "账务绘画核心，解锁创造力",
             txt: "多种绘画教育方式，针对不同性格人群。专属定制创意绘画计划，帮助孩子打开创意世界的大门，解锁创造力。",
-            imgUrl: require("./images/rx-brush-img.png")
+            imgUrl: require("./images/04.png")
           },
           {
-            iconUrl: require("./images/rx-board.png"),
+            iconUrl: require("./images/02.png"),
             color: "#feae01",
             title: "国内外艺术家、教育家全力打造",
             subtitle: "获得多方位名师指导",
             txt: "17画酷拥有顶尖的师资力量，汇聚来自加拿大、美国、中国等艺术家和教育家，全力打造创意绘画课程。",
-            imgUrl: require("./images/rx-board-img.png")
+            imgUrl: require("./images/05.png")
           },
           {
-            iconUrl: require("./images/rx-brow.png"),
+            iconUrl: require("./images/03.png"),
             color: "#00b3e6",
             title: "服务便民，时间自由",
             subtitle: "无须出门就能享受绘画乐趣",
             txt: "自由选择上课时间和地点，用户可选择上门绘画教学，让孩子在家就能体验人性化的名师绘画教学。",
-            imgUrl: require("./images/rx-brow-img.png")
+            imgUrl: require("./images/06.png")
           }
         ],
       }

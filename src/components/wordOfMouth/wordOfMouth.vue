@@ -2,7 +2,7 @@
   <div class="wordOfMouth">
     <vbanner :swiperOption="swiperOption">
       <swiper-slide>
-        <img class="swiper-slide-img" src="./images/ChildrenandParents.jpg" alt="">
+        <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
         <div class="swiper-slide-con">
           <div class="container">
             <h2>你们的进步<br>就是我们最大的收获</h2>
@@ -18,7 +18,7 @@
           <span slot="title">学员作品分享、相信榜样的力量</span>
           <span slot="subtitle">优秀的培育成果，汇聚每一份精彩</span>
         </vtitle>
-        <img class="width100" src="./images/works.jpg" alt="学员作品分享、相信榜样的力量">
+        <img class="width100" src="./images/rectangle13.png" alt="学员作品分享、相信榜样的力量">
       </div>
     </div>
     <div class="section">

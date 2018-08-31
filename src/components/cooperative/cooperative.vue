@@ -2,7 +2,7 @@
     <div class="cooperative">
       <vbanner :swiperOption="swiperOption">
         <swiper-slide>
-          <img class="swiper-slide-img" src="./images/100477778.jpg" alt="">
+          <img class="swiper-slide-img" src="./images/100477778.png" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <h2>携手合作伙伴<br>共创未来</h2>
@@ -18,7 +18,7 @@
             <span slot="title">合作伙伴遍布全球</span>
             <span slot="subtitle">中国、新加坡、加拿大、美国</span>
           </vtitle>
-          <img class="width100" src="./images/map.png" alt="合作伙伴遍布全球">
+          <img class="width100" src="./images/rectangle3.png" alt="合作伙伴遍布全球">
         </div>
       </div>
 

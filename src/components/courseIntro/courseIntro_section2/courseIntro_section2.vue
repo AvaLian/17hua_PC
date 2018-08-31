@@ -6,15 +6,16 @@
             <span slot="title">轻松4步，开启创意世界的大门</span>
             <span slot="subtitle">创意绘画，让你的世界更具色彩</span>
           </vtitle>
-          <ul class="step">
-            <li class="step-item" v-for="(e,i) in step">
-              <div class="step-item-bg" :style="{'background': e.bgColor}"></div>
-              <div class="step-item-con">
-                <i class="step-item-con-num">{{"0"+(i+1)}}</i>
-                <span>{{e.txt}}</span>
-              </div>
-            </li>
-          </ul>
+          <img class="width100" src="./images/rectangle10.png" alt="">
+          <!--<ul class="step">-->
+            <!--<li class="step-item" v-for="(e,i) in step">-->
+              <!--<div class="step-item-bg" :style="{'background': e.bgColor}"></div>-->
+              <!--<div class="step-item-con">-->
+                <!--<i class="step-item-con-num">{{"0"+(i+1)}}</i>-->
+                <!--<span>{{e.txt}}</span>-->
+              <!--</div>-->
+            <!--</li>-->
+          <!--</ul>-->
         </div>
       </div>
 
@@ -24,7 +25,7 @@
             <span slot="title">每一种创意绘画都有专属核心</span>
             <span slot="subtitle">全面提升创意，你本来就是艺术家</span>
           </vtitle>
-          <img class="width100" src="./images/IMGk.jpg" alt="每一种创意绘画都有专属核心">
+          <img class="width100 boxRadius" src="./images/IMGk.jpg" alt="每一种创意绘画都有专属核心">
         </div>
       </div>
     </div>

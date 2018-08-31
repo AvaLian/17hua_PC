@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-      <swiper :options="options" >
+      <swiper :options="options" ref="mySwiper">
         <slot></slot>
         <div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="options.prevButton"></div>
         <div class="swiper-button-next swiper-button-next" slot="button-next" v-if="options.prevButton"></div>
@@ -35,10 +35,13 @@
       }
     },
     computed:{
+      swiper() {
+        return this.$refs.mySwiper.swiper;
+      },
       options(){
         return Object.assign({},this.primaryOptions,this.swiperOption)
       }
-    }
+    },
   }
 </script>
 

@@ -29,13 +29,13 @@
   "courses":[
       {
         "name": "VIP一对一",
-        "imgUrl":"//image.17hua.me/upload/image/201709/1506601704878228.png",
+        "imgUrl":"../../static/images/courses/08.png",
         "des":"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
         "con":"课程内容：基础入门、刮画、甩酷、创意绘画"
       },
       {
         "name": "暑期大师班",
-        "imgUrl":"../../static/images/obj-img/IMG_6317_1.jpg",
+        "imgUrl":"../../static/images/courses/IMG_6317_1.jpg",
         "des":"定制专属的绘画服务，让孩子更专注于创意绘画能够让孩子树立独立性、树立自律性，让孩子主动的爱上创意绘画，针对问题提出解决，VIP创意绘画一对一让孩子更加的专注和专业。",
         "con":"课程内容：基础入门、刮画、甩酷、创意绘画"
       },
@@ -66,54 +66,54 @@
   ],
   "comment":[
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar1.png",
+      "avatarUrl":"../../static/images/wordofmonth/1.png",
       "nickname":"付月妈妈",
       "content":"我们家孩子是一个很调皮的孩子，怎么都管不住，但自从来了17画酷骂我们家孩子变得文静懂事了，画画的时候还特别专注，看到孩子能够慢慢的独立起来，我偏要感谢17画酷。"
     },
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar2.png",
+      "avatarUrl":"../../static/images/wordofmonth/IMG_1312.png",
       "nickname":"胖胖妈妈",
       "content":"感谢17画酷，在17画酷学习之后，孩子对于创意的绘画和自信心都有很大的提高。上完一对一课程后，能够主动和妈妈沟通交流，并且告诉我要画什么，以前孩子很少和我说话，这真要感谢17画酷。"
     },
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar3.png",
+      "avatarUrl":"../../static/images/wordofmonth/IMG_6309.png",
       "nickname":"妞妞妈妈",
       "content":"17画酷的老师教得很好，而且我发现我们家孩子对于细节越来越细心了，而且在这里上课，能够明显的感觉得到老师的专业，我很放心吧孩子交给你们。"
     },
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar2.png",
-      "nickname":"付月妈妈",
+      "avatarUrl":"../../static/images/wordofmonth/IMG_1312.png",
+      "nickname":"胖胖妈妈",
       "content":"感谢17画酷，在17画酷学习之后，孩子对于创意的绘画和自信心都有很大的提高。上完一对一课程后，能够主动和妈妈沟通交流，并且告诉我要画什么，以前孩子很少和我说话，这真要感谢17画酷。"
     },
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar1.png",
+      "avatarUrl":"../../static/images/wordofmonth/1.png",
       "nickname":"付月妈妈",
       "content":"我们家孩子是一个很调皮的孩子，怎么都管不住，但自从来了17画酷骂我们家孩子变得文静懂事了，画画的时候还特别专注，看到孩子能够慢慢的独立起来，我偏要感谢17画酷。"
     },
     {
-      "avatarUrl":"../../static/images/wordofmonth/avatar3.png",
+      "avatarUrl":"../../static/images/wordofmonth/IMG_6309.png",
       "nickname":"妞妞妈妈",
       "content":"17画酷的老师教得很好，而且我发现我们家孩子对于细节越来越细心了，而且在这里上课，能够明显的感觉得到老师的专业，我很放心吧孩子交给你们。"
     }
   ],
   "coller":[
     {
-      "imgUrl": "../../static/images/coller/coll1.jpg"
+      "imgUrl": "../../static/images/coller/13.png"
     },
     {
-      "imgUrl": "../../static/images/coller/coll2.jpg"
+      "imgUrl": "../../static/images/coller/14.png"
     },
     {
-      "imgUrl": "../../static/images/coller/coll3.jpg"
+      "imgUrl": "../../static/images/coller/15.png"
     },
     {
-      "imgUrl": "../../static/images/coller/coll4.jpg"
+      "imgUrl": "../../static/images/coller/16.png"
     },
     {
-      "imgUrl": "../../static/images/coller/coll5.jpg"
+      "imgUrl": "../../static/images/coller/17.png"
     },
     {
-      "imgUrl": "../../static/images/coller/coll6.jpg"
+      "imgUrl": "../../static/images/coller/18.png"
     }
   ]
 }

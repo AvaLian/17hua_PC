@@ -6,7 +6,7 @@
           <span slot="title">严选精英画师</span>
           <span slot="subtitle">来自中国美院、上海美院，真正万中选一的好老师</span>
         </vtitle>
-        <img class="width100" src="./images/selectPro.jpg" alt="严选精英画师">
+        <img class="width100" src="./images/polygon1-2.png" alt="严选精英画师">
       </div>
     </div>
 
