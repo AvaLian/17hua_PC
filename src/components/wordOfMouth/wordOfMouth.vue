@@ -47,7 +47,7 @@
 
 <script>
   import vbanner from '../subcomponent/vbroadcast/vbroadcast'
-  import vtitle from "../subcomponent/vtitle"
+  import vtitle from "../subcomponent/section-title"
 
   export default {
     name: "word-of-mouth",

@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="section section-borderBottom">
+    <div class="section section-borderBottom teacher">
       <div class="container">
         <vtitle>
           <span slot="title">资深团队，深耕教研</span>
@@ -23,8 +23,8 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/vtitle"
-  import vteacher from '../../subcomponent/vteacher'
+  import vtitle from "../../subcomponent/section-title"
+  import vteacher from '../../subcomponent/section-teacher/section-teacher'
   export default {
     name: "advantage_section1",
     components: {
@@ -33,6 +33,5 @@
   }
 </script>
 
-<style lang="scss" scoped>
-
+<style>
 </style>

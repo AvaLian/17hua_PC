@@ -22,15 +22,15 @@
           </div>
         </div>
       </div>
-      <smenu :SCWidth="screenWidth"  id="vheader"></smenu>
+      <index_menu :SCWidth="screenWidth"  id="vmenu"></index_menu>
   </div>
 </template>
 
 <script>
-  import smenu from '../subcomponent/s-menu'
+  import index_menu from './menu'
   export default {
     name: "vheader",
-    components:{smenu},
+    components:{index_menu},
     computed:{
       tel(){
         return this.$store.state.tel;
@@ -53,7 +53,7 @@
     methods:{
       handleScroll () {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-        var offsetTop = document.querySelector('#vheader').offsetTop;
+        var offsetTop = document.querySelector('#vmenu').offsetTop;
         if(scrollTop > offsetTop){
           this.searchBarFixed = true
           this.$store.commit('cisScroll', 1);
@@ -69,14 +69,14 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
-  @import "hfpublic.css";
+  @import "./public.css";
 
   $topHeight: 40px;   //顶部高度
-
-
   .vheader {
     /*顶部信息*/
     .top {
+      font-size: $FS18;
+      font-family: PingFangSC-Semibold;
       .container{
         height: $topHeight;
         display: flex;
@@ -89,8 +89,6 @@
       }
     }
   }
-
-
 
   .boxArea{
     &-large,&-middle{
@@ -105,8 +103,4 @@
       }
     }
   }
-
-
-
-
 </style>

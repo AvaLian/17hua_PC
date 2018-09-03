@@ -56,8 +56,8 @@
 
 <script>
   import vbanner from '../../subcomponent/vbroadcast/vbroadcast'
-  import vteacher from '../../subcomponent/vteacher'
-  import vtitle from "../../subcomponent/vtitle"
+  import vteacher from '../../subcomponent/section-teacher/section-teacher'
+  import vtitle from "../../subcomponent/section-title"
     export default {
         name: "faculty_index",
     components: {

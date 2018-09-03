@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/vtitle"
+  import vtitle from "../../subcomponent/section-title"
   export default {
     name: "index_section1",
     components:{
@@ -42,17 +42,17 @@
           },
           {
             imgUrl: require("./images/IMG_6750.jpg"),
-            des: "发挥孩子天性",
+            des: "共享经济、互利共赢",
             bgColor: "rgba(189,117,243,.8)"
           },
           {
             imgUrl: require("./images/DSC4231.jpg"),
-            des: "在快乐中成长、学习",
+            des: "增强企业团队凝聚力",
             bgColor: "rgba(58,194,232,.8)"
           },
           {
             imgUrl: require("./images/WechatIMG35.jpg"),
-            des: "收获满意答卷",
+            des: "合作提升品牌价值",
             bgColor: "rgba(255,128,155,.8)"
           },
         ]
@@ -87,12 +87,12 @@
         }
         &-txt {
           width: 100%;
-          height: 20%;
+          height: 30%;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
-          font-size: $FS18;
+          font-size: 36px;
           position: absolute;
           left: 0;
           bottom: 0;
@@ -123,6 +123,9 @@
     &-small {
       .exhibition-item {
         flex: 0 0 100%;
+        &-txt{
+          font-size: $FS20;
+        }
       }
     }
   }

@@ -29,12 +29,12 @@ $boxRadius:10px;
 //section-1：有图片背景 section-bgColor：有背景颜色 section-borderBottom：下划线
 .section{
   .container{
-    padding: 5%;
+    //padding: 5%;
+    padding: 100px 0;
     box-sizing: border-box;
   }
   &-1{
     background-position: center;
-    //background-size: 100%;
     background-repeat: no-repeat;
   }
   &-bgColor{
@@ -42,6 +42,22 @@ $boxRadius:10px;
   }
   &-borderBottom{
     border-bottom: 1px solid $borderColor;
+  }
+}
+.boxArea {
+  &-middle{
+    .section {
+      .container {
+        padding: 100px 20px;
+      }
+    }
+  }
+  &-small{
+    .section {
+      .container {
+        padding: 30px 20px;
+      }
+    }
   }
 }
 

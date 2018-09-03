@@ -22,7 +22,7 @@ const state = {
       SHeigth: 40
     },
     {
-      LHeigth: 60,
+      LHeigth: 70,
       SHeigth: 40
     }
   ],//是否滚动页面对应的固定头部（高度）

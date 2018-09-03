@@ -37,7 +37,7 @@
 
 <script>
     import vbanner from '../subcomponent/vbroadcast/vbroadcast'
-    import vtitle from "../subcomponent/vtitle"
+    import vtitle from "../subcomponent/section-title"
     import vcoller from '../subcomponent/vcoller'
     export default {
       name: "cooperative",

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import vtitle from "../../subcomponent/vtitle"
+    import vtitle from "../../subcomponent/section-title"
     export default {
       name: "course-intro_section2",
       components:{

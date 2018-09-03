@@ -2,7 +2,7 @@
   <div class="index_section2 section">
     <div class="container">
       <vtitle>
-        <span slot="title">人性化教学理念</span>
+        <span slot="title">人性化服务理念</span>
         <span slot="subtitle">优质的创意绘画教学、强大的师资力量、人性化的便民服务</span>
       </vtitle>
       <ul class="teachidea">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/vtitle"
+  import vtitle from "../../subcomponent/section-title"
   export default {
     name: "index_section2",
     components:{
@@ -41,7 +41,7 @@
         teachIdea: [
           {
             iconUrl: require("./images/01.png"),
-            color: "#fe425b",
+            color: "#ff405c",
             title: "优质绘画教学",
             subtitle: "账务绘画核心，解锁创造力",
             txt: "多种绘画教育方式，针对不同性格人群。专属定制创意绘画计划，帮助孩子打开创意世界的大门，解锁创造力。",
@@ -49,7 +49,7 @@
           },
           {
             iconUrl: require("./images/02.png"),
-            color: "#feae01",
+            color: "#ffaf00",
             title: "国内外艺术家、教育家全力打造",
             subtitle: "获得多方位名师指导",
             txt: "17画酷拥有顶尖的师资力量，汇聚来自加拿大、美国、中国等艺术家和教育家，全力打造创意绘画课程。",
@@ -57,7 +57,7 @@
           },
           {
             iconUrl: require("./images/03.png"),
-            color: "#00b3e6",
+            color: "#00b3e7",
             title: "服务便民，时间自由",
             subtitle: "无须出门就能享受绘画乐趣",
             txt: "自由选择上课时间和地点，用户可选择上门绘画教学，让孩子在家就能体验人性化的名师绘画教学。",
@@ -79,7 +79,7 @@
       line-height: 1.2;
       align-items: center;
       justify-content: space-between;
-      font-size: $FS20;
+      font-size: $FS24;
       &-div {
         box-sizing: border-box;
       }
@@ -89,8 +89,9 @@
           height: 64px;
         }
         &-title {
-          margin: 20px 0;
-          font-size: $FS24;
+          margin: 30px 0;
+          font-size: 36px;
+          font-family: PingFangSC-Light;
         }
       }
       &-img {

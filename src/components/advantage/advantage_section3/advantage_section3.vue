@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/vtitle"
+  import vtitle from "../../subcomponent/section-title"
   import vdigits from '../../subcomponent/vdigits'
   export default {
     name: "advantage_section3",

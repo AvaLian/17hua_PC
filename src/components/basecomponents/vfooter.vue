@@ -10,7 +10,7 @@
             </router-link>
           </li>
         </ul>
-        <div>客服热线：400-128-1717</div>
+        <div class="tel">客服热线：{{tel}}</div>
       </div>
       <div class="copyright flex-row-bc">
         <div class="logo">
@@ -56,6 +56,9 @@
   export default {
     name: "vfooter",
     computed:{
+      tel(){
+        return this.$store.state.tel;
+      },
       SCWidth(){
         return this.$store.state.screenSize.w;
       }
@@ -70,7 +73,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/style/icon.css";
-  @import "hfpublic.css";
+  @import "./public.css";
 
   .vfooter {
     &-large{
@@ -80,10 +83,11 @@
         .navbar {
           display: flex;
           padding:40px 0;
+          font-size: $FS18;
           .navbar-item {
             display: flex;
             height: 100%;
-            margin-right: 30px;
+            margin-right: 50px;
             .navbar-item-cn {
               display: flex;
               align-items: center;
@@ -94,6 +98,11 @@
             }
           }
         }
+        .tel{
+          font-size: $FS24;
+          font-family: PingFangSC-Semibold;
+          color:$fMColor;
+        }
       }
       /*版权*/
       .copyright {
@@ -101,7 +110,6 @@
         .logo {
           display: flex;
           align-items: center;
-
           .txt {
             margin-left:$FS20;
             &-c{

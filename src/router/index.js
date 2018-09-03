@@ -77,9 +77,9 @@ export default new Router({
     },{
       path: '/cooper',
       name: 'Cooper',
-      zwname:"合作伙伴",
+      zwname:"合作品牌",
       meta: {
-        title: '合作伙伴'
+        title: '合作品牌'
       },
       component: Cooper
     },{

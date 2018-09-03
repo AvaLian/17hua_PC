@@ -28,10 +28,11 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      margin-top: 100px;
       &-item {
         flex:0 0 33.3%;
         text-align: center;
-        margin-top: 5%;
+        /*margin-top: 5%;*/
         img {
           width: 260px;
         }
@@ -47,8 +48,12 @@
       }
     }
     &-small {
+      .coller{
+        margin-top: 0;
+      }
       .coller-item{
         flex: 0 0 100%;
+        margin: 20px 0;
       }
     }
   }

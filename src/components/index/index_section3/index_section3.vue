@@ -60,9 +60,9 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/vtitle"
+  import vtitle from "../../subcomponent/section-title"
   import vdigits from '../../subcomponent/vdigits'
-  import vteacher from '../../subcomponent/vteacher'
+  import vteacher from '../../subcomponent/section-teacher/section-teacher'
   import vcourses from '../../subcomponent/vcourses'
 
   import vcoller from '../../subcomponent/vcoller'
@@ -99,6 +99,9 @@
   }
 </style>
 <style>
+  .contact .section-title{
+    margin-bottom: 50px;
+  }
   .contact .vbtn-info{
     text-align: center;
   }
