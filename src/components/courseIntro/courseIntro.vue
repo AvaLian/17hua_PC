@@ -1,6 +1,6 @@
 <template>
   <div class="courseIntro">
-    <vbanner :swiperOption="swiperOption">
+    <section_swiper>
       <swiper-slide>
         <img class="swiper-slide-img" src="./images/DSC4172.jpg" alt="">
         <div class="swiper-slide-con">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </swiper-slide>
-    </vbanner>
+    </section_swiper>
 
     <courseIntro_section1></courseIntro_section1>
 
@@ -19,20 +19,15 @@
 </template>
 
 <script>
-  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import section_swiper from '../subcomponent/section-swiper/section-swiper'
   import courseIntro_section1 from './courseIntro_section1/courseIntro_section1'
   import courseIntro_section2 from './courseIntro_section2/courseIntro_section2'
   export default {
     name: "courseIntro",
     components: {
-      vbanner,courseIntro_section1,courseIntro_section2
-    },
-    data() {
-      return {
-        swiperOption:{
-          pagination : null
-        }
-      }
+      section_swiper,
+      courseIntro_section1,
+      courseIntro_section2
     }
   }
 </script>

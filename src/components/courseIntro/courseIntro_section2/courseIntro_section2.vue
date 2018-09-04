@@ -2,10 +2,10 @@
     <div class="course-intro_section2">
       <div class="section">
         <div class="container">
-          <vtitle>
+          <section_title>
             <span slot="title">轻松4步，开启创意世界的大门</span>
             <span slot="subtitle">创意绘画，让你的世界更具色彩</span>
-          </vtitle>
+          </section_title>
           <img class="width100" src="./images/rectangle10.png" alt="">
           <!--<ul class="step">-->
             <!--<li class="step-item" v-for="(e,i) in step">-->
@@ -21,10 +21,10 @@
 
       <div class="section section-bgColor">
         <div class="container">
-          <vtitle>
+          <section_title>
             <span slot="title">每一种创意绘画都有专属核心</span>
             <span slot="subtitle">全面提升创意，你本来就是艺术家</span>
-          </vtitle>
+          </section_title>
           <img class="width100 boxRadius" src="./images/IMGk.jpg" alt="每一种创意绘画都有专属核心">
         </div>
       </div>
@@ -32,11 +32,11 @@
 </template>
 
 <script>
-    import vtitle from "../../subcomponent/section-title"
+    import section_title from "../../subcomponent/section-title"
     export default {
       name: "course-intro_section2",
       components:{
-        vtitle
+        section_title
       },
       data(){
           return{

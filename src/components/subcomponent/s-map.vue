@@ -1,5 +1,5 @@
 <template>
-  <div class="amap-page-container">
+  <div class="amap-page-container" style="height: 500px;">
     <el-amap vid="amapDemo" :zoom="zoom" :zoomEnable="zoomEnable" :center="center" class="amap-demo" :plugin="plugin">
       <el-amap-info-window isCustom="true" :position="mywindow.position" :content="mywindow.content"
                            :offset="mywindow.offset"></el-amap-info-window>

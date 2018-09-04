@@ -3,10 +3,10 @@
     <h4 class="section-title-txt" v-if="this.$slots.title">
       <slot name="title"></slot>
     </h4>
-    <p :class="{'none':SCWTag>1}" v-if="this.$slots.subtitle">
+    <p v-if="this.$slots.subtitle && SCWTag<1">
       <slot name="subtitle"></slot>
     </p>
-    <p :class="{'none':SCWTag>1}" v-if="this.$slots.subtitle1">
+    <p v-if="this.$slots.subtitle1 && SCWTag<1">
       <slot name="subtitle1"></slot>
     </p>
   </div>

@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: "vcoller",
+        name: "section-coller",
         computed:{
           coll(){
             return this.$store.state.coller;

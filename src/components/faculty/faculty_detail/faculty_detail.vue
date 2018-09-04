@@ -78,7 +78,7 @@
 </template>
 
 <script>
-  import vbanner from '../../subcomponent/vbroadcast/vbroadcast'
+  import vbanner from '../../subcomponent/section-swiper/section-swiper'
   import vueWaterfallEasy from 'vue-waterfall-easy'
   export default {
     name: "faculty_detail",

@@ -1,6 +1,6 @@
 <template>
     <div class="cooperative">
-      <vbanner :swiperOption="swiperOption">
+      <section_swiper>
         <swiper-slide>
           <img class="swiper-slide-img" src="./images/100477778.png" alt="">
           <div class="swiper-slide-con">
@@ -10,14 +10,14 @@
             </div>
           </div>
         </swiper-slide>
-      </vbanner>
+      </section_swiper>
 
       <div class="section">
         <div class="container">
-          <vtitle>
+          <section_title>
             <span slot="title">合作伙伴遍布全球</span>
             <span slot="subtitle">中国、新加坡、加拿大、美国</span>
-          </vtitle>
+          </section_title>
           <img class="width100" src="./images/rectangle3.png" alt="合作伙伴遍布全球">
         </div>
       </div>
@@ -25,32 +25,25 @@
       <!--合作伙伴-->
       <div class="section">
         <div class="container">
-          <vtitle>
+          <section_title>
             <span slot="title">与合作伙伴共创未来</span>
             <span slot="subtitle">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</span>
-          </vtitle>
-          <vcoller></vcoller>
+          </section_title>
+          <section_coller></section_coller>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-    import vbanner from '../subcomponent/vbroadcast/vbroadcast'
-    import vtitle from "../subcomponent/section-title"
-    import vcoller from '../subcomponent/vcoller'
+    import section_swiper from '../subcomponent/section-swiper/section-swiper'
+    import section_title from "../subcomponent/section-title"
+    import section_coller from '../subcomponent/section-coller/section-coller'
     export default {
       name: "cooperative",
       components:{
-        vbanner,vcoller,vtitle
+        section_swiper,section_coller,section_title
       },
-      data(){
-          return{
-            swiperOption:{
-              pagination : null
-            }
-          }
-      }
     }
 </script>
 

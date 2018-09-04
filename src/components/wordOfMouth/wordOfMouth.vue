@@ -1,6 +1,6 @@
 <template>
   <div class="wordOfMouth">
-    <vbanner :swiperOption="swiperOption">
+    <section_swiper>
       <swiper-slide>
         <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
         <div class="swiper-slide-con">
@@ -10,24 +10,24 @@
           </div>
         </div>
       </swiper-slide>
-    </vbanner>
+    </section_swiper>
 
     <div class="section">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">学员作品分享、相信榜样的力量</span>
           <span slot="subtitle">优秀的培育成果，汇聚每一份精彩</span>
-        </vtitle>
+        </section_title>
         <img class="width100" src="./images/rectangle13.png" alt="学员作品分享、相信榜样的力量">
       </div>
     </div>
     <div class="section">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">妈妈有话说</span>
           <span slot="subtitle">聚集每个感动，你们的评价是我们最大的收获</span>
-        </vtitle>
-        <vbanner class="comment" :swiperOption="swiperOption1">
+        </section_title>
+        <section_swiper_group :swiperOption="swiperOption" class="comment" :total="comment.length">
           <swiper-slide class="comment-item" v-for="(e,i) in comment" :key="i">
             <div class="comment-item-inner">
               <div class="comment-item-content boxRadius">
@@ -38,7 +38,7 @@
               <img class="comment-item-avatar" :src="e.avatarUrl" alt="">
             </div>
           </swiper-slide>
-        </vbanner>
+        </section_swiper_group>
       </div>
     </div>
 
@@ -46,35 +46,18 @@
 </template>
 
 <script>
-  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
-  import vtitle from "../subcomponent/section-title"
+  import section_swiper from '../subcomponent/section-swiper/section-swiper'
+  import section_swiper_group from '../subcomponent/section-swiper/section-swiper-group'
+  import section_title from "../subcomponent/section-title"
 
   export default {
     name: "word-of-mouth",
     components: {
-      vbanner,vtitle
+      section_swiper,section_swiper_group,section_title
     },
     computed: {
       comment(){
         return this.$store.state.comment
-      }
-    },
-    data(){
-      return{
-        swiperOption:{
-          pagination : null
-        },
-        swiperOption1:{
-          slidesPerView : 3,
-          slidesPerGroup : 3,
-          effect:"slide",
-          prevButton:'.swiper-button-prev',
-          nextButton:'.swiper-button-next',
-          loop:false,
-          autoplay:0,
-          pagination:null,
-          // spaceBetween : 20,
-        }
       }
     },
     created(){
@@ -137,24 +120,6 @@
   }
 </style>
 <style lang="scss">
-  .comment{
-    position: relative;
-    padding: 0 50px;
-  }
-  .swiper-container{
-    position: static;
-  }
 
-
-  .boxArea {
-    &-small {
-      .comment {
-        padding: 0;
-      }
-      .swiper-button-next, .swiper-button-prev {
-        display: none;
-      }
-    }
-  }
 </style>
 

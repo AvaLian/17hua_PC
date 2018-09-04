@@ -1,10 +1,10 @@
 <template>
   <div class="index_section2 section">
     <div class="container">
-      <vtitle>
+      <section_title>
         <span slot="title">人性化服务理念</span>
         <span slot="subtitle">优质的创意绘画教学、强大的师资力量、人性化的便民服务</span>
-      </vtitle>
+      </section_title>
       <ul class="teachidea">
         <li class="teachidea-item" v-for="(e,i) in teachIdea" :key="i">
           <div class="teachidea-item-div teachidea-item-des">
@@ -13,7 +13,7 @@
               <h6>{{e.title}}</h6>
               <h6>{{e.subtitle}}</h6>
             </div>
-            <p :class="{'none':SCWTag>1}">{{e.txt}}</p>
+            <p v-if="SCWTag<1">{{e.txt}}</p>
           </div>
           <div class="teachidea-item-div" :style="{'order':(i+1)%2?0:SCWTag>1?0:-1}">
             <img class="teachidea-item-img" :src="e.imgUrl" alt="">
@@ -25,11 +25,11 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title"
   export default {
     name: "index_section2",
     components:{
-      vtitle
+      section_title
     },
     computed:{
       SCWTag(){

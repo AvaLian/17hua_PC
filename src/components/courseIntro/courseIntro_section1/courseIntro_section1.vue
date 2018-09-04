@@ -2,10 +2,10 @@
     <div class="course-intro_section1">
       <div class="section">
         <div class="container">
-          <vtitle>
+          <section_title>
             <span slot="title">VTS视觉观察思考</span>
             <span slot="subtitle">理解艺术、分析思考、引导讨论、4C能力</span>
-          </vtitle>
+          </section_title>
           <ul class="ability">
             <li class="ability-item boxRadius" v-for="(e,i) in ability">
               <div class="ability-item-title">
@@ -20,22 +20,24 @@
 
       <div class="section section-bgColor">
         <div class="container">
-          <vtitle>
-            <span slot="title">专业绘画课程体系</span>
-          </vtitle>
-          <vcourses></vcourses>
+          <section_title>
+            <span slot="title">画酷产品体系标准</span>
+            <span slot="subtitle">专业课程体系标准</span>
+          </section_title>
+          <section_course></section_course>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/section-title"
-  import vcourses from '../../subcomponent/vcourses'
+  import section_title from "../../subcomponent/section-title"
+  import section_course from '../../subcomponent/section-course/section-course'
   export default {
       name: "course-intro_section1",
       components: {
-        vtitle,vcourses
+        section_title,
+        section_course
       },
       data(){
         return{

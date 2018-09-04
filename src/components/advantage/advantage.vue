@@ -1,7 +1,7 @@
 <template>
   <div class="advantage">
 
-    <vbanner :swiperOption="swiperOption">
+    <section_swiper>
       <swiper-slide>
         <img class="swiper-slide-img" src="./images/IMG_2030.jpg" alt="">
         <div class="swiper-slide-con">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </swiper-slide>
-    </vbanner>
+    </section_swiper>
 
 
     <advantage_section1></advantage_section1>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import section_swiper from '../subcomponent/section-swiper/section-swiper'
 
 
   import advantage_section1 from './advantage_section1/advantage_section1'
@@ -39,13 +39,10 @@
     name: "advantage",
     components: {
       advantage_section1, advantage_section2, advantage_section3,
-      vbanner,vbtnInfo,vmessage
+      section_swiper,vbtnInfo,vmessage
     },
     data() {
       return {
-        swiperOption:{
-          pagination : null
-        },
         isShow:false
       }
     },

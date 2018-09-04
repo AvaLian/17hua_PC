@@ -3,55 +3,55 @@
     <!--服务理念-->
     <div class="section section-1 satisfa">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">高质量的服务理念</span>
           <span slot="subtitle">从服务效率到用户反馈，用最优质的服务让用户满意</span>
-        </vtitle>
-        <vdigits :num="3"></vdigits>
+        </section_title>
+        <section_percent></section_percent>
       </div>
     </div>
 
     <!--教学课程-->
     <div class="section">
       <div class="container">
-        <vtitle>
-          <span slot="title">绘画课程体系标准</span>
+        <section_title>
+          <span slot="title">画酷产品体系标准</span>
           <span slot="subtitle">专业课程体系标准</span>
-        </vtitle>
-        <vcourses></vcourses>
+        </section_title>
+        <section_course></section_course>
       </div>
     </div>
 
     <!--师资力量-->
     <div class="section section-bgColor">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">严格筛选，组建强大师资</span>
           <span slot="subtitle">淘沙式筛选，严格背景调查，千万名老师中挑选一位最优质的导师</span>
-        </vtitle>
-        <vteacher></vteacher>
+        </section_title>
+        <section_teacher></section_teacher>
       </div>
     </div>
 
     <!--合作伙伴-->
     <div class="section">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">与合作伙伴共创未来</span>
           <span slot="subtitle">来自多领域的合作方式，建立强大企业纽带，让未来不设限！</span>
-        </vtitle>
-        <vcoller></vcoller>
+        </section_title>
+        <section_coller></section_coller>
       </div>
     </div>
 
     <!--联系我们-->
     <div class="section section-1 contact" style="position: relative">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">联系我们</span>
           <span slot="subtitle">如果你有任何问题，我们将为你解答。如果你又需要任何帮助，我们将提供协助。</span>
           <span slot="subtitle1">请随时联系我们！</span>
-        </vtitle>
+        </section_title>
         <vbtnInfo v-on:onShow="popupShow">联系我们</vbtnInfo>
         <vmessage :isShow="isShow" v-on:onHide="popupHide"></vmessage>
       </div>
@@ -60,19 +60,26 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/section-title"
-  import vdigits from '../../subcomponent/vdigits'
-  import vteacher from '../../subcomponent/section-teacher/section-teacher'
-  import vcourses from '../../subcomponent/vcourses'
+  import section_title from "../../subcomponent/section-title"
+  import section_percent from '../../subcomponent/section-percent/section-percent'
+  import section_teacher from '../../subcomponent/section-teacher/section-teacher'
 
-  import vcoller from '../../subcomponent/vcoller'
+  import section_coller from '../../subcomponent/section-coller/section-coller'
   import vbtnInfo from '../../subcomponent/vbuttons/vbtn-info'
   import vmessage from '../../subcomponent/vpopup/message/message'
+
+
+  import section_course from "../../subcomponent/section-course/section-course"
 
   export default {
     name: "index_section3",
     components: {
-      vtitle,vdigits, vteacher, vcourses, vcoller,vbtnInfo,vmessage
+      section_title,
+      section_percent,
+      section_teacher,
+      section_coller,
+      vbtnInfo,vmessage,
+      section_course
     },
     data(){
       return{
@@ -106,4 +113,5 @@
     text-align: center;
   }
 </style>
+
 

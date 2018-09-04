@@ -10,9 +10,9 @@
       SCWTag() {
         return this.$store.state.SCWTag;
       },
-      pageClass() {
-        return this.$store.state.pageClass[this.$store.state.SCWTag];
-      },
+      // pageClass() {
+      //   return this.$store.state.pageClass[this.$store.state.SCWTag];
+      // },
       isScroll() {
         return this.$store.state.isScroll;
       }

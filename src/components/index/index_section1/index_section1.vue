@@ -1,10 +1,10 @@
 <template>
   <div class="index_section1 section">
     <div class="container">
-      <vtitle>
+      <section_title>
         <span slot="title">打造行业领先价值</span>
         <span slot="subtitle">开启创意绘画创造力、发挥绘画天性、在快乐中成长和学习</span>
-      </vtitle>
+      </section_title>
       <ul class="exhibition">
         <li class="exhibition-item boxRadius" v-for="(e,i) in exhibition" :key="i">
           <img class="exhibition-item-img" :src="e.imgUrl" alt="">
@@ -16,11 +16,11 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title"
   export default {
     name: "index_section1",
     components:{
-      vtitle
+      section_title
     },
     data() {
       return {

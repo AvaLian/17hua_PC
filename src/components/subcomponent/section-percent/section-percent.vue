@@ -1,5 +1,5 @@
 <template>
-    <ul class="vdigits" :style="{'color':color}" :class="{'digit-arrowup':!up}">
+    <ul class="vdigits"  :class="{'digit-arrowup':!up}">
       <li class="vdigits-item" v-for="(e,i) in objs" :key="i">
         <div class="vdigits-item-con">
           <span class="vdigits-item-con-num">{{e.p}}</span>
@@ -19,24 +19,16 @@
 
 <script>
     export default {
-        name: "vdigits",
+        name: "section-percent",
         data(){
             return{
               desWord:["服务效率","满意度","用户反馈"]
             }
         },
         props: {
-          color:{
-            type: String,
-            default: "#fff"
-          },
           up:{
             type:Boolean,
             default:true
-          },
-          num:{
-            type:Number,
-            default:3
           },
           objs:{
             type: Array,
@@ -49,8 +41,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../assets/style/icon.css";
-
+  @import "../../../assets/style/icon.css";
 
   .boxArea{
     &-small{
@@ -82,6 +73,7 @@
 
 
   .vdigits{
+    color:$ffColor;
     display: flex;
     justify-content: space-between;
     &-item{

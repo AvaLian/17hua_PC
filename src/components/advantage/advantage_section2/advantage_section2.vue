@@ -1,10 +1,10 @@
 <template>
   <div class="advantage_section2 section">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">一对一绘画更有效</span>
           <span slot="subtitle">人性化教学，针对不同孩子采用不同授课方式</span>
-        </vtitle>
+        </section_title>
         <div class="contrast">
           <div class="contrast-item contrast-right boxRadius">
             <img class="contrast-item-img contrast-right-img boxRadius width100" src="./images/IMG_6725.jpg" alt="">
@@ -35,11 +35,11 @@
 </template>
 
 <script>
-  import vtitle from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title"
   export default {
     name: "advantage_section2",
     components:{
-      vtitle
+      section_title
     },
     data() {
       return {

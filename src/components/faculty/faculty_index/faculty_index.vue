@@ -1,6 +1,6 @@
 <template>
   <div class="faculty_index">
-    <vbanner :swiperOption="swiperOption">
+    <section_swiper>
       <swiper-slide>
         <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
         <div class="swiper-slide-con">
@@ -10,14 +10,14 @@
           </div>
         </div>
       </swiper-slide>
-    </vbanner>
+    </section_swiper>
 
     <div class="section section-bgColor">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">精英画师三大标准</span>
           <span slot="subtitle">专业、经验、严格</span>
-        </vtitle>
+        </section_title>
         <ul class="standard">
           <li class="standard-item" >
             <img class="width100" src="./images/icon1.png" alt="">
@@ -44,24 +44,24 @@
 
     <div class="section section-borderBottom">
       <div class="container">
-        <vtitle>
+        <section_title>
           <span slot="title">资深团队，深耕教研</span>
           <span slot="subtitle">专注、创新、共享</span>
-        </vtitle>
-        <vteacher :data="tutors"></vteacher>
+        </section_title>
+        <section_teacher :data="tutors"></section_teacher>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import vbanner from '../../subcomponent/vbroadcast/vbroadcast'
-  import vteacher from '../../subcomponent/section-teacher/section-teacher'
-  import vtitle from "../../subcomponent/section-title"
-    export default {
-        name: "faculty_index",
+  import section_swiper from '../../subcomponent/section-swiper/section-swiper'
+  import section_teacher from '../../subcomponent/section-teacher/section-teacher'
+  import section_title from "../../subcomponent/section-title"
+  export default {
+    name: "faculty_index",
     components: {
-      vbanner,vteacher,vtitle
+      section_swiper,section_teacher,section_title
     },
     computed: {
       tutors(){
@@ -70,9 +70,6 @@
     },
     data() {
       return {
-        swiperOption:{
-          pagination : null
-        },
         standard:[
           {
             icon:"icon-school",

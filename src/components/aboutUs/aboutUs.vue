@@ -1,10 +1,10 @@
 <template>
   <div class="about-us">
-    <vbanner :swiperOption="swiperOption">
+    <section_swiper>
       <swiper-slide>
         <smap></smap>
       </swiper-slide>
-    </vbanner>
+    </section_swiper>
 
     <div class="section section-borderBottom contact">
       <div class="container">
@@ -20,7 +20,7 @@
             <i class="iconfont icon-dingwei"></i>
             <p>企业地址</p>
           </div>
-          <div class="contact-item-con">宁波市 高新区 秀东尚座55号 2-213</div>
+          <div class="contact-item-con">上海市 长宁区 1436号 <br/>倍格老船坞</div>
         </div>
         <div class="contact-item">
           <div class="contact-item-title">
@@ -28,7 +28,7 @@
             <p>客服电话</p>
           </div>
           <div class="contact-item-con">
-            <img src="./images/qrcode-wx.jpg" alt="">
+            <img src="../../../static/images/qrcode-wx.png" alt="">
           </div>
         </div>
       </div>
@@ -37,18 +37,17 @@
 </template>
 
 <script>
-  import vbanner from '../subcomponent/vbroadcast/vbroadcast'
+  import section_swiper from '../subcomponent/section-swiper/section-swiper'
   import smap from '../subcomponent/s-map'
   export default {
     name: "about-us",
     components: {
-      vbanner,
+      section_swiper,
       smap
     },
     data() {
       return {
         swiperOption:{
-          pagination : null,
           loop:false
         }
       }
@@ -62,22 +61,28 @@
     .container{
       display: flex;
       justify-content: space-between;
+      padding: 100px 0 80px;
     }
     &-item{
       &-title{
-        flex: 1;
+        /*flex: 1;*/
         text-align: center;
-        padding: 1rem;
+        padding: 20px 0;
         position: relative;
         .iconfont{
+          display: block;
           font-size: $RS30;
-          line-height: 2;
+          margin-bottom: 20px;
         }
       }
       &-con{
-        flex: 1;
-        padding: 2rem;
-        font-weight: 700;
+        text-align: center;
+        margin-top: 30px;
+        line-height: 1.2;
+        font-family: PingFangSC-Semibold;
+        /*flex: 1;*/
+        /*padding: 2rem;*/
+        /*font-weight: 700;*/
       }
     }
   }

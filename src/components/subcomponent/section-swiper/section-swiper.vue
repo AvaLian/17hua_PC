@@ -1,10 +1,10 @@
 <template>
-  <div class="banner">
-      <swiper :options="options" ref="mySwiper">
+  <div class="section-swiper">
+      <swiper :options="options" ref="mySwiper" >
         <slot></slot>
-        <div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="options.prevButton"></div>
-        <div class="swiper-button-next swiper-button-next" slot="button-next" v-if="options.prevButton"></div>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <!--<div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="options.prevButton"></div>-->
+        <!--<div class="swiper-button-next swiper-button-next" slot="button-next" v-if="options.prevButton"></div>-->
+        <!--<div class="swiper-pagination" slot="pagination"></div>-->
       </swiper>
   </div>
 </template>
@@ -12,9 +12,8 @@
 <script>
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
 
-
   export default {
-    name: "vbroadcast",
+    name: "section-swiper",
     components: {
       swiper, swiperSlide
     },
@@ -22,15 +21,18 @@
     data(){
       return{
         primaryOptions:{
-          autoplay: 8000,
-          speed: 3000,
+          // autoplay: 8000,
+          // speed: 3000,
           loop: true,
           effect: 'fade',
+          notNextTick:true,
           autoplayDisableOnInteraction: false,
-          pagination: '.swiper-pagination',
-          paginationClickable: true,
-          prevButton:null,
-          nextButton:null,
+          pagination : null,
+          // pagination: '.swiper-pagination',
+          // paginationClickable: true,
+
+          // prevButton:null,
+          // nextButton:null,
         }
       }
     },
@@ -42,6 +44,9 @@
         return Object.assign({},this.primaryOptions,this.swiperOption)
       }
     },
+    methods: {
+
+    }
   }
 </script>
 
