@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import section_title from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title/section-title"
   import section_percent from '../../subcomponent/section-percent/section-percent'
   export default {
     name: "advantage_section3",
@@ -53,7 +53,7 @@
     }
   }
 </style>
-<style lang="scss">
+<style lang="scss" scoped>
   .vteacher-tutor-item-con{
     border-bottom-left-radius: $boxRadius;
     border-bottom-right-radius: $boxRadius;

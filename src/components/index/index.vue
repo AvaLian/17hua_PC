@@ -7,16 +7,15 @@
           <div class="container">
             <h2>想画画<br>就到17画酷</h2>
             <p>从小白到绘画天才</p>
-            <el-button type="button" @click="dialogVisible = true">查看视频 <i class="iconfont icon-dui"></i></el-button>
+            <el-button type="button" @click="dialogVisible = true">查看视频</el-button>
           </div>
         </div>
       </swiper-slide>
     </section_swiper>
 
-    <el-dialog :visible.sync="dialogVisible" @open="openPlay" @close="closePlay">
+    <el-dialog :visible.sync="dialogVisible" @open="openPlay" @close="closePlay" :append-to-body="true" :lock-scroll="false">
       <section_player :video-url="videoUrl" :state="state"></section_player>
     </el-dialog>
-
 
     <!--领先价值-->
     <index_section_1></index_section_1>
@@ -31,17 +30,15 @@
 <script>
 
   import section_swiper from '../subcomponent/section-swiper/section-swiper'
-
+  import section_player from '../subcomponent/section-player/section-player'
   import index_section_1 from './index_section1/index_section1'
   import index_section_2 from './index_section2/index_section2'
   import index_section_3 from './index_section3/index_section3'
 
-  import section_player from '../subcomponent/section-player/section-player'
-
   export default {
     name: "index",
     components: {
-      section_swiper,section_player,
+      section_swiper, section_player,
       index_section_1, index_section_2, index_section_3,
     },
     created() {
@@ -59,11 +56,11 @@
       }
     },
     methods: {
-      closePlay(){
-        this.state=true;
+      closePlay() {
+        this.state = true;
       },
-      openPlay(){
-        this.state= false;
+      openPlay() {
+        this.state = false;
       },
     },
   }
@@ -71,10 +68,11 @@
 
 <style lang="scss">
   @import "../../assets/style/icon.css";
-  .el-button{
-    color:$ffColor;
+
+  .el-button {
+    color: $ffColor;
     width: 140px;
-    border:3px solid $ffColor;
+    border: 3px solid $ffColor;
     border-radius: 20px;
     background: none;
   }

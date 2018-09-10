@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import section_title from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title/section-title"
   export default {
     name: "index_section1",
     components:{

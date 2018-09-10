@@ -46,6 +46,7 @@
   .boxArea{
     &-small{
       .vdigits{
+        color:#fff;
         &-item{
           &-con{
             &-num{

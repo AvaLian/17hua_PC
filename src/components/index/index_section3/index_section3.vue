@@ -60,13 +60,13 @@
 </template>
 
 <script>
-  import section_title from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title/section-title"
   import section_percent from '../../subcomponent/section-percent/section-percent'
   import section_teacher from '../../subcomponent/section-teacher/section-teacher'
 
   import section_coller from '../../subcomponent/section-coller/section-coller'
-  import vbtnInfo from '../../subcomponent/vbuttons/vbtn-info'
-  import vmessage from '../../subcomponent/vpopup/message/message'
+  import vbtnInfo from '../../subcomponent/section-aboutusbtn/section-aboutusbtn'
+  import vmessage from '../../subcomponent/section-aboutus/section-aboutus'
 
 
   import section_course from "../../subcomponent/section-course/section-course"

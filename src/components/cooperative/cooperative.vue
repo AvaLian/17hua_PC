@@ -37,7 +37,7 @@
 
 <script>
     import section_swiper from '../subcomponent/section-swiper/section-swiper'
-    import section_title from "../subcomponent/section-title"
+    import section_title from "../subcomponent/section-title/section-title"
     import section_coller from '../subcomponent/section-coller/section-coller'
     export default {
       name: "cooperative",

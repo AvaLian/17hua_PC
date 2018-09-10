@@ -57,7 +57,7 @@
 <script>
   import section_swiper from '../../subcomponent/section-swiper/section-swiper'
   import section_teacher from '../../subcomponent/section-teacher/section-teacher'
-  import section_title from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title/section-title"
   export default {
     name: "faculty_index",
     components: {

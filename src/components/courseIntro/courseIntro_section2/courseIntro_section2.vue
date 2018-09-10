@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import section_title from "../../subcomponent/section-title"
+    import section_title from "../../subcomponent/section-title/section-title"
     export default {
       name: "course-intro_section2",
       components:{

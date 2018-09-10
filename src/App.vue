@@ -86,7 +86,10 @@
       isScroll() {
         return this.$store.state.isScroll;
       }
-    }
+    },
+    beforeDestroy() {
+      this.$store.cache.clear()
+    },
   }
 </script>
 

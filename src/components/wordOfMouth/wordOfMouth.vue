@@ -48,7 +48,7 @@
 <script>
   import section_swiper from '../subcomponent/section-swiper/section-swiper'
   import section_swiper_group from '../subcomponent/section-swiper/section-swiper-group'
-  import section_title from "../subcomponent/section-title"
+  import section_title from "../subcomponent/section-title/section-title"
 
   export default {
     name: "word-of-mouth",

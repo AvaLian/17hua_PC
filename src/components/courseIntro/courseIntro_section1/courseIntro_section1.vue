@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import section_title from "../../subcomponent/section-title"
+  import section_title from "../../subcomponent/section-title/section-title"
   import section_course from '../../subcomponent/section-course/section-course'
   export default {
       name: "course-intro_section1",

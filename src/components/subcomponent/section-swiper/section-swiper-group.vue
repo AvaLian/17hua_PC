@@ -50,7 +50,7 @@
   /*轮播图*/
   .section-swiper-group {
     position: relative;
-    padding: 0 50px;
+    /*padding: 0 50px;*/
     .swiper-container {
       width: 100%;
       height: 100%;

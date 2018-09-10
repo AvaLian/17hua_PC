@@ -47,7 +47,8 @@
       }
     },
     created() {
-      this.$store.dispatch('apiTutors')
+      // this.$store.dispatch('apiTutors')
+      this.$store.cache.dispatch('apiTutors')
     },
     methods:{
       gotoFacultyDetail(){

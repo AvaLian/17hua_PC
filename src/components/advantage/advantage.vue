@@ -32,8 +32,8 @@
   import advantage_section1 from './advantage_section1/advantage_section1'
   import advantage_section2 from './advantage_section2/advantage_section2'
   import advantage_section3 from './advantage_section3/advantage_section3'
-  import vbtnInfo from '../subcomponent/vbuttons/vbtn-info'
-  import vmessage from '../subcomponent/vpopup/message/message'
+  import vbtnInfo from '../subcomponent/section-aboutusbtn/section-aboutusbtn'
+  import vmessage from '../subcomponent/section-aboutus/section-aboutus'
 
   export default {
     name: "advantage",

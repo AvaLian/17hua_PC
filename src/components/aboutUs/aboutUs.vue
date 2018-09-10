@@ -2,7 +2,7 @@
   <div class="about-us">
     <section_swiper>
       <swiper-slide>
-        <smap></smap>
+        <section_map></section_map>
       </swiper-slide>
     </section_swiper>
 
@@ -38,12 +38,12 @@
 
 <script>
   import section_swiper from '../subcomponent/section-swiper/section-swiper'
-  import smap from '../subcomponent/s-map'
+  import section_map from '../subcomponent/section-map/section-map'
   export default {
     name: "about-us",
     components: {
       section_swiper,
-      smap
+      section_map
     },
     data() {
       return {

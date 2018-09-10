@@ -15,7 +15,8 @@
           }
         },
         created(){
-          this.$store.dispatch("apiColler")
+          this.$store.cache.dispatch('apiColler')
+          // this.$store.dispatch("apiColler")
         }
     }
 </script>

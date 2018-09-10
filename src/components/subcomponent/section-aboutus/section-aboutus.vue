@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="message" v-if="flag"  ref="msg">
       <i class="iconfont icon-cuo" @click="onHide"></i>
-      <img src="../../../../../static/images/qrcode-wx.jpg" alt="">
+      <img src="../../../../static/images/qrcode-wx.jpg" alt="">
       <p class="tel">联系电话:{{tel}}</p>
       <!--<slot></slot>-->
     </div>
@@ -43,7 +43,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../assets/style/icon.css";
+  @import "../../../assets/style/icon.css";
 
   .message {
     position: absolute;

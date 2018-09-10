@@ -1,5 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import vuexCache from 'vuex-cache'
 Vue.use(Vuex)
 
 
@@ -106,6 +107,7 @@ const actions={
 }
 
 const store = new Vuex.Store({
+  plugins: [vuexCache],
   state,
   mutations,
   actions,
