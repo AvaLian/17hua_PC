@@ -1,16 +1,6 @@
 <template>
   <div class="faculty_index">
-    <section_swiper>
-      <swiper-slide>
-        <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
-        <div class="swiper-slide-con">
-          <div class="container">
-            <h2>精英师资力量<br>定制专属名师来辅导</h2>
-            <p>用实力打造最强团队力量</p>
-          </div>
-        </div>
-      </swiper-slide>
-    </section_swiper>
+    <banner :topbanner="topbanner"></banner>
 
     <div class="section section-bgColor">
       <div class="container">
@@ -55,40 +45,28 @@
 </template>
 
 <script>
-  import section_swiper from '../../subcomponent/section-swiper/section-swiper'
+  import banner from '../../view/section-nybanner/section-nybanner'
   import section_teacher from '../../subcomponent/section-teacher/section-teacher'
   import section_title from "../../subcomponent/section-title/section-title"
   export default {
     name: "faculty_index",
     components: {
-      section_swiper,section_teacher,section_title
+      banner,
+      section_teacher,
+      section_title
     },
     computed: {
       tutors(){
         return this.$store.state.tutors;
       }
     },
-    data() {
-      return {
-        standard:[
-          {
-            icon:"icon-school",
-            txt:"专业美院毕业",
-            bgColor:"#4fc8ff"
-          },
-          {
-            icon:"icon-hot",
-            txt:"2年以上工作经验",
-            bgColor:"#add597"
-          },
-          {
-            icon:"icon-mirror",
-            txt:"500:1严格筛选",
-            bgColor:"#ffc13c"
-          }
-        ]
-
+    computed:{
+      topbanner(){
+        return this.$store.state.faculty.topbanner
       }
+    },
+    created() {
+      this.$store.cache.dispatch("dataFaculty")
     }
   }
 </script>
@@ -127,15 +105,6 @@
           background-position: center;
           background-size: 100%;
           background-repeat: no-repeat;
-          &.icon-hot{
-            background-image: url("./images/icon-hot.png");
-          }
-          &.icon-mirror{
-            background-image: url("./images/icon-mirror.png");
-          }
-          &.icon-school{
-            background-image: url("./images/icon-school.png");
-          }
         }
       }
     }

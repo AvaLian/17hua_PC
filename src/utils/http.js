@@ -4,7 +4,7 @@ import axios from 'axios'
 import qs from 'qs'
 
 // axios.defaults.baseURL = "https://cnodejs.org/api/v1"   //全局配置头部
-axios.defaults.baseURL = "/api"   //全局配置头部
+axios.defaults.baseURL = "http://api.17hua.me/yqhbsp/website/"   //全局配置头部
 axios.defaults.timeout = 1000   //全局配置头部
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest'
@@ -49,12 +49,13 @@ function checkCode (res) {
   // console.log("处理请求出错：",res.data ,res.data.success)
   // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
   if (res.status === -404) {
-    alert(res.msg)
+    console.log(res.msg)
   }
+
   //这里处理服务器后端报的错误
-  if (res.data && (!res.data.success)) {
-    alert(res.data.error_msg)
-  }
+  // if (res.data && (!res.data.success)) {
+  //   alert(res.data.error_msg)
+  // }
 
   return res
 }

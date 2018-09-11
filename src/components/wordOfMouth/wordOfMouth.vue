@@ -1,41 +1,32 @@
 <template>
   <div class="wordOfMouth">
-    <section_swiper>
-      <swiper-slide>
-        <img class="swiper-slide-img" src="./images/rectangle3.png" alt="">
-        <div class="swiper-slide-con">
-          <div class="container">
-            <h2>你们的进步<br>就是我们最大的收获</h2>
-            <p>17画酷用真诚服务每一个人</p>
-          </div>
-        </div>
-      </swiper-slide>
-    </section_swiper>
+    <banner :topbanner="topbanner"></banner>
 
-    <div class="section">
+    <div class="section" v-if="section1">
       <div class="container">
         <section_title>
-          <span slot="title">学员作品分享、相信榜样的力量</span>
-          <span slot="subtitle">优秀的培育成果，汇聚每一份精彩</span>
+          <span slot="title">{{section1.first_title}}</span>
+          <span slot="subtitle">{{section1.second_title}}</span>
         </section_title>
-        <img class="width100" src="./images/rectangle13.png" alt="学员作品分享、相信榜样的力量">
+        <img class="width100" :src="section1.img_url" alt="学员作品分享、相信榜样的力量">
       </div>
     </div>
-    <div class="section">
+
+    <div class="section" v-if="rating">
       <div class="container">
         <section_title>
-          <span slot="title">妈妈有话说</span>
-          <span slot="subtitle">聚集每个感动，你们的评价是我们最大的收获</span>
+          <span slot="title">{{rating.first_title}}</span>
+          <span slot="subtitle">{{rating.second_title}}</span>
         </section_title>
-        <section_swiper_group :swiperOption="swiperOption" class="comment" :total="comment.length">
-          <swiper-slide class="comment-item" v-for="(e,i) in comment" :key="i">
+        <section_swiper_group :swiperOption="swiperOption" class="comment" :total="rating.info_list.length">
+          <swiper-slide class="comment-item" v-for="(d,i) in rating.info_list" :key="i">
             <div class="comment-item-inner">
               <div class="comment-item-content boxRadius">
                 <i class="iconfont icon-quote"></i>
-                <p>{{e.content}}</p>
+                <p>{{d.second_title}}</p>
                 <i class="iconfont icon-quote"></i>
               </div>
-              <img class="comment-item-avatar" :src="e.avatarUrl" alt="">
+              <img class="comment-item-avatar" :src="d.img_url" alt="">
             </div>
           </swiper-slide>
         </section_swiper_group>
@@ -46,22 +37,30 @@
 </template>
 
 <script>
-  import section_swiper from '../subcomponent/section-swiper/section-swiper'
+  import banner from '../view/section-nybanner/section-nybanner'
   import section_swiper_group from '../subcomponent/section-swiper/section-swiper-group'
   import section_title from "../subcomponent/section-title/section-title"
 
   export default {
     name: "word-of-mouth",
     components: {
-      section_swiper,section_swiper_group,section_title
+      banner,
+      section_swiper_group,
+      section_title
     },
     computed: {
-      comment(){
-        return this.$store.state.comment
+      topbanner(){
+        return this.$store.state.wordOfMonth.topbanner
+      },
+      section1(){
+        return this.$store.state.wordOfMonth.section1
+      },
+      rating(){
+        return this.$store.state.wordOfMonth.rating
       }
     },
     created(){
-      this.$store.dispatch("apicComments")
+      this.$store.cache.dispatch("dataWordOfMonth")
     }
   }
 </script>

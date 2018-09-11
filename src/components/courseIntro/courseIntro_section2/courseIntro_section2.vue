@@ -19,13 +19,13 @@
         </div>
       </div>
 
-      <div class="section section-bgColor">
+      <div class="section section-bgColor" v-if="section5">
         <div class="container">
           <section_title>
-            <span slot="title">每一种创意绘画都有专属核心</span>
-            <span slot="subtitle">全面提升创意，你本来就是艺术家</span>
+            <span slot="title">{{section5.first_title}}</span>
+            <span slot="subtitle">{{section5.second_title}}</span>
           </section_title>
-          <img class="width100 boxRadius" src="./images/IMGk.jpg" alt="每一种创意绘画都有专属核心">
+          <img class="width100 boxRadius" :src="section5.img_url" :alt="section5.first_title">
         </div>
       </div>
     </div>
@@ -38,27 +38,10 @@
       components:{
         section_title
       },
-      data(){
-          return{
-            step: [
-              {
-                txt: "在线预约",
-                bgColor: "#ff5182"
-              },
-              {
-                txt: "登记报名",
-                bgColor: "#ffaf00"
-              },
-              {
-                txt: "预约上课",
-                bgColor: "#01b2e6"
-              },
-              {
-                txt: "开启绘画",
-                bgColor: "#fa5b33"
-              },
-            ]
-          }
+      computed:{
+        section5(){
+          return this.$store.state.courseIntro.section5
+        }
       }
     }
 </script>

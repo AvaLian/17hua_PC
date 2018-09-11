@@ -1,10 +1,6 @@
 <template>
   <div class="about-us">
-    <section_swiper>
-      <swiper-slide>
-        <section_map></section_map>
-      </swiper-slide>
-    </section_swiper>
+    <banner :custom="true"><section_map></section_map></banner>
 
     <div class="section section-borderBottom contact">
       <div class="container">
@@ -37,13 +33,21 @@
 </template>
 
 <script>
-  import section_swiper from '../subcomponent/section-swiper/section-swiper'
+  import banner from '../view/section-nybanner/section-nybanner'
   import section_map from '../subcomponent/section-map/section-map'
   export default {
     name: "about-us",
     components: {
-      section_swiper,
+      banner,
       section_map
+    },
+    computed:{
+      info(){
+        return this.$store.state.aboutus.info
+      }
+    },
+    created() {
+      this.$store.cache.dispatch("dataAboutus")
     },
     data() {
       return {

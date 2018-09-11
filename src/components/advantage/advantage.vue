@@ -1,20 +1,9 @@
 <template>
   <div class="advantage">
-
-    <section_swiper>
-      <swiper-slide>
-        <img class="swiper-slide-img" src="./images/IMG_2030.jpg" alt="">
-        <div class="swiper-slide-con">
-          <div class="container">
-            <h2>成就绘画天才</h2>
-            <p>专业绘画授课技巧，解锁你的创造力</p>
-            <vbtnInfo v-on:onShow="popupShow">立即报名</vbtnInfo>
-            <vmessage :isShow="isShow" v-on:onHide="popupHide"></vmessage>
-          </div>
-        </div>
-      </swiper-slide>
-    </section_swiper>
-
+    <banner :topbanner="topbanner">
+      <vbtnInfo v-on:onShow="popupShow">立即报名</vbtnInfo>
+      <vmessage :isShow="isShow" v-on:onHide="popupHide"></vmessage>
+    </banner>
 
     <advantage_section1></advantage_section1>
 
@@ -26,7 +15,7 @@
 </template>
 
 <script>
-  import section_swiper from '../subcomponent/section-swiper/section-swiper'
+  import banner from '../view/section-nybanner/section-nybanner'
 
 
   import advantage_section1 from './advantage_section1/advantage_section1'
@@ -39,12 +28,20 @@
     name: "advantage",
     components: {
       advantage_section1, advantage_section2, advantage_section3,
-      section_swiper,vbtnInfo,vmessage
+      banner,vbtnInfo,vmessage
+    },
+    computed:{
+      topbanner(){
+        return this.$store.state.advantage.topbanner
+      }
     },
     data() {
       return {
         isShow:false
       }
+    },
+    created() {
+      this.$store.cache.dispatch("dataAdvantage")
     },
     methods:{
       popupShow(data){

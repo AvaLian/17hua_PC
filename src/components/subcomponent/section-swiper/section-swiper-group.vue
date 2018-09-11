@@ -1,10 +1,10 @@
 <template>
-  <div class="section-swiper-group" v-if="isShow">
+  <div class="section-swiper-group">
     <swiper :options="options" ref="mySwiper">
       <slot></slot>
       <div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="isShow"></div>
       <div class="swiper-button-next swiper-button-next" slot="button-next" v-if="isShow"></div>
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-pagination" slot="pagination"  v-if="isShow"></div>
     </swiper>
   </div>
 </template>

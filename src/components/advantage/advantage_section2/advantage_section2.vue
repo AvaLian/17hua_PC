@@ -2,34 +2,35 @@
   <div class="advantage_section2 section">
       <div class="container">
         <section_title>
-          <span slot="title">一对一绘画更有效</span>
-          <span slot="subtitle">人性化教学，针对不同孩子采用不同授课方式</span>
+          <span slot="title">{{section3.first_title}}</span>
+          <span slot="subtitle">{{section3.second_title}}</span>
         </section_title>
-        <div class="contrast">
-          <div class="contrast-item contrast-right boxRadius">
-            <img class="contrast-item-img contrast-right-img boxRadius width100" src="./images/IMG_6725.jpg" alt="">
-            <ul class="contrast-item-list">
-              <li v-for="e in ways.right">
-                <i class="iconfont icon-dui"></i>
-                <span>{{e}}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="contrast-txt">
-            <img src="../../../../static/images/logo.png" alt="">
-            <img src="./images/VS.png" alt="">
-            <p class="contrast-txt-con">其他绘画机构</p>
-          </div>
-          <div class="contrast-item contrast-wrong boxRadius">
-            <img class="contrast-item-img boxRadius width100" src="./images/500945286.jpg" alt="">
-            <ul class="contrast-item-list">
-              <li v-for="e in ways.wrong">
-                <i class="iconfont icon-cuo"></i>
-                <span>{{e}}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <img class="width100" :src="section3.img_url" :alt="section3.first_title">
+        <!--<div class="contrast">-->
+          <!--<div class="contrast-item contrast-right boxRadius">-->
+            <!--<img class="contrast-item-img contrast-right-img boxRadius width100" src="./images/IMG_6725.jpg" alt="">-->
+            <!--<ul class="contrast-item-list">-->
+              <!--<li v-for="e in ways.right">-->
+                <!--<i class="iconfont icon-dui"></i>-->
+                <!--<span>{{e}}</span>-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          <!--<div class="contrast-txt">-->
+            <!--<img src="../../../../static/images/logo.png" alt="">-->
+            <!--<img src="./images/VS.png" alt="">-->
+            <!--<p class="contrast-txt-con">其他绘画机构</p>-->
+          <!--</div>-->
+          <!--<div class="contrast-item contrast-wrong boxRadius">-->
+            <!--<img class="contrast-item-img boxRadius width100" src="./images/500945286.jpg" alt="">-->
+            <!--<ul class="contrast-item-list">-->
+              <!--<li v-for="e in ways.wrong">-->
+                <!--<i class="iconfont icon-cuo"></i>-->
+                <!--<span>{{e}}</span>-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
   </div>
 </template>
@@ -40,6 +41,11 @@
     name: "advantage_section2",
     components:{
       section_title
+    },
+    computed:{
+      section3(){
+        return this.$store.state.advantage.section3
+      }
     },
     data() {
       return {

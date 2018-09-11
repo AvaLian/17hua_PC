@@ -1,24 +1,21 @@
 <template>
   <ul class="coller">
-    <li class="coller-item" v-for="(e,i) in coll" :key="i">
-      <a href="#"><img :src="e.imgUrl" alt=""></a>
+    <li class="coller-item" v-for="(d,i) in data" :key="i">
+      <a href="#"><img :src="d.img_url" :alt="d.first_title"></a>
     </li>
   </ul>
 </template>
 
 <script>
-    export default {
-        name: "section-coller",
-        computed:{
-          coll(){
-            return this.$store.state.coller;
-          }
-        },
-        created(){
-          this.$store.cache.dispatch('apiColler')
-          // this.$store.dispatch("apiColler")
-        }
-    }
+  export default {
+    name: "section-coller",
+    computed: {
+      coll() {
+        return this.$store.state.coller;
+      }
+    },
+    props:["data"]
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -31,7 +28,7 @@
       justify-content: space-between;
       margin-top: 100px;
       &-item {
-        flex:0 0 33.3%;
+        flex: 0 0 33.3%;
         text-align: center;
         /*margin-top: 5%;*/
         img {
@@ -41,18 +38,17 @@
     }
   }
 
-
   .boxArea {
     &-middle {
-      .coller-item{
+      .coller-item {
         flex: 0 50%;
       }
     }
     &-small {
-      .coller{
+      .coller {
         margin-top: 0;
       }
-      .coller-item{
+      .coller-item {
         flex: 0 0 100%;
         margin: 20px 0;
       }

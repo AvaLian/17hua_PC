@@ -6,9 +6,9 @@
     <p v-if="this.$slots.subtitle && SCWTag<1">
       <slot name="subtitle"></slot>
     </p>
-    <p v-if="this.$slots.subtitle1 && SCWTag<1">
-      <slot name="subtitle1"></slot>
-    </p>
+    <!--<p v-if="this.$slots.subtitle1 && SCWTag<1">-->
+      <!--<slot name="subtitle1"></slot>-->
+    <!--</p>-->
   </div>
 </template>
 
@@ -33,6 +33,7 @@
       line-height: 1.2;
       margin-bottom: 80px;
       font-size: $FS24;
+      text-align: center;
       &-ma0 {
         margin-bottom: 0;
       }

@@ -29,10 +29,45 @@ const state = {
   ],//是否滚动页面对应的固定头部（高度）
   name:"一起画(17hua.me)",
   tel:"400-128-1717",
-  tutors:{},
-  courses:{},
-  coller:[],
-  comment:[]
+  home:{  //首页
+    topbanner:null,   //首页banner
+    selections: null,   //打造行业领先价值
+    section2: null,   //人性化教学理念
+    proSystem:null,  //产品体系
+    banner: null,
+    teaStrength: null,
+    cooperative: null,
+    contact:null
+  },
+  advantage:{ //画酷优势
+    topbanner:null,  //banner
+    section1:null, //严选精英画师
+    teaTeam: null,   //资深团队，深耕教研
+    section3:null, //1V1绘画更有效
+    banner:null //解锁你的创造力
+  },
+  courseIntro:{
+    topbanner:null,  //banner
+    vts:null,   //VTS视觉观察思考
+    proSystem:null,  //画酷产品体系标准
+    section5:null, //每一种创意绘画都有专属核心
+  },
+  wordOfMonth:{
+    topbanner:null,  //banner
+    section1:null,   //学员作品分享、相信榜样力量
+    rating:null,  //妈妈有话说
+  },
+  faculty:{
+    topbanner:null,  //banner
+    teaTeam:null //专注、更专业
+  },
+  cooperative:{
+    topbanner:null,  //banner
+    partner:null //专注、更专业
+  },
+  aboutus:{
+    info:null //信息
+  },
 }
 
 const mutations= {
@@ -48,62 +83,123 @@ const mutations= {
   cisScroll (state,param) {
     state.isScroll=param;
   },
-  cTutors(state,param){
-    state.tutors=param;
+  cHome(state,param){
+    state.home.topbanner=param[0];
+    state.home.selections=param[1];
+    state.home.section2=param[2];
+    state.home.banner=param[3];
+    state.home.proSystem=param[4];
+    state.home.teaStrength=param[5];
+    state.home.cooperative=param[6];
+    state.home.contact=param[7];
   },
-  cCourses(state,param){
-    state.courses=param;
+  cAdvantage(state,param){
+    state.advantage.topbanner=param[0];
+    state.advantage.section1=param[1];
+    state.advantage.teaTeam=param[2];
+    state.advantage.section3=param[3];
+    state.advantage.banner=param[4];
   },
-  cColler(state,param){
-    state.coller=param;
+  cCourseIntro(state,param){
+    state.courseIntro.topbanner=param[0];
+    state.courseIntro.vts=param[1];
+    state.courseIntro.proSystem=param[2];
+    state.courseIntro.section5=param[3];
   },
-  cComments(state,param){
-    state.comment=param;
-  }
+  cWordOfMonth(state,param){
+    state.wordOfMonth.topbanner=param[0];
+    state.wordOfMonth.section1=param[1];
+    state.wordOfMonth.rating=param[2];
+  },
+  cFaculty(state,param){
+    state.faculty.topbanner=param[0];
+    state.faculty.teaTeam=param[1];
+  },
+  cCooperative(state,param){
+    state.cooperative.topbanner=param[0];
+    state.cooperative.partner=param[1];
+  },
+  cAboutus(state,param){
+    state.cooperative.info=param[0];
+  },
+  // cCourses(state,param){
+  //   state.courses=param;
+  // },
+  // cColler(state,param){
+  //   state.coller=param;
+  // },
+  // cComments(state,param){
+  //   state.comment=param;
+  // }
 }
 
 const actions={
 
-  //获取大师和导师数据
-  apiTutors ({state,commit}) {
-    $http.get($api.teachers).then(res=>{
-      var res=res.data
-      commit("cTutors",res.data)
+
+
+  //获取"首页"数据
+  dataHome({state,commit}){
+    $http.get("/show?column_id=1&test=http://localhost:8080").then(res=>{
+      commit("cHome",res.data.records)
     }).catch(err=>{
       console.log("err:",err);
     })
   },
 
-  //获取课程数据
-  apiCourses ({state,commit}) {
-    $http.get($api.courses).then(res=>{
-      var res=res.data
-      commit("cCourses",res.data)
+  //获取"画酷优势"数据
+  dataAdvantage({state,commit}){
+    $http.get("/show?column_id=2&test=http://localhost:8080").then(res=>{
+      commit("cAdvantage",res.data.records)
     }).catch(err=>{
       console.log("err:",err);
     })
   },
 
-  //获取合作伙伴数据
-  apiColler ({state,commit}) {
-    $http.get($api.coller).then(res=>{
-      var res=res.data
-      commit("cColler",res.data)
+  //获取"课程介绍"数据
+  dataCourseIntro({state,commit}){
+    $http.get("/show?column_id=3&test=http://localhost:8080").then(res=>{
+      commit("cCourseIntro",res.data.records)
     }).catch(err=>{
       console.log("err:",err);
     })
   },
 
-
-  //获取妈妈有话讲数据
-  apicComments ({state,commit}) {
-    $http.get($api.comments).then(res=>{
-      var res=res.data
-      commit("cComments",res.data)
+  //获取"学院口碑"数据
+  dataWordOfMonth({state,commit}){
+    $http.get("/show?column_id=4&test=http://localhost:8080").then(res=>{
+      commit("cWordOfMonth",res.data.records)
     }).catch(err=>{
       console.log("err:",err);
     })
-  }
+  },
+
+  //获取"师资力量"数据
+  dataFaculty({state,commit}){
+    $http.get("/show?column_id=5&test=http://localhost:8080").then(res=>{
+      commit("cFaculty",res.data.records)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+  //获取"合作伙伴"数据
+  dataCooperative({state,commit}){
+    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
+      commit("cCooperative",res.data.records)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+  //获取"关于我们"数据
+  dataAboutus({state,commit}){
+    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
+      commit("cAboutus",res.data.records)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
 }
 
 const store = new Vuex.Store({

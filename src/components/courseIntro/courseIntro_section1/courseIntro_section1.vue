@@ -1,30 +1,30 @@
 <template>
     <div class="course-intro_section1">
-      <div class="section">
+      <div class="section" v-if="vts">
         <div class="container">
           <section_title>
-            <span slot="title">VTS视觉观察思考</span>
-            <span slot="subtitle">理解艺术、分析思考、引导讨论、4C能力</span>
+            <span slot="title">{{vts.first_title}}</span>
+            <span slot="subtitle">{{vts.second_title}}</span>
           </section_title>
           <ul class="ability">
-            <li class="ability-item boxRadius" v-for="(e,i) in ability">
+            <li class="ability-item boxRadius" v-for="(d,i) in vts.info_list">
               <div class="ability-item-title">
-                <i class="ability-item-title-icon" :class="e.icon"></i>
-                <span>{{e.txt}}</span>
+                <i class="ability-item-title-icon" :style="{'background-image':'url('+d.img_url+')'}"></i>
+                <span>{{d.first_title}}</span>
               </div>
-              <p class="ability-item-des">{{e.des}}</p>
+              <p class="ability-item-des">{{d.second_title}}</p>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="section section-bgColor">
+      <div class="section section-bgColor" v-if="proSystem">
         <div class="container">
           <section_title>
-            <span slot="title">画酷产品体系标准</span>
-            <span slot="subtitle">专业课程体系标准</span>
+            <span slot="title">{{proSystem.first_title}}</span>
+            <span slot="subtitle">{{proSystem.second_title}}</span>
           </section_title>
-          <section_course></section_course>
+          <section_course :data="proSystem.info_list"></section_course>
         </div>
       </div>
     </div>
@@ -39,6 +39,14 @@
         section_title,
         section_course
       },
+    computed:{
+      vts(){
+        return this.$store.state.courseIntro.vts
+      },
+      proSystem(){
+        return this.$store.state.courseIntro.vts
+      }
+    },
       data(){
         return{
           ability: [
@@ -94,18 +102,6 @@
           background-position: center;
           background-size: 100%;
           background-repeat: no-repeat;
-          &.icon-face{
-            background-image: url("./images/icon-face.png");
-          }
-          &.icon-chat{
-            background-image: url("./images/icon-chat.png");
-          }
-          &.icon-broad{
-            background-image: url("./images/icon-broad.png");
-          }
-          &.icon-apply{
-            background-image: url("./images/icon-apply.png");
-          }
         }
       }
       &-des {

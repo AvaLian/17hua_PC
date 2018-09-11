@@ -1,10 +1,10 @@
 <template>
     <div class="advantage_section3">
-      <div class="section section-1 xdxx">
+      <div class="section section-1" :style="{'background-image':'url('+banner.img_url+')'}">
         <div class="container">
           <section_title class="section-title-ma0">
-            <span slot="title">解锁你的创造力</span>
-            <span slot="subtitle">17画酷让你脱颖而出，成为绘画天才</span>
+            <span slot="title">{{banner.first_title}}</span>
+            <span slot="subtitle">{{banner.second_title}}</span>
           </section_title>
         </div>
       </div>
@@ -39,13 +39,15 @@
     components: {
       section_title,section_percent
     },
+    computed:{
+      banner(){
+        return this.$store.state.advantage.banner
+      }
+    },
   }
 </script>
 
 <style lang="scss" scoped>
-  .xdxx{
-    background-image: url("./images/rectangle15.png");
-  }
   .experience{
     background-image: url("./images/17rectangle.jpg");
     &-btn{
