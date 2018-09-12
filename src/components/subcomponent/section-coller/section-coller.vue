@@ -1,7 +1,7 @@
 <template>
   <ul class="coller">
     <li class="coller-item" v-for="(d,i) in data" :key="i">
-      <a href="#"><img :src="d.img_url" :alt="d.first_title"></a>
+      <a><img :src="d.img_url" :alt="d.first_title"></a>
     </li>
   </ul>
 </template>
@@ -26,11 +26,10 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      margin-top: 100px;
       &-item {
         flex: 0 0 33.3%;
         text-align: center;
-        /*margin-top: 5%;*/
+        margin-top: 4%;
         img {
           width: 260px;
         }
@@ -49,8 +48,10 @@
         margin-top: 0;
       }
       .coller-item {
-        flex: 0 0 100%;
-        margin: 20px 0;
+        flex: 0 45%;
+        img{
+          width: 100%;
+        }
       }
     }
   }

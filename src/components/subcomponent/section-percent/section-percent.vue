@@ -43,36 +43,6 @@
 <style lang="scss" scoped>
   @import "../../../assets/style/icon.css";
 
-  .boxArea{
-    &-small{
-      .vdigits{
-        color:#fff;
-        &-item{
-          &-con{
-            &-num{
-              font-size: 40px;
-            }
-            .iconfont{
-              &-1{
-                font-size: $FS18 !important;
-              }
-              &-2{
-                font-size: $FS12 !important;
-              }
-              &-3{
-                font-size: 8px !important;
-              }
-            }
-          }
-          &-des{
-            font-size: $FS14;
-          }
-        }
-      }
-    }
-  }
-
-
   .vdigits{
     color:$ffColor;
     display: flex;
@@ -82,12 +52,11 @@
         display: flex;
         position: relative;
         &-num{
-          font-size:68px;
-          margin-right: 6px;
+          font-size:120px;
         }
         &-percent{
           position: absolute;
-          right:-20px;
+          right:-30px;
           top:0;
           height: 100%;
           display: flex;
@@ -97,26 +66,27 @@
           &-fuhao{
             position: relative;
             top:-4px;
+            font-size: 36px;
           }
           .arrowicons{
             position: relative;
             .iconfont{
               &-1{
-                font-size: $FS20;
+                font-size: $FS24;
               }
               &-2{
                 opacity:.7 ;
                 position: absolute;
                 left: -8px;
                 top:-4px;
-                font-size: $FS14;
+                font-size: $FS16;
               }
               &-3{
                 opacity:.4;
                 position: absolute;
                 right: 0px;
                 top:-10px;
-                font-size: $FS10;
+                font-size: $FS12;
               }
             }
           }
@@ -125,6 +95,7 @@
       &-des{
         text-align: center;
         line-height: 2;
+        font-size:30px;
       }
       &-arrowup{
         .digit-con{
@@ -138,9 +109,44 @@
         }
       }
     }
-
     .flexEnd{
       justify-content: flex-end;
+    }
+  }
+
+
+  .boxArea{
+    &-small{
+      .vdigits{
+        &-item{
+          &-con{
+            &-num{
+              font-size: 50px;
+            }
+            .iconfont{
+              &-1{
+                font-size: $FS16;
+              }
+              &-2{
+                font-size: $FS10;
+              }
+              &-3{
+                font-size: 8px;
+              }
+            }
+            &-percent{
+              right:-20px;
+              &-fuhao{
+                font-size: $FS16;
+              }
+            }
+
+          }
+          &-des{
+            font-size: $FS16;
+          }
+        }
+      }
     }
   }
 </style>

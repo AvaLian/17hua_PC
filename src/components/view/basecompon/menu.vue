@@ -3,7 +3,7 @@
     <div class="container">
       <div class="s-menu-large flex-row-bc" :style="{'height':headerHeight[isScroll].LHeigth+'px'}"  v-show="reNodepoMosth(SCWidth,true)">
         <div class="logo" @click="gotoIndex">
-          <img class="logo-img" src="../../../static/images/logo.png" />
+          <img class="logo-img" src="../../../../static/images/logo.png" />
         </div>
         <ul class="navbar">
           <li class="navbar-item" v-if="todo.zwname" v-for="(todo,index) in this.$router.options.routes">
@@ -18,7 +18,7 @@
       <div class="s-menu-small"  v-show="reNodepoMosth(SCWidth,false)">
         <div class="s-menu-small-header flex-row-bc">
           <div class="logo" @click="gotoIndex">
-            <img class="logo-img" src="../../../static/images/logo.png"/>
+            <img class="logo-img" src="../../../../static/images/logo.png"/>
           </div>
           <img class="icon-menu" ref="iconmenu" @click="maClick=!maClick" src="//image.17hua.me/upload/image/201711/15113344010141089.png">
         </div>

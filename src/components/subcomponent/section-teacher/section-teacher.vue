@@ -1,28 +1,27 @@
 <template>
   <div class="vteacher">
-    <ul class="vteacher-master" v-if="tutors.master">
-      <li class="vteacher-master-item boxRadius" v-for="(e,i) in tutors.master" :key="e.id"
+    <ul class="vteacher-master" v-if="master">
+      <li class="vteacher-master-item boxRadius" v-for="(d,i) in master" :key="i"
           :style="{'background':bgColor.m[i]}">
         <div class="vteacher-master-item-img">
-          <img :src="e.imgUrl" alt="">
+          <img :src="d.img_url" alt="">
         </div>
         <div class="vteacher-master-item-con">
-          <p class="vteacher-item-con-name">{{e.name}}</p>
+          <p class="vteacher-item-con-name">{{d.first_title}}</p>
           <p class="vteacher-master-item-con-pro">艺术大师</p>
-          <div class="vteacher-master-item-con-des">{{e.brief}}</div>
+          <div class="vteacher-master-item-con-des">{{d.second_title}}</div>
           <div class="vteacher-master-item-con-btn button ripple" @click="gotoFacultyDetail">查看详情</div>
         </div>
       </li>
     </ul>
 
-    <ul class="vteacher-tutor" v-if="tutors.tutor">
-      <li class="vteacher-tutor-item boxRadius" v-for="(e,i) in tutors.tutor" :key="e.id">
+    <ul class="vteacher-tutor" v-if="tutor">
+      <li class="vteacher-tutor-item boxRadius" v-for="(d,i) in tutor" :key="i">
         <div class="vteacher-tutor-item-img" :style="{'background':bgColor.t[i]}">
-          <img :src="e.imgUrl" alt="">
+          <img :src="d.img_url" alt="">
         </div>
         <div class="vteacher-tutor-item-con">
-          <p class="vteacher-tutor-item-con-name">{{e.enname}}</p>
-          <p class="vteacher-item-con-name">{{e.name}}导师</p>
+          <p class="vteacher-item-con-name" v-html="d.first_title"></p>
           <span class="vteacher-tutor-item-con-btn button ripple" @click="gotoFacultyDetail">查看详情</span>
         </div>
       </li>
@@ -33,6 +32,7 @@
 <script>
   export default {
     name: "section-teacher",
+    props: ["data"],
     data() {
       return {
         bgColor: {
@@ -42,17 +42,24 @@
       }
     },
     computed: {
-      tutors() {
-        return this.$store.state.tutors
+      master() {
+        let arr = [];
+        this.data.forEach((d, i) => {
+          if (d.location == "A") arr.push(d)
+        });
+        return arr
+      },
+      tutor() {
+        let arr = [];
+        this.data.forEach((d, i) => {
+          if (d.location == "B") arr.push(d)
+        });
+        return arr
       }
     },
-    created() {
-      //this.$store.cache.dispatch('apiTutors')
-      // this.$store.dispatch('apiTutors')
-    },
-    methods:{
-      gotoFacultyDetail(){
-       this.$router.push({name: 'FacultyDetail'});
+    methods: {
+      gotoFacultyDetail() {
+        this.$router.push({name: 'FacultyDetail'});
       }
     }
   }
@@ -88,7 +95,7 @@
           }
           &-pro {
             color: $themeColor;
-            margin: 20px 0 50px 0;
+            margin: 6% 0 8% 0;
             font-size: 30px;
             font-family: PingFangSC-Semibold;
           }
@@ -98,11 +105,11 @@
             font-size: $FS24;
           }
           &-btn {
-            color:$ffColor;
+            color: $ffColor;
             background: $themeColor;
             box-shadow: (0 0 20px $themeColor);
             cursor: pointer;
-            margin-top: 80px;
+            margin-top: 10%;
           }
         }
       }
@@ -111,7 +118,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: 70px;
+      margin-top: 10%;
       &-item {
         flex: 0 0 46%;
         background: $ffColor;
@@ -135,13 +142,11 @@
           align-items: center;
           justify-content: center;
           padding: 30px 0;
-          &-name {
-            font-size:30px;
-            letter-spacing: 14px;
-          }
           .vteacher-item-con-name {
             font-size: 36px;
-            margin: 15px 0 35px 0;
+            margin-bottom: 5%;
+            text-align: center;
+            line-height: 1.2;
           }
           &-btn {
             color: $themeColor;
@@ -151,7 +156,8 @@
       }
     }
   }
-  .button{
+
+  .button {
     width: 178px;
     height: 57px;
     display: flex;
@@ -162,26 +168,31 @@
     cursor: pointer;
     border-radius: 6px;
   }
+
   .boxArea {
     &-small {
-      .button{
+      .button {
         font-size: $FS18;
       }
-      .vteacher-tutor-item {
-        flex: 0 0 100%;
-        &:not(:first-child) {
-          margin-top: 60px;
-        }
-        &-con{
-          padding: 15px 0;
-          &-name{
-            font-size: $FS24;
+      .vteacher-tutor{
+        margin-top: 20%;
+        &-item {
+          flex: 0 0 100%;
+          &:not(:first-child) {
+            margin-top: 20%;
           }
-          .vteacher-item-con-name {
-            font-size: $FS24;
+          &-con {
+            padding: 15px 0;
+            &-name {
+              font-size: $FS24;
+            }
+            .vteacher-item-con-name {
+              font-size: $FS24;
+            }
           }
         }
       }
+
       .vteacher-master-item {
         flex-direction: column;
         box-shadow: 0 0 50px rgba(0, 0, 0, .2);
@@ -198,7 +209,6 @@
           }
           &-pro {
             color: $themeColor;
-            margin: 5% 0 6% 0;
             font-size: $FS18;
           }
           &-des {

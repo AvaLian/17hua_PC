@@ -184,7 +184,7 @@ const actions={
 
   //获取"合作伙伴"数据
   dataCooperative({state,commit}){
-    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
+    $http.get("/show?column_id=7&test=http://localhost:8080").then(res=>{
       commit("cCooperative",res.data.records)
     }).catch(err=>{
       console.log("err:",err);

@@ -48,13 +48,6 @@
     },
     created() {
       this.$store.cache.dispatch("dataAboutus")
-    },
-    data() {
-      return {
-        swiperOption:{
-          loop:false
-        }
-      }
     }
   }
 </script>
@@ -65,17 +58,16 @@
     .container{
       display: flex;
       justify-content: space-between;
-      padding: 100px 0 80px;
     }
     &-item{
+      font-size:$FS24;
       &-title{
-        /*flex: 1;*/
         text-align: center;
         padding: 20px 0;
         position: relative;
         .iconfont{
           display: block;
-          font-size: $RS30;
+          font-size: 54px;
           margin-bottom: 20px;
         }
       }
@@ -84,9 +76,7 @@
         margin-top: 30px;
         line-height: 1.2;
         font-family: PingFangSC-Semibold;
-        /*flex: 1;*/
-        /*padding: 2rem;*/
-        /*font-weight: 700;*/
+        flex: 1;
       }
     }
   }
@@ -101,7 +91,7 @@
               content: "";
               position: absolute;
               bottom: 0px;
-              width: 2rem;
+              width: 30px;
               left: 50%;
               transform: translateX(-50%);
               border-bottom: 1px solid $borderColor;
@@ -116,14 +106,16 @@
           flex-direction: column;
         }
         &-item {
+          font-size: $FS16;
           display: flex;
           align-items: center;
           &-title {
             position: relative;
+            padding-right: 5%;
             &:after {
               content: "";
-              width: 0.5rem;
-              height: 4rem;
+              width:1px;
+              height: 50%;
               position: absolute;
               top:50%;
               transform: translateY(-50%);
@@ -131,6 +123,9 @@
               border-bottom: none;
               border-right: 1px solid $borderColor;
             }
+          }
+          &-con{
+            font-size: $FS20;
           }
         }
       }

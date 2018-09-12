@@ -19,6 +19,11 @@
   export default {
     name: "index_teachidea",
     props: ["data"],
+    computed:{
+      SCWTag(){
+        return this.$store.state.SCWTag;
+      }
+    },
     data() {
       return {
         teachIdea: [

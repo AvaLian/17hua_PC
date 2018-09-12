@@ -2,45 +2,23 @@
   <div class="faculty_index">
     <banner :topbanner="topbanner"></banner>
 
-    <div class="section section-bgColor">
-      <div class="container">
-        <section_title>
-          <span slot="title">精英画师三大标准</span>
-          <span slot="subtitle">专业、经验、严格</span>
-        </section_title>
-        <ul class="standard">
-          <li class="standard-item" >
-            <img class="width100" src="./images/icon1.png" alt="">
-          </li>
-          <li class="standard-item" >
-            <img class="width100" src="./images/icon2.png" alt="">
-          </li>
-          <li class="standard-item" >
-            <img class="width100" src="./images/icon3.png" alt="">
-          </li>
-        </ul>
-        <!--<ul class="standard">-->
-          <!--<li class="standard-item" v-for="(e,i) in standard" :key="i" >-->
-            <!--<img :src="" alt="">-->
-            <!--&lt;!&ndash;<div class="standard-item-bg" :style="{'background':e.bgColor}"></div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="standard-item-con">&ndash;&gt;-->
-              <!--&lt;!&ndash;<i class="standard-item-con-icon" :class="e.icon"></i>&ndash;&gt;-->
-              <!--&lt;!&ndash;<span>{{e.txt}}</span>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--</li>-->
-        <!--</ul>-->
-      </div>
-    </div>
+    <section_allcon :data="{first_title:'精英画师三大标准',second_title:'专业、经验、严格'}" class="section-bgColor">
+      <ul class="standard">
+        <li class="standard-item" >
+          <img class="width100" src="./images/icon1.png" alt="">
+        </li>
+        <li class="standard-item" >
+          <img class="width100" src="./images/icon2.png" alt="">
+        </li>
+        <li class="standard-item" >
+          <img class="width100" src="./images/icon3.png" alt="">
+        </li>
+      </ul>
+    </section_allcon>
 
-    <div class="section section-borderBottom">
-      <div class="container">
-        <section_title>
-          <span slot="title">资深团队，深耕教研</span>
-          <span slot="subtitle">专注、创新、共享</span>
-        </section_title>
-        <section_teacher :data="tutors"></section_teacher>
-      </div>
-    </div>
+    <section_allcon v-if="teaTeam" :data="teaTeam" class="section-borderBottom">
+      <section_teacher :data="teaTeam.info_list"></section_teacher>
+    </section_allcon>
   </div>
 </template>
 
@@ -48,21 +26,21 @@
   import banner from '../../view/section-nybanner/section-nybanner'
   import section_teacher from '../../subcomponent/section-teacher/section-teacher'
   import section_title from "../../subcomponent/section-title/section-title"
+  import section_allcon from '../../view/section-allcon/section-allcon'
   export default {
     name: "faculty_index",
     components: {
       banner,
+      section_allcon,
       section_teacher,
       section_title
-    },
-    computed: {
-      tutors(){
-        return this.$store.state.tutors;
-      }
     },
     computed:{
       topbanner(){
         return this.$store.state.faculty.topbanner
+      },
+      teaTeam(){
+        return this.$store.state.faculty.teaTeam
       }
     },
     created() {

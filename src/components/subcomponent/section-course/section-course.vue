@@ -31,7 +31,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .section-swiper-group {
     padding:0 50px 20px;
   }

@@ -31,12 +31,9 @@
       align-items: center;
       color: $f5AColor;
       line-height: 1.2;
-      margin-bottom: 80px;
+      margin-bottom: 5%;
       font-size: $FS24;
       text-align: center;
-      &-ma0 {
-        margin-bottom: 0;
-      }
       &-txt {
         color: $themeColor;
         font-size: 48px;
@@ -60,9 +57,10 @@
       .section {
         &-title {
           font-size: $FS14;
-          margin-bottom: 0;
+          margin-bottom: 10%;
           &-txt {
-            font-size: $FS24;
+            font-size: $FS26;
+            margin-bottom: 0;
           }
         }
       }

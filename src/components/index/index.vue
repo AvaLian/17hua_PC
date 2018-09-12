@@ -1,24 +1,15 @@
 <template>
   <div class="index">
-    <section_swiper v-if="topbanner">
-      <swiper-slide>
-        <img class="swiper-slide-img" :src="topbanner.img_url" alt="">
-        <div class="swiper-slide-con">
-          <div class="container">
-            <h2 v-html="topbanner.first_title"></h2>
-            <p>{{topbanner.second_title}}</p>
-            <el-button type="button" @click="dialogVisible = true" v-if="topbanner.mp4_url">查看视频</el-button>
-          </div>
-        </div>
-      </swiper-slide>
-    </section_swiper>
+    <banner :topbanner="topbanner" class="topbanner">
+      <el-button type="button" @click="dialogVisible = true" v-if="topbanner&&topbanner.mp4_url">查看视频</el-button>
+    </banner>
 
-    <el-dialog v-if="topbanner" :visible.sync="dialogVisible" @open="openPlay" @close="closePlay" :append-to-body="true" :lock-scroll="false">
+    <el-dialog v-if="topbanner&&topbanner.mp4_url" :visible.sync="dialogVisible" @open="openPlay" @close="closePlay" :append-to-body="true" :lock-scroll="false">
       <section_player :video-url="topbanner.mp4_url" :state="state"></section_player>
     </el-dialog>
 
     <!--领先价值-->
-    <section_allcon v-if="section1" :data="section1">
+    <section_allcon v-if="section1" :data="section1" class="section-borderBottom">
       <index_selecttutor :data="section1.info_list"></index_selecttutor>
     </section_allcon>
 
@@ -33,13 +24,13 @@
     </section_allcon>
 
     <!--教学课程-->
-    <section_allcon v-if="proSystem" :data="proSystem">
+    <section_allcon v-if="proSystem" :data="proSystem" class="fullwidth">
       <section_course :data="proSystem.info_list"></section_course>
     </section_allcon>
 
     <!--师资力量-->
     <section_allcon v-if="teaStrength" :data="teaStrength" class="section-bgColor">
-      <section_teacher></section_teacher>
+      <section_teacher :data="teaStrength.info_list"></section_teacher>
     </section_allcon>
 
     <!--合作伙伴-->
@@ -49,41 +40,39 @@
 
     <!--联系我们-->
     <section_allcon v-if="contact" :data="contact" class="section-1 contact" :style="{'background-image':'url('+contact.img_url+')'}">
-      <vbtnInfo v-on:onShow="popupShow">联系我们</vbtnInfo>
-      <vmessage :isShow="isShow" v-on:onHide="popupHide"></vmessage>
+      <section_linkus :isShow="false">联系我们</section_linkus>
     </section_allcon>
   </div>
 </template>
 
 <script>
 
-  import section_swiper from '../subcomponent/section-swiper/section-swiper'
+  import banner from '../view/section-nybanner/section-nybanner'
   import section_player from '../subcomponent/section-player/section-player'
 
-  import index_selecttutor from '../view/index_selecttutor/index_selecttutor'
-  import index_teachidea from '../view/index_teachidea/index_teachidea'
   import section_allcon from "../view/section-allcon/section-allcon"
+
+  import index_selecttutor from '../view/index-selecttutor/index-selecttutor'
+  import index_teachidea from '../view/index-teachidea/index-teachidea'
+  import section_course from "../subcomponent/section-course/section-course"
   import section_percent from '../subcomponent/section-percent/section-percent'
   import section_teacher from '../subcomponent/section-teacher/section-teacher'
   import section_coller from '../subcomponent/section-coller/section-coller'
-  import vbtnInfo from '../subcomponent/section-aboutusbtn/section-aboutusbtn'
-  import vmessage from '../subcomponent/section-aboutus/section-aboutus'
-
-  import section_course from "../subcomponent/section-course/section-course"
+  import section_linkus from '../subcomponent/section-linkus/section-linkus'
 
   export default {
     name: "index",
     components: {
-      section_swiper,
+      banner,
       section_player,
+      section_allcon,
       index_selecttutor,
       index_teachidea,
-      section_allcon,
+      section_course,
       section_percent,
       section_teacher,
       section_coller,
-      vbtnInfo,vmessage,
-      section_course
+      section_linkus,
     },
     computed:{
       topbanner(){
@@ -118,7 +107,6 @@
       return {
         dialogVisible: false,
         state: false,
-        isShow:false
       }
     },
     methods: {
@@ -128,12 +116,6 @@
       openPlay() {
         this.state = false;
       },
-      popupShow(data){
-        this.isShow=data
-      },
-      popupHide(data){
-        this.isShow=data
-      }
     },
   }
 </script>
@@ -150,13 +132,11 @@
   }
   .contact{
     position: relative;
+    .section-linkus{
+      text-align: center;
+    }
   }
-  .contact .section-title{
-    margin-bottom: 50px;
-  }
-  .contact .vbtn-info{
-    text-align: center;
-  }
+
 </style>
 
 

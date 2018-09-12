@@ -10,13 +10,13 @@
             <div class="third-app-item">
               <i class="iconfont icon-weibo"></i>
               <div class="qrcode">
-                <img src="../../../static/images/qrcode-wx.jpg" alt="">
+                <img src="../../../../static/images/qrcode-wx.jpg" alt="">
               </div>
             </div>
             <div class="third-app-item">
               <i class="iconfont icon-weixin"></i>
               <div class="qrcode">
-                <img src="../../../static/images/qrcode-wx.jpg" alt="">
+                <img src="../../../../static/images/qrcode-wx.jpg" alt="">
               </div>
             </div>
           </div>
@@ -68,8 +68,8 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../assets/style/icon.css";
-  @import "./public.css";
+  @import "../../../assets/style/icon.css";
+  @import "public.css";
 
   $topHeight: 40px;   //顶部高度
   .vheader {

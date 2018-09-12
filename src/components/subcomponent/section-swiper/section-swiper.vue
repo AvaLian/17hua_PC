@@ -23,8 +23,8 @@
         primaryOptions:{
           // autoplay: 8000,
           // speed: 3000,
-          loop: true,
-          effect: 'fade',
+          // loop: true,
+          // effect: 'fade',
           notNextTick:true,
           autoplayDisableOnInteraction: false,
           pagination : null,

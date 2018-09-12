@@ -3,13 +3,13 @@ Error: Invalid GBK character "\xE5"
         on line 19 of index.scss
 
 14: 
-15: .width100{
+15: .width100 {
 16:   width: 100%;
 17: }
 18: 
 19: //圆角样式
-20: $boxRadius:10px;
-21: .boxRadius{
+20: $boxRadius: 10px;
+21: .boxRadius {
 22:   border-radius: $boxRadius;
 23: }
 24: 
@@ -42,4 +42,4 @@ C:/Ruby25-x64/bin/scss:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE5\"\A         on line 19 of index.scss\A \A 14: \A 15: .width100{\A 16:   width: 100%;\A 17: }\A 18: \A 19: //圆角样式\A 20: $boxRadius:10px;\A 21: .boxRadius{\A 22:   border-radius: $boxRadius;\A 23: }\A 24: "; }
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 19 of index.scss\A \A 14: \A 15: .width100 {\A 16:   width: 100%;\A 17: }\A 18: \A 19: //圆角样式\A 20: $boxRadius: 10px;\A 21: .boxRadius {\A 22:   border-radius: $boxRadius;\A 23: }\A 24: "; }
