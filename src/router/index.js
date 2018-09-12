@@ -92,20 +92,5 @@ export default new Router({
       component: AboutUs
     }
   ],
-  // scrollBehavior (to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     // savedPosition is only available for popstate navigations.
-  //     return savedPosition
-  //   } else {
-  //     // explicitly control scroll position
-  //     // check if any matched route config has meta that requires scrolling to top
-  //     // console.log(to.matched.some(m => m.meta.scrollToTop));
-  //     if (to.matched.some(m => m.meta.scrollToTop)) {
-  //       return {
-  //         x: 0,
-  //         y: 0
-  //       }
-  //     }
-  //   }
-  // }
+
 })
