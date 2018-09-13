@@ -1,5 +1,6 @@
 <template>
-  <section_swiper>
+  <div>
+  <section_swiper v-if="!custom">
     <swiper-slide v-if="topbanner && !custom">
       <img class="swiper-slide-img" :src="topbanner.img_url" alt="">
       <div class="swiper-slide-con">
@@ -10,12 +11,12 @@
         </div>
       </div>
     </swiper-slide>
-
-    <swiper-slide v-if="custom">
-      <slot v-if="this.$slots"></slot>
-    </swiper-slide>
   </section_swiper>
 
+    <section_swiper v-if="this.$slots&&custom">
+        <slot></slot>
+    </section_swiper>
+  </div>
 </template>
 
 <script>

@@ -10,7 +10,7 @@
           <p class="vteacher-item-con-name">{{d.first_title}}</p>
           <p class="vteacher-master-item-con-pro">艺术大师</p>
           <div class="vteacher-master-item-con-des">{{d.second_title}}</div>
-          <div class="vteacher-master-item-con-btn button ripple" @click="gotoFacultyDetail">查看详情</div>
+          <div class="vteacher-master-item-con-btn button ripple" @click="gotoFacultyDetail(d.id)">查看详情</div>
         </div>
       </li>
     </ul>
@@ -22,7 +22,7 @@
         </div>
         <div class="vteacher-tutor-item-con">
           <p class="vteacher-item-con-name" v-html="d.first_title"></p>
-          <span class="vteacher-tutor-item-con-btn button ripple" @click="gotoFacultyDetail">查看详情</span>
+          <span class="vteacher-tutor-item-con-btn button ripple" @click="gotoFacultyDetail(d.id)">查看详情</span>
         </div>
       </li>
     </ul>
@@ -58,8 +58,8 @@
       }
     },
     methods: {
-      gotoFacultyDetail() {
-        this.$router.push({name: 'FacultyDetail'});
+      gotoFacultyDetail(id) {
+        this.$router.push({name: 'FacultyDetail',params: {id: id}});
       }
     }
   }

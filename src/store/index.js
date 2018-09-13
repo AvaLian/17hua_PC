@@ -68,6 +68,7 @@ const state = {
   aboutus:{
     info:null //信息
   },
+  artists:[]
 }
 
 const mutations= {
@@ -122,20 +123,12 @@ const mutations= {
   cAboutus(state,param){
     state.cooperative.info=param[0];
   },
-  // cCourses(state,param){
-  //   state.courses=param;
-  // },
-  // cColler(state,param){
-  //   state.coller=param;
-  // },
-  // cComments(state,param){
-  //   state.comment=param;
-  // }
+  cArtists(state,param){
+    state.artists.push(param)
+  }
 }
 
 const actions={
-
-
 
   //获取"首页"数据
   dataHome({state,commit}){
@@ -184,7 +177,7 @@ const actions={
 
   //获取"合作伙伴"数据
   dataCooperative({state,commit}){
-    $http.get("/show?column_id=7&test=http://localhost:8080").then(res=>{
+    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
       commit("cCooperative",res.data.records)
     }).catch(err=>{
       console.log("err:",err);
@@ -193,8 +186,50 @@ const actions={
 
   //获取"关于我们"数据
   dataAboutus({state,commit}){
-    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
+    $http.get("/show?column_id=7&test=http://localhost:8080").then(res=>{
       commit("cAboutus",res.data.records)
+    }).catch(err=>{
+      console.log("err:",err);
+    })
+  },
+
+  //获取"老师详情"数据
+  dataTutor({state,commit},param){
+    $http.get("/artist?artist_id="+param+"&test=http://localhost:8080").then(res=>{
+      let data=res.data.records;
+      let obj={
+        id:null,
+        topbanner:[],
+        graduate:[],
+        opus:[],
+        exhibition:[],
+        evaluate:[],
+        product:[]
+      };
+      obj.id=param;
+      data.map((d,i)=>{
+        switch (d.type){
+          case 10:
+            obj.topbanner.push(d);
+            break;
+          case 20:
+            obj.graduate.push(d);
+            break;
+          case 30:
+            obj.opus.push(d);
+            break;
+          case 40:
+            obj.exhibition.push(d);
+            break;
+          case 50:
+            obj.evaluate.push(d);
+            break;
+          case 60:
+            obj.product.push(d);
+            break;
+        }
+      });
+      commit("cArtists",obj)
     }).catch(err=>{
       console.log("err:",err);
     })
@@ -202,9 +237,17 @@ const actions={
 
 }
 
+
+const getters={  // getters
+  artist: (state) => (id) => {
+    return state.artists.find(d => {if(d.id == id) return d})
+  }
+}
+
 const store = new Vuex.Store({
   plugins: [vuexCache],
   state,
+  getters,
   mutations,
   actions,
 })
