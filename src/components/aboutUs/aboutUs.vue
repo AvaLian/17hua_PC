@@ -1,6 +1,6 @@
 <template>
   <div class="about-us">
-    <banner :custom="true"><section_map></section_map></banner>
+    <banner :custom="true" :total="1"><section_map></section_map></banner>
 
     <div class="section section-borderBottom contact">
       <div class="container">

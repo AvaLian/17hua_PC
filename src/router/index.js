@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NotFound from "@/components/notFound"
-
 Vue.use(Router);
 
 const Index = resolve => {
@@ -31,6 +29,9 @@ const Cooper = resolve => {
 };
 const AboutUs = resolve => {
   require(['@/components/aboutUs/aboutUs'], resolve)
+};
+const Notfound= resolve => {
+  require(['@/components/notFound/notFound'], resolve)
 };
 
 export default new Router({
@@ -110,6 +111,14 @@ export default new Router({
         title: '关于我们'
       },
       component: AboutUs
+    },{
+      path: '/notfound',
+      name: '404',
+      zwname: "",
+      meta: {
+        title: '404'
+      },
+      component: Notfound
     }
   ],
   scrollBehavior(to, from, savedPosition) {

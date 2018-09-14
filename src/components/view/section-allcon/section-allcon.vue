@@ -1,4 +1,10 @@
 <template>
+  <!--
+  section：默认样式
+  section-1：有图片背景
+  section-bgColor：有背景颜色
+  section-borderBottom：下划线
+  -->
   <div class="section">
     <div class="container">
       <section_title>

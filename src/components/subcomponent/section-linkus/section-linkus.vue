@@ -33,7 +33,8 @@
         this.flag=!this.flag;
       }
     },
-    mounted() {
+    ready() {
+      const that=this;
       document.addEventListener('click', (e) => {
         if (!!this.$refs.msg.contains(e.target)) return false;
         this.onHide();

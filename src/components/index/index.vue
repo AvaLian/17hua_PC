@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+
     <banner :topbanner="topbanner" class="topbanner">
       <el-button type="button" @click="dialogVisible = true" v-if="topbanner&&topbanner.mp4_url">查看视频</el-button>
     </banner>

@@ -22,12 +22,12 @@
     components: {
       section_swiper_group
     },
+    props:["data"],
     computed:{
       SCWTag() {
         return this.$store.state.SCWTag;
       }
-    },
-    props:["data"]
+    }
   }
 </script>
 
@@ -60,7 +60,6 @@
     }
   }
 
-
   .boxArea {
     &-small {
       .section-course{
@@ -80,7 +79,6 @@
           }
         }
       }
-
     }
   }
 </style>

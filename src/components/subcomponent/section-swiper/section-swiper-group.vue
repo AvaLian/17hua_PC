@@ -1,4 +1,7 @@
 <template>
+  <!--section-swiper-group组件（规定一行显示3个）-->
+  <!--必要传参total：swpier-slide个数（若只有3个无鼠标拖动；若大于3个swiper轮播效果，并显示分页器及前进后退按钮）-->
+  <!--可选传参swiperOption：swpier轮播效果个性化设置-->
   <div class="section-swiper-group">
     <swiper :options="options" ref="mySwiper">
       <slot></slot>
@@ -13,7 +16,7 @@
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
 
   export default {
-    name: "section-swiper",
+    name: "section-swiper-group",   //swiper网格分布，规定3个
     components: {
       swiper, swiperSlide
     },
@@ -27,7 +30,7 @@
           prevButton: '.swiper-button-prev',
           nextButton: '.swiper-button-next',
           pagination: '.swiper-pagination',
-          paginationClickable: true,
+          paginationClickable: true
         }
       }
     },
@@ -36,13 +39,14 @@
         return this.$refs.mySwiper.swiper;
       },
       options() {
-        return Object.assign({}, this.primaryOptions, this.swiperOption)
+        //小于等于3个鼠标拖动无效
+        if(this.total <= this.primaryOptions.slidesPerView) this.primaryOptions.simulateTouch = false;
+        return Object.assign({}, this.primaryOptions, this.swiperOption);
       },
       isShow() {
         return this.total > this.primaryOptions.slidesPerView ? true : false;
       }
-    },
-    methods: {}
+    }
   }
 </script>
 

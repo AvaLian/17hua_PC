@@ -7,7 +7,7 @@
           <div class="tag" :class="{'tag-solid':!i,'tag-hollow':i==data.info_list.length-1 && i>1}"><i
             class="tag-inner"></i></div>
           <div></div>
-          {{d.description}}
+          <span v-html="d.description"></span>
         </li>
       </ul>
     </div>
@@ -28,9 +28,9 @@
       display: flex;
     }
     &-left {
-      width: 200px;
-      font-size: $FS20;
-      font-weight: 700;
+      width: 30%;
+      font-size: 48px;
+      color:$fMColor;
     }
     &-right {
       flex: 1;
@@ -39,24 +39,13 @@
         align-items: flex-start;
         line-height: 1.6;
         margin-bottom: 20px;
+        font-size:$FS24;
+        color:$f5AColor;
       }
     }
   }
 
 
-  .boxArea {
-    &-small {
-      .section {
-        .container {
-          display: flex;
-          flex-direction: column;
-        }
-        &-left {
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
 
 
   /*圆圈*/
@@ -68,9 +57,9 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    margin-right: 10px;
+    margin-right: 20px;
     position: relative;
-    top:8px;
+    top:14px;
     &-inner {
       width: 8px;
       height: 8px;
@@ -90,6 +79,34 @@
       .tag-inner {
         border: inherit;
         background: none;
+      }
+    }
+  }
+
+
+
+  .boxArea {
+    &-small,&-middle {
+      .section {
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+        &-left {
+          width: 100%;
+          text-align: center;
+          font-size: $FS24;
+          margin-bottom: 20px;
+        }
+        &-right {
+          &-item {
+            font-size: $FS18;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .tag {
+        top:10px;
       }
     }
   }

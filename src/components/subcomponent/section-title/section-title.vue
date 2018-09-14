@@ -1,4 +1,6 @@
 <template>
+  <!--section-title 默认字体颜色为主题色-->
+  <!--section-title-1 字体颜色为白色-->
   <div class="section-title">
     <h4 class="section-title-txt" v-if="this.$slots.title">
       <slot name="title"></slot>
@@ -6,9 +8,6 @@
     <p v-if="this.$slots.subtitle && SCWTag<1">
       <slot name="subtitle"></slot>
     </p>
-    <!--<p v-if="this.$slots.subtitle1 && SCWTag<1">-->
-      <!--<slot name="subtitle1"></slot>-->
-    <!--</p>-->
   </div>
 </template>
 
@@ -50,7 +49,6 @@
       }
     }
   }
-
 
   .boxArea {
     &-small {

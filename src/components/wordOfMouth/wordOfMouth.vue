@@ -86,6 +86,9 @@
         .iconfont {
           font-size: $FS24;
           color: #d2d2d2;
+          &:last-child{
+            transform: rotate(180deg);
+          }
         }
         p {
           line-height: 1.6;

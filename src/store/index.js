@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import vuexCache from 'vuex-cache'
+import router from '../router/index'
 Vue.use(Vuex)
 
 
@@ -69,7 +70,13 @@ const state = {
     info:null //信息
   },
   artists:[]
-}
+};
+
+const getters={  // getters
+  artist: (state) => (id) => {
+    return state.artists.find(d => {if(d.id == id) return d})
+  }
+};
 
 const mutations= {
   cScreenWidth (state,param) {
@@ -126,76 +133,83 @@ const mutations= {
   cArtists(state,param){
     state.artists.push(param)
   }
-}
+};
 
 const actions={
 
   //获取"首页"数据
   dataHome({state,commit}){
-    $http.get("/show?column_id=1&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,1)).then(res=>{
       commit("cHome",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"画酷优势"数据
   dataAdvantage({state,commit}){
-    $http.get("/show?column_id=2&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,2)).then(res=>{
       commit("cAdvantage",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"课程介绍"数据
   dataCourseIntro({state,commit}){
-    $http.get("/show?column_id=3&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,3)).then(res=>{
       commit("cCourseIntro",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"学院口碑"数据
   dataWordOfMonth({state,commit}){
-    $http.get("/show?column_id=4&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,4)).then(res=>{
       commit("cWordOfMonth",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"师资力量"数据
   dataFaculty({state,commit}){
-    $http.get("/show?column_id=5&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,5)).then(res=>{
       commit("cFaculty",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"合作伙伴"数据
   dataCooperative({state,commit}){
-    $http.get("/show?column_id=6&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,6)).then(res=>{
       commit("cCooperative",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"关于我们"数据
   dataAboutus({state,commit}){
-    $http.get("/show?column_id=7&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.first_colunm,7)).then(res=>{
       commit("cAboutus",res.data.records)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
 
   //获取"老师详情"数据
   dataTutor({state,commit},param){
-    $http.get("/artist?artist_id="+param+"&test=http://localhost:8080").then(res=>{
+    $http.get(api.methodurl(api.artist,param)).then(res=>{
       let data=res.data.records;
       let obj={
         id:null,
@@ -231,18 +245,14 @@ const actions={
       });
       commit("cArtists",obj)
     }).catch(err=>{
+      router.push({name: '404'});
       console.log("err:",err);
     })
   },
+};
 
-}
 
 
-const getters={  // getters
-  artist: (state) => (id) => {
-    return state.artists.find(d => {if(d.id == id) return d})
-  }
-}
 
 const store = new Vuex.Store({
   plugins: [vuexCache],

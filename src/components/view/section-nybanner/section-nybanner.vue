@@ -1,20 +1,26 @@
 <template>
+  <!--section-nybanner组件：-->
+  <!--可选传参custom：swiper-slide是否自定义，默认false（若true还需配合传参total【swiper-slide个数】）-->
+  <!--custom：默认false（规定样式并且swiper-slide只有一个，无鼠标拖动效果无滚动效果），需要传topbanner参数-->
+  <!--custom：true ，需要传total参数（若为1个，无鼠标拖动无轮播效果；若大于1个有轮播效果和拖动）-->
   <div>
-  <section_swiper v-if="!custom">
-    <swiper-slide v-if="topbanner && !custom">
-      <img class="swiper-slide-img" :src="topbanner.img_url" alt="">
-      <div class="swiper-slide-con">
-        <div class="container">
-          <h2 v-html="topbanner.first_title"></h2>
-          <p>{{topbanner.second_title}}</p>
-          <slot class="other" v-if="this.$slots"></slot>
+    <!--只有一张banner，内容为规定样式-->
+    <section_swiper v-if="!custom" :swiperOption="{simulateTouch : false}" :total="1">
+      <swiper-slide v-if="topbanner && !custom">
+        <img class="swiper-slide-img" :src="topbanner.img_url" alt="">
+        <div class="swiper-slide-con">
+          <div class="container">
+            <h2 v-html="topbanner.first_title"></h2>
+            <p>{{topbanner.second_title}}</p>
+            <slot class="other" v-if="this.$slots"></slot>
+          </div>
         </div>
-      </div>
-    </swiper-slide>
-  </section_swiper>
+      </swiper-slide>
+    </section_swiper>
 
-    <section_swiper v-if="this.$slots&&custom">
-        <slot></slot>
+    <!--可以一张可以多张，swpier内容自定义-->
+    <section_swiper v-if="this.$slots&&custom&&total" :total="total">
+      <slot></slot>
     </section_swiper>
   </div>
 </template>
@@ -28,11 +34,12 @@
       section_swiper
     },
     props: {
-      topbanner: Object,
-      custom: {
+      custom: {    //自定义内容,默认false
         type: Boolean,
         default: false
-      }
+      },
+      topbanner: Object, //规定样式数据，默认custorm为false必须传数据
+      total:Number  //swiper-slide个数（custom为true时必须传）
     }
   }
 </script>

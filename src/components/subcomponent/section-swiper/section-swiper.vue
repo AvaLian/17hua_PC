@@ -1,11 +1,12 @@
 <template>
+  <!--section-swiper组件:-->
+  <!--必要传参total：swpier-slide个数（若只有1个无鼠标拖动；若大于1个swiper轮播效果,并显示分页）-->
+  <!--可选传参swiperOption：swpier轮播效果个性化设置-->
   <div class="section-swiper">
-      <swiper :options="options" ref="mySwiper" >
-        <slot></slot>
-        <!--<div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="options.prevButton"></div>-->
-        <!--<div class="swiper-button-next swiper-button-next" slot="button-next" v-if="options.prevButton"></div>-->
-        <!--<div class="swiper-pagination" slot="pagination"></div>-->
-      </swiper>
+    <swiper :options="options" ref="mySwiper">
+      <slot></slot>
+      <div class="swiper-pagination" slot="pagination" v-if="total>1"></div>
+    </swiper>
   </div>
 </template>
 
@@ -17,22 +18,15 @@
     components: {
       swiper, swiperSlide
     },
-    props: ['swiperOption'],
+    props: ['swiperOption','total'],
     data(){
       return{
         primaryOptions:{
-          // autoplay: 8000,
-          // speed: 3000,
-          // loop: true,
-          // effect: 'fade',
           notNextTick:true,
           autoplayDisableOnInteraction: false,
-          pagination : null,
-          // pagination: '.swiper-pagination',
-          // paginationClickable: true,
-
-          // prevButton:null,
-          // nextButton:null,
+          pagination:".swiper-pagination",
+          paginationClickable:true,
+          simulateTouch : false,
         }
       }
     },
@@ -41,11 +35,15 @@
         return this.$refs.mySwiper.swiper;
       },
       options(){
+        //banner>1个，实现swiper滑动，并有分页
+        if(this.total>1){
+          this.primaryOptions.autoplay=8000;
+          this.primaryOptions.speed=3000;
+          this.primaryOptions.loop=true;
+          this.primaryOptions.simulateTouch=true;
+        }
         return Object.assign({},this.primaryOptions,this.swiperOption)
       }
-    },
-    methods: {
-
     }
   }
 </script>
@@ -70,7 +68,7 @@
   }
 </style>
 <style lang="scss">
-  /*轮播图锚点*/
+  /*swiper分页*/
   .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
@@ -85,7 +83,7 @@
     background: $themeColor;
   }
 
-
+  /*swiper前进后退*/
   .swiper-button-prev{
     background-image: url("./images/swiper-button-prev.png");
   }
