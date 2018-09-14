@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="logo">
-      <p>ERROR! - 页面走丢啦</p>
+      <p>ERROR! - 页面走丢啦!</p>
       <img src="./images/404-1.png"/>
     </div>
   </div>
@@ -14,15 +14,27 @@
 </script>
 
 <style lang="scss" scoped>
-
   .wrap{
-    margin:0 auto;
-    width:1000px;
     .logo{
       text-align:center;
-      margin-top:200px;
+      margin: 80px 0;
       img {
         width: 350px;
+      }
+      p{
+        font-size:$FS18;
+        font-family: PingFangSC-Semibold;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .boxArea-small{
+    .wrap{
+      .logo{
+        p{
+          font-size:28px;
+        }
       }
     }
   }
