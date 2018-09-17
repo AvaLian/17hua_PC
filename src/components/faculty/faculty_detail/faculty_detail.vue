@@ -12,8 +12,7 @@
 
       <banner :custom="true" :total="artist.evaluate.length" v-if="SCWTag<1">
         <swiper-slide v-for="(d,i) in artist.evaluate" :key="i">
-          <img v-if="d.img_url" class="swiper-slide-img" :src="d.img_url" alt="">
-          <img v-if="!d.img_url" class="swiper-slide-img" src="./images/IMGP1160787.jpg" alt="">
+          <img class="swiper-slide-img" :src="d.img_url" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <i class="iconfont icon-quote"></i>
