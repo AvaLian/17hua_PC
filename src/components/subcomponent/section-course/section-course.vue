@@ -38,6 +38,13 @@
   .section-course{
     .swiper-slide{
       padding: 1%;
+      transition: all .3s;
+      &:hover{
+        transform: scale(1.01);
+        .swiper-slide-container .width100{
+          box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        }
+      }
       &-container{
         position: relative;
       }
@@ -46,6 +53,7 @@
         position: absolute;
         top:50%;
         color:$ffColor;
+
         h4{
           font-size: $FS24;
           text-align: center;

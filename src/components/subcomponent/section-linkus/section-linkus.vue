@@ -4,7 +4,7 @@
     <transition name="fade">
       <div class="message" ref="msg" v-if="flag">
         <i class="iconfont icon-cuo" @click="onHide"></i>
-        <img src="../../../../static/images/qrcode-wx.jpg" alt="">
+        <img src="../../../../static/images/qrcode-wx.png" alt="">
         <p class="tel">联系电话：{{tel}}</p>
       </div>
     </transition>

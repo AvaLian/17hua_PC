@@ -53,7 +53,7 @@
       }
       &:hover {
         .exhibition-item-img {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
         transform: scale(1.01);
         box-shadow: 0 0 20px rgba(0, 0, 0, .3);

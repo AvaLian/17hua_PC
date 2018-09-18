@@ -143,7 +143,7 @@
           justify-content: center;
           padding: 30px 0;
           .vteacher-item-con-name {
-            font-size: 36px;
+            font-size: 28px;
             margin-bottom: 5%;
             text-align: center;
             line-height: 1.2;
@@ -164,7 +164,7 @@
     align-items: center;
     justify-content: center;
     font-family: PingFangSC-Medium;
-    font-size: 30px;
+    font-size:24px;
     cursor: pointer;
     border-radius: 6px;
   }

@@ -24,7 +24,7 @@
       <section_percent :up="false"></section_percent>
     </section_allcon>
 
-    <section_allcon :data="{first_title:'VIP一对一创意绘画课程'}" class="section-1 experi">
+    <section_allcon :data="{first_title:'VIP一对一创意绘画课程'}" class="section-1 experi" :style="{backgroundImage:'url('+require('./images/17rectangle.jpg')+')'}">
       <section_linkus :isShow="false">立即报名</section_linkus>
     </section_allcon>
 
