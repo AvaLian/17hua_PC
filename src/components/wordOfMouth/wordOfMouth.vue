@@ -93,6 +93,15 @@
         p {
           line-height: 1.6;
           margin: 10% 0;
+          height:150px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:6;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         &:after {
           content: "";

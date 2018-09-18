@@ -81,33 +81,33 @@ li {
 }
 
 
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Light';*/
-  /*src: url('../font/PingFangSC-Light.ttf');*/
-/*}*/
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Medium';*/
-  /*src: url('../font/PingFangSC-Medium.ttf');*/
-/*}*/
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Regular';*/
-  /*src: url('../font/PingFangSC-Regular.ttf');*/
-/*}*/
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Semibold';*/
-  /*src: url('../font/PingFangSC-Semibold.ttf');*/
-/*}*/
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Thin';*/
-  /*src: url('../font/PingFangSC-Thin.ttf');*/
-/*}*/
-/*@font-face {*/
-  /*font-family: 'PingFangSC-Ultralight';*/
-  /*src: url('../font/PingFangSC-Ultralight.ttf');*/
-/*}*/
+@font-face {
+  font-family: 'PingFangSC-Light';
+  src: url('../font/PingFangSC-Light.ttf')format('embedded-opentype');
+}
+@font-face {
+  font-family: 'PingFangSC-Medium';
+  src: url('../font/PingFangSC-Medium.ttf')format('embedded-opentype');
+}
+@font-face {
+  font-family: 'PingFangSC-Regular';
+  src: url('../font/PingFangSC-Regular.ttf')format('embedded-opentype');
+}
+@font-face {
+  font-family: 'PingFangSC-Semibold';
+  src: url('../font/PingFangSC-Semibold.ttf')format('embedded-opentype');
+}
+@font-face {
+  font-family: 'PingFangSC-Thin';
+  src: url('../font/PingFangSC-Thin.ttf')format('embedded-opentype');
+}
+@font-face {
+  font-family: 'PingFangSC-Ultralight';
+  src: url('../font/PingFangSC-Ultralight.ttf')format('embedded-opentype');
+}
 html, body {
     width: 100%;
-  /*font-family: PingFangSC-Regular,sans-serif;*/
+  font-family: PingFangSC-Regular,sans-serif;
     /*font-family:'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'Hiragino Sans GB', 'Source Han Sans CN Normal', 'Microsoft YaHei', '微软雅黑', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;*/
 }
 

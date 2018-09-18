@@ -160,8 +160,9 @@
          z-index: 99;
          margin-top: -1px;
          background: $ffColor;
+         padding: 10px 0;
          &-item {
-           padding: 12px 2%;
+           padding: 16px 2%;
          }
        }
      }

@@ -21,7 +21,7 @@
         <div class="contact-item">
           <div class="contact-item-title">
             <i class="iconfont icon-erweima"></i>
-            <p>客服电话</p>
+            <p>二维码</p>
           </div>
           <div class="contact-item-con">
             <img src="../../../static/images/qrcode-wx.png" alt="">
