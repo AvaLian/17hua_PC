@@ -52,7 +52,7 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataWordOfMonth")
+      this.$store.dispatch("dataWordOfMonth")
     }
   }
 </script>

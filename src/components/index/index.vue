@@ -103,7 +103,7 @@
     },
     created() {
       // this.$store.cache.dispatch("dataHome")
-      this.$store.dispatch("dataHome")
+      this.$store.dispatch("dataHome");
     },
     data() {
       return {

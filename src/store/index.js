@@ -1,23 +1,25 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import router from '../router/index'
+
 Vue.use(Vuex)
 
 
 import http from '@/utils/http'
 import api from '@/utils/api'
+
 const $http = http
 const $api = api
 
 const state = {
-  screenSize:{
-    w:0,
-    h:0
+  screenSize: {
+    w: 0,
+    h: 0
   },
-  SCWTag:0,   //分辨率大小标志: 0：large;1：middle;2:small
-  pageClass:["boxArea-large","boxArea-middle","boxArea-small"],  //不同分辨率页面的类名（响应式布局）
-  isScroll:0, //是否滚动固定头部标志
-  headerHeight:[
+  SCWTag: 0,   //分辨率大小标志: 0：large;1：middle;2:small
+  pageClass: ["boxArea-large", "boxArea-middle", "boxArea-small"],  //不同分辨率页面的类名（响应式布局）
+  isScroll: 0, //是否滚动固定头部标志
+  headerHeight: [
     {
       LHeigth: 88,
       SHeigth: 40
@@ -27,201 +29,203 @@ const state = {
       SHeigth: 40
     }
   ],//是否滚动页面对应的固定头部（高度）
-  name:"一起画(17hua.me)",
-  tel:"400-128-1717",
-  home:{  //首页
-    topbanner:null,   //首页banner
+  name: "一起画(17hua.me)",
+  tel: "400-128-1717",
+  home: {  //首页
+    topbanner: null,   //首页banner
     selections: null,   //打造行业领先价值
     section2: null,   //人性化教学理念
-    proSystem:null,  //产品体系
+    proSystem: null,  //产品体系
     banner: null,
     teaStrength: null,
     cooperative: null,
-    contact:null
+    contact: null
   },
-  advantage:{ //画酷优势
-    topbanner:null,  //banner
-    section1:null, //严选精英画师
+  advantage: { //画酷优势
+    topbanner: null,  //banner
+    section1: null, //严选精英画师
     teaTeam: null,   //资深团队，深耕教研
-    section3:null, //1V1绘画更有效
-    banner:null //解锁你的创造力
+    section3: null, //1V1绘画更有效
+    banner: null //解锁你的创造力
   },
-  courseIntro:{
-    topbanner:null,  //banner
-    vts:null,   //VTS视觉观察思考
-    proSystem:null,  //画酷产品体系标准
-    section5:null, //每一种创意绘画都有专属核心
+  courseIntro: {
+    topbanner: null,  //banner
+    vts: null,   //VTS视觉观察思考
+    proSystem: null,  //画酷产品体系标准
+    section5: null, //每一种创意绘画都有专属核心
   },
-  wordOfMonth:{
-    topbanner:null,  //banner
-    section1:null,   //学员作品分享、相信榜样力量
-    rating:null,  //妈妈有话说
+  wordOfMonth: {
+    topbanner: null,  //banner
+    section1: null,   //学员作品分享、相信榜样力量
+    rating: null,  //妈妈有话说
   },
-  faculty:{
-    topbanner:null,  //banner
-    teaTeam:null //专注、更专业
+  faculty: {
+    topbanner: null,  //banner
+    teaTeam: null //专注、更专业
   },
-  cooperative:{
-    topbanner:null,  //banner
-    partner:null //专注、更专业
+  cooperative: {
+    topbanner: null,  //banner
+    partner: null //专注、更专业
   },
-  aboutus:{
-    info:null //信息
+  aboutus: {
+    info: null //信息
   },
-  artists:[]
+  artists: []
 };
 
-const getters={  // getters
+const getters = {  // getters
   artist: (state) => (id) => {
-    return state.artists.find(d => {if(d.id == id) return d})
+    return state.artists.find(d => {
+      if (d.id == id) return d
+    })
   }
 };
 
-const mutations= {
-  cScreenWidth (state,param) {
-    state.screenSize.w=param;
+const mutations = {
+  cScreenWidth(state, param) {
+    state.screenSize.w = param;
   },
-  cScreenHight (state,param) {
-    state.screenSize.h=param;
+  cScreenHight(state, param) {
+    state.screenSize.h = param;
   },
-  cSCWTag (state,param) {
-    state.SCWTag=param;
+  cSCWTag(state, param) {
+    state.SCWTag = param;
   },
-  cisScroll (state,param) {
-    state.isScroll=param;
+  cisScroll(state, param) {
+    state.isScroll = param;
   },
-  cHome(state,param){
-    state.home.topbanner=param[0];
-    state.home.selections=param[1];
-    state.home.section2=param[2];
-    state.home.banner=param[3];
-    state.home.proSystem=param[4];
-    state.home.teaStrength=param[5];
-    state.home.cooperative=param[6];
-    state.home.contact=param[7];
+  cHome(state, param) {
+    state.home.topbanner = param[0];
+    state.home.selections = param[1];
+    state.home.section2 = param[2];
+    state.home.banner = param[3];
+    state.home.proSystem = param[4];
+    state.home.teaStrength = param[5];
+    state.home.cooperative = param[6];
+    state.home.contact = param[7];
   },
-  cAdvantage(state,param){
-    state.advantage.topbanner=param[0];
-    state.advantage.section1=param[1];
-    state.advantage.teaTeam=param[2];
-    state.advantage.section3=param[3];
-    state.advantage.banner=param[4];
+  cAdvantage(state, param) {
+    state.advantage.topbanner = param[0];
+    state.advantage.section1 = param[1];
+    state.advantage.teaTeam = param[2];
+    state.advantage.section3 = param[3];
+    state.advantage.banner = param[4];
   },
-  cCourseIntro(state,param){
-    state.courseIntro.topbanner=param[0];
-    state.courseIntro.vts=param[1];
-    state.courseIntro.proSystem=param[2];
-    state.courseIntro.section5=param[3];
+  cCourseIntro(state, param) {
+    state.courseIntro.topbanner = param[0];
+    state.courseIntro.vts = param[1];
+    state.courseIntro.proSystem = param[2];
+    state.courseIntro.section5 = param[3];
   },
-  cWordOfMonth(state,param){
-    state.wordOfMonth.topbanner=param[0];
-    state.wordOfMonth.section1=param[1];
-    state.wordOfMonth.rating=param[2];
+  cWordOfMonth(state, param) {
+    state.wordOfMonth.topbanner = param[0];
+    state.wordOfMonth.section1 = param[1];
+    state.wordOfMonth.rating = param[2];
   },
-  cFaculty(state,param){
-    state.faculty.topbanner=param[0];
-    state.faculty.teaTeam=param[1];
+  cFaculty(state, param) {
+    state.faculty.topbanner = param[0];
+    state.faculty.teaTeam = param[1];
   },
-  cCooperative(state,param){
-    state.cooperative.topbanner=param[0];
-    state.cooperative.partner=param[1];
+  cCooperative(state, param) {
+    state.cooperative.topbanner = param[0];
+    state.cooperative.partner = param[1];
   },
-  cAboutus(state,param){
-    state.cooperative.info=param[0];
+  cAboutus(state, param) {
+    state.cooperative.info = param[0];
   },
-  cArtists(state,param){
+  cArtists(state, param) {
     state.artists.push(param)
   }
 };
 
-const actions={
+const actions = {
 
   //获取"首页"数据
-  dataHome({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,1)).then(res=>{
-      commit("cHome",res.data.records)
-    }).catch(err=>{
+  dataHome({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 1)).then(res => {
+      commit("cHome", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"画酷优势"数据
-  dataAdvantage({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,2)).then(res=>{
-      commit("cAdvantage",res.data.records)
-    }).catch(err=>{
+  dataAdvantage({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 2)).then(res => {
+      commit("cAdvantage", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"课程介绍"数据
-  dataCourseIntro({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,3)).then(res=>{
-      commit("cCourseIntro",res.data.records)
-    }).catch(err=>{
+  dataCourseIntro({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 3)).then(res => {
+      commit("cCourseIntro", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"学院口碑"数据
-  dataWordOfMonth({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,4)).then(res=>{
-      commit("cWordOfMonth",res.data.records)
-    }).catch(err=>{
+  dataWordOfMonth({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 4)).then(res => {
+      commit("cWordOfMonth", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"师资力量"数据
-  dataFaculty({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,5)).then(res=>{
-      commit("cFaculty",res.data.records)
-    }).catch(err=>{
+  dataFaculty({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 5)).then(res => {
+      commit("cFaculty", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"合作伙伴"数据
-  dataCooperative({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,6)).then(res=>{
-      commit("cCooperative",res.data.records)
-    }).catch(err=>{
+  dataCooperative({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 6)).then(res => {
+      commit("cCooperative", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"关于我们"数据
-  dataAboutus({state,commit}){
-    $http.get(api.methodurl(api.first_colunm,7)).then(res=>{
-      commit("cAboutus",res.data.records)
-    }).catch(err=>{
+  dataAboutus({state, commit}) {
+    $http.get(api.methodurl(api.first_colunm, 7)).then(res => {
+      commit("cAboutus", res.data.records)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
 
   //获取"老师详情"数据
-  dataTutor({state,commit},param){
-    $http.get(api.methodurl(api.artist,param)).then(res=>{
-      let data=res.data.records;
-      let obj={
-        id:null,
-        topbanner:[],
-        graduate:[],
-        opus:[],
-        exhibition:[],
-        evaluate:[],
-        product:[]
+  dataTutor({state, commit}, param) {
+    $http.get(api.methodurl(api.artist, param)).then(res => {
+      let data = res.data.records;
+      let obj = {
+        id: null,
+        topbanner: [],
+        graduate: [],
+        opus: [],
+        exhibition: [],
+        evaluate: [],
+        product: []
       };
-      obj.id=param;
-      data.map((d,i)=>{
-        switch (d.type){
+      obj.id = param;
+      data.map((d, i) => {
+        switch (d.type) {
           case 10:
             obj.topbanner.push(d);
             break;
@@ -242,15 +246,15 @@ const actions={
             break;
         }
       });
-      commit("cArtists",obj)
-    }).catch(err=>{
+      commit("cArtists", obj)
+    }).catch(err => {
       router.push({name: '404'});
-      console.log("err:",err);
+      console.log("err:", err);
     })
   },
+
+
 };
-
-
 
 
 const store = new Vuex.Store({
