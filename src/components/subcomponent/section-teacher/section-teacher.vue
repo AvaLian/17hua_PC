@@ -69,7 +69,7 @@
   .vteacher {
     color: $fMColor;
     &-item-con-name {
-      font-family: PingFangSC-Medium;
+      font-family: PingFangSC-Medium,"Microsoft YaHei", sans-serif;
     }
     &-master {
       &-item {
@@ -97,7 +97,7 @@
             color: $themeColor;
             margin: 6% 0 8% 0;
             font-size: 30px;
-            font-family: PingFangSC-Semibold;
+            font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
           }
           &-des {
             line-height: 1.6;
@@ -163,7 +163,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: PingFangSC-Medium;
+    font-family: PingFangSC-Medium,"Microsoft YaHei", sans-serif;
     font-size:24px;
     cursor: pointer;
     border-radius: 6px;

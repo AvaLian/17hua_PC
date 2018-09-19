@@ -32,7 +32,8 @@
         }
       },
       created() {
-        this.$store.cache.dispatch("dataCooperative")
+        // this.$store.cache.dispatch("dataCooperative")
+        this.$store.dispatch("dataCooperative")
       },
     }
 </script>

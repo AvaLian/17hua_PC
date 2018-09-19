@@ -68,7 +68,8 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataAdvantage")
+      // this.$store.cache.dispatch("dataAdvantage")
+      this.$store.dispatch("dataAdvantage")
     }
   }
 </script>

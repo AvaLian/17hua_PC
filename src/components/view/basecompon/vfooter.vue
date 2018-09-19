@@ -100,7 +100,7 @@
         }
         .tel{
           font-size: $FS24;
-          font-family: PingFangSC-Semibold;
+          font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
           color:$fMColor;
         }
       }

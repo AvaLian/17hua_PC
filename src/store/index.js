@@ -1,12 +1,11 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import vuexCache from 'vuex-cache'
 import router from '../router/index'
 Vue.use(Vuex)
 
 
-import http from '../utils/http'
-import api from '../utils/api'
+import http from '@/utils/http'
+import api from '@/utils/api'
 const $http = http
 const $api = api
 
@@ -255,7 +254,6 @@ const actions={
 
 
 const store = new Vuex.Store({
-  plugins: [vuexCache],
   state,
   getters,
   mutations,

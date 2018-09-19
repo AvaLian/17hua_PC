@@ -49,7 +49,8 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataCourseIntro")
+      // this.$store.cache.dispatch("dataCourseIntro")
+      this.$store.dispatch("dataCourseIntro")
     },
   }
 </script>

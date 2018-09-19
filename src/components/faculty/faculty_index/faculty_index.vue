@@ -44,7 +44,8 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataFaculty")
+      // this.$store.cache.dispatch("dataFaculty")
+      this.$store.dispatch("dataFaculty")
     }
   }
 </script>

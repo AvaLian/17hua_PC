@@ -53,13 +53,13 @@
     justify-content: center;
     h2 {
       font-size: 60px;
-      font-family: PingFangSC-Semibold;
+      font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
       line-height: 1.2;
     }
     p {
       font-size: $FS24;
       line-height: 1.2;
-      font-family: PingFangSC-Regular;
+      font-family: PingFangSC-Regular,"Microsoft YaHei", sans-serif;
       margin-top:2%;
     }
   }

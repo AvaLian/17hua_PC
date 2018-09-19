@@ -61,7 +61,7 @@
         }
         p{
           text-align: justify;
-          font-family: PingFangSC-Light;
+          font-family: PingFangSC-Light,"Microsoft YaHei", sans-serif;
           line-height: 1.2;
         }
       }

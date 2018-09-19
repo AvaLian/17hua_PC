@@ -76,7 +76,7 @@
     /*顶部信息*/
     .top {
       font-size: $FS18;
-      font-family: PingFangSC-Semibold;
+      font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
       .container{
         height: $topHeight;
         display: flex;

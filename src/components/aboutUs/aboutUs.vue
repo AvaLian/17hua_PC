@@ -47,7 +47,8 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataAboutus")
+      // this.$store.cache.dispatch("dataAboutus")
+      this.$store.dispatch("dataAboutus")
     }
   }
 </script>
@@ -75,7 +76,7 @@
         text-align: center;
         margin-top: 30px;
         line-height: 1.2;
-        font-family: PingFangSC-Semibold;
+        font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
         flex: 1;
       }
     }

@@ -37,7 +37,7 @@
         color: $themeColor;
         font-size: 48px;
         margin-bottom: 20px;
-        font-family: PingFangSC-Medium;
+        font-family: PingFangSC-Medium,"Microsoft YaHei", sans-serif;
       }
     }
     &-1 {

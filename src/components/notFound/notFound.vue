@@ -23,7 +23,7 @@
       }
       p{
         font-size:$FS18;
-        font-family: PingFangSC-Semibold;
+        font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
         margin-bottom: 50px;
       }
     }

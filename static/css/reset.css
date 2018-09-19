@@ -107,7 +107,7 @@ li {
 }
 html, body {
     width: 100%;
-  font-family: PingFangSC-Regular,sans-serif;
+    font-family: PingFangSC-Regular,"Microsoft YaHei", sans-serif;
     /*font-family:'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'Hiragino Sans GB', 'Source Han Sans CN Normal', 'Microsoft YaHei', '微软雅黑', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;*/
 }
 

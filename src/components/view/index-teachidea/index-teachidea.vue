@@ -67,7 +67,7 @@
         &-title {
           margin: 30px 0;
           font-size: 36px;
-          font-family: PingFangSC-Light;
+          font-family: PingFangSC-Light,"Microsoft YaHei", sans-serif;
         }
       }
       &-img {
