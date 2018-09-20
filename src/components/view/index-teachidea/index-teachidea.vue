@@ -89,7 +89,7 @@
         flex: 0 0 50%;
       }
       .teachidea-item-des {
-        flex: 0 0 40%;
+        flex: 0 0 42%;
       }
     }
     &-middle {

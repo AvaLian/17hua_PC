@@ -78,7 +78,7 @@
     position: relative;
   }
   .experi{
-    background-image: url("./images/17rectangle.jpg");
+    /*background-image: url("./images/17rectangle.jpg");*/
     &-btn{
       @include vbtn($themeColor,#fff)
     }

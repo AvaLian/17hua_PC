@@ -57,6 +57,7 @@
       position: relative;
       .swiper-slide-img {
         width: 100%;
+        height: auto;
       }
       .swiper-slide-con {
         position: absolute;

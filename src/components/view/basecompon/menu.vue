@@ -106,7 +106,7 @@
       }
       .navbar-item-active {
         color: $themeColor;
-        font-family: PingFangSC-Semibold;
+        font-family: "PingFangSC-Semibold","Microsoft YaHei", sans-serif;
       }
     }
   }

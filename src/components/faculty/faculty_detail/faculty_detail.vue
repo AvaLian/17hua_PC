@@ -55,7 +55,7 @@
       }
     },
     created() {
-      this.$store.cache.dispatch("dataTutor", this.id);
+      this.$store.dispatch("dataTutor", this.id);
     }
   }
 </script>
