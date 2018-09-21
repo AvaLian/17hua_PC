@@ -7,7 +7,7 @@
     <!--只有一张banner，内容为规定样式-->
     <section_swiper v-if="!custom" :swiperOption="{simulateTouch : false}" :total="1">
       <swiper-slide v-if="topbanner && !custom">
-        <img class="swiper-slide-img" :src="topbanner.img_url" alt="">
+        <img class="swiper-slide-img" :src="topbanner.img_url" alt=""  style="height:auto;">
         <div class="swiper-slide-con">
           <div class="container">
             <h2 v-html="topbanner.first_title"></h2>
@@ -54,12 +54,13 @@
     h2 {
       font-size: 60px;
       font-family: PingFangSC-Semibold,"Microsoft YaHei", sans-serif;
+      font-weight: 700;
       line-height: 1.2;
     }
     p {
       font-size: $FS24;
       line-height: 1.2;
-      font-family: PingFangSC-Regular,"Microsoft YaHei", sans-serif;
+      font-family: PingFangSC-Regular,"Microsoft YaHei UI Light","Microsoft YaHei", sans-serif;
       margin-top:2%;
     }
   }

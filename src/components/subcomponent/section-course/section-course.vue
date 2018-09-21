@@ -32,12 +32,13 @@
 </script>
 
 <style lang="scss" scoped>
-  .section-swiper-group {
-    padding:0 50px 20px;
-  }
+  /*.section-swiper-group {*/
+    /**/
+  /*}*/
   .section-course{
     .swiper-slide{
       padding: 1%;
+      box-sizing: border-box;
       transition: all .3s;
       &:hover{
         transform: scale(1.01);
@@ -55,9 +56,10 @@
         color:$ffColor;
 
         h4{
-          font-size: $FS24;
+          font-size: $FS28;
           text-align: center;
           margin-bottom: 20px;
+          font-weight: 700;
         }
         p{
           text-align: justify;

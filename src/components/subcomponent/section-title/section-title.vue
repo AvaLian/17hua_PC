@@ -38,6 +38,9 @@
         font-size: 48px;
         margin-bottom: 20px;
         font-family: PingFangSC-Medium,"Microsoft YaHei", sans-serif;
+        span{
+          font-weight: 700;
+        }
       }
     }
     &-1 {

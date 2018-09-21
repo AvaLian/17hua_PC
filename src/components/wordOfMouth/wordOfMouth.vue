@@ -94,14 +94,15 @@
           line-height: 1.6;
           margin: 10% 0;
           height:150px;
+          width:300px;
           overflow:hidden;
           text-overflow:ellipsis;
           display:-webkit-box;
           -webkit-box-orient:vertical;
           -webkit-line-clamp:6;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          /*display: flex;*/
+          /*justify-content: center;*/
+          /*align-items: center;*/
         }
         &:after {
           content: "";
@@ -118,6 +119,7 @@
       }
       &-avatar {
         width: 68px;
+        height:68px;
         margin-top: 10%;
       }
     }

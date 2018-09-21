@@ -12,7 +12,7 @@
 
       <banner :custom="true" :total="artist.evaluate.length" v-if="SCWTag<1">
         <swiper-slide v-for="(d,i) in artist.evaluate" :key="i">
-          <img class="swiper-slide-img" :src="d.img_url" alt="">
+          <img class="swiper-slide-img" :src="require('./images/IMGP1160787.jpg')" alt="">
           <div class="swiper-slide-con">
             <div class="container">
               <i class="iconfont icon-quote"></i>
@@ -75,6 +75,7 @@
             text-align: center;
             line-height: 1.6;
             font-size: 18px;
+            max-width:$centerWidth;
           }
         }
         .iconfont{
@@ -95,6 +96,7 @@
   .faculty_detail{
     &_content{
       text-align: center;
+      padding: 10%;
     }
   }
 </style>

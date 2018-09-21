@@ -54,6 +54,7 @@
   /*轮播图*/
   .section-swiper-group {
     position: relative;
+    padding:0 50px 20px;
     /*padding: 0 50px;*/
     .swiper-container {
       width: 100%;
@@ -62,7 +63,7 @@
       .swiper-wrapper {
         display: flex;
         .swiper-slide {
-          flex: 0 0 33.3%;
+          flex: -1 0 33.3%;
           box-sizing: border-box;
         }
       }

@@ -1,8 +1,10 @@
 @import "./variable.scss";
 @import "./minxin.scss";
 
+
+$centerWidth:1200px;
 .container {
-  max-width: 1200px;
+  max-width: $centerWidth;
   margin: 0 auto;
 }
 

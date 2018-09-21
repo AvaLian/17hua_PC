@@ -69,6 +69,7 @@
   .vteacher {
     color: $fMColor;
     &-item-con-name {
+      font-weight: 700;
       font-family: PingFangSC-Medium,"Microsoft YaHei", sans-serif;
     }
     &-master {
@@ -129,6 +130,7 @@
           border-top-right-radius: $boxRadius;
           border-top-left-radius: $boxRadius;
           img {
+            width:auto;
             height: 110%;
             position: absolute;
             left: 50%;
