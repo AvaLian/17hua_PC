@@ -4,7 +4,7 @@ import axios from 'axios'
 import qs from 'qs'
 
 axios.defaults.baseURL = "https://api.17hua.me/yqhbsp/website/"   //全局配置头部
-axios.defaults.timeout = 1000   //全局配置头部
+axios.defaults.timeout = 10000   //全局配置头部
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest'
 };
@@ -106,7 +106,6 @@ export default {
       method: 'put',
       url: url,
       data: qs.stringify(data),
-      timeout: 30000,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
