@@ -1,11 +1,24 @@
 <template>
   <div class="index">
 
-    <banner :topbanner="topbanner" class="topbanner">
-      <el-button type="button" @click="dialogVisible = true" v-if="topbanner&&topbanner.mp4_url">查看视频</el-button>
+    <banner v-if="topbanner" :custom="true" :total="topbanner.info_list.length"
+            class="topbanner">
+      <swiper-slide v-for="(data,i) in topbanner.info_list" :key="i">
+        <img class="swiper-slide-img" :src="data.img_url" alt="" style="height:auto;">
+        <div class="swiper-slide-con">
+          <div class="container">
+            <h2 v-if="!data.first_title" v-html="topbanner.first_title"></h2>
+            <h2 v-if="data.first_title" v-html="data.first_title"></h2>
+            <p v-if="!data.second_title">{{topbanner.second_title}}</p>
+            <p v-if="data.second_title">{{data.second_title}}</p>
+            <el-button type="button" @click="dialogVisible = true" v-if="topbanner&&topbanner.mp4_url&&SCWTag<1">查看视频</el-button>
+          </div>
+        </div>
+      </swiper-slide>
     </banner>
 
-    <el-dialog v-if="topbanner&&topbanner.mp4_url" :visible.sync="dialogVisible" @open="openPlay" @close="closePlay" :append-to-body="true" :lock-scroll="false">
+    <el-dialog v-if="topbanner&&topbanner.mp4_url&&SCWTag<1" :visible.sync="dialogVisible" @open="openPlay" @close="closePlay"
+               :append-to-body="true" :lock-scroll="false">
       <section_player :video-url="topbanner.mp4_url" :state="state"></section_player>
     </el-dialog>
 
@@ -20,7 +33,8 @@
     </section_allcon>
 
     <!--服务理念-->
-    <section_allcon v-if="banner" :data="banner" class="section-1" :style="{'background-image':'url('+banner.img_url+')'}">
+    <section_allcon v-if="banner" :data="banner" class="section-1"
+                    :style="{'background-image':'url('+banner.img_url+')'}">
       <section_percent></section_percent>
     </section_allcon>
 
@@ -40,7 +54,8 @@
     </section_allcon>
 
     <!--联系我们-->
-    <section_allcon v-if="contact" :data="contact" class="section-1 contact" :style="{'background-image':'url('+contact.img_url+')'}">
+    <section_allcon v-if="contact" :data="contact" class="section-1 contact"
+                    :style="{'background-image':'url('+contact.img_url+')'}">
       <section_linkus :isShow="false">联系我们</section_linkus>
     </section_allcon>
   </div>
@@ -75,12 +90,15 @@
       section_coller,
       section_linkus,
     },
-    computed:{
-      topbanner(){
+    computed: {
+      topbanner() {
         return this.$store.state.home.topbanner
       },
-      banner(){
+      banner() {
         return this.$store.state.home.banner
+      },
+      SCWTag(){
+        return this.$store.state.SCWTag;
       },
       section1() {
         return this.$store.state.home.selections
@@ -88,16 +106,16 @@
       section2() {
         return this.$store.state.home.section2
       },
-      proSystem(){
+      proSystem() {
         return this.$store.state.home.proSystem
       },
-      teaStrength(){
+      teaStrength() {
         return this.$store.state.home.teaStrength
       },
-      cooperative(){
+      cooperative() {
         return this.$store.state.home.cooperative
       },
-      contact(){
+      contact() {
         return this.$store.state.home.contact
       }
     },
@@ -126,16 +144,62 @@
   @import "../../assets/style/icon.css";
 
   .el-button {
-    color: $ffColor;
+    color: $ffColor !important;
     width: 140px;
-    border: 3px solid $ffColor;
-    border-radius: 20px;
-    background: none;
+    border: 3px solid $ffColor !important;
+    border-radius: 20px !important;
+    background: none !important;
+    margin-top: 20px !important;
+    &:focus, &:hover {
+      color: $themeColor !important;
+      border-color: $themeColor !important;
+      background-color: #fcf0f2 !important;
+    }
   }
-  .contact{
+
+  .contact {
     position: relative;
-    .section-linkus{
+    .section-linkus {
       text-align: center;
+    }
+  }
+
+  //banner内容公共样式
+  .topbanner {
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2 {
+        font-size: 60px;
+        font-family: PingFangSC-Semibold, "Microsoft YaHei", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      p {
+        font-size: $FS24;
+        line-height: 1.2;
+        font-family: PingFangSC-Regular, "Microsoft YaHei UI Light", "Microsoft YaHei", sans-serif;
+        margin-top: 2%;
+      }
+    }
+  }
+
+  .boxArea {
+    &-small {
+      .topbanner {
+        .container {
+          padding: 0 2%;
+          box-sizing: border-box;
+          h2 {
+            font-size: $FS22;
+          }
+          p {
+            font-size: $FS12;
+          }
+        }
+      }
     }
   }
 

@@ -75,6 +75,6 @@
   /*@import '../../../../node_modules/video.js/dist/video-js.css';*/
   /*@import '../../../../node_modules/vue-video-player/src/custom-theme.css';*/
   .video-js .vjs-big-play-button {
-    display: none;
+    display: none !important;
   }
 </style>

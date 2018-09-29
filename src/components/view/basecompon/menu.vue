@@ -172,6 +172,13 @@
    .boxArea-middle{
        .s-menu-large{
          padding: 0 2%;
+         .logo{
+           width:20%;
+           img{
+             width: 100%;
+             height: auto;
+           }
+         }
       }
   }
 

@@ -25,6 +25,7 @@
   </div>
 </template>
 
+
 <script>
   import section_swiper from '../../subcomponent/section-swiper/section-swiper'
 
