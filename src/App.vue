@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import vheader from "./components/view/basecompon/vheader"
-  import vfooter from "./components/view/basecompon/vfooter"
+  import vheader from "./components/basecompon/vheader"
+  import vfooter from "./components/basecompon/vfooter"
 
   export default {
     name: 'App',

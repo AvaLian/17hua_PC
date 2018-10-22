@@ -32,9 +32,9 @@ Vue.use(VueVideoPlayer)
 
 
 //http请求和请求地址
-import http from './utils/http'
+import http from './assets/utils/http'
 Vue.prototype.$http = http;
-import api from './utils/api'
+import api from './assets/utils/api'
 Vue.prototype.$api = api
 
 Vue.config.productionTip = false
