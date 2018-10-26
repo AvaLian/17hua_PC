@@ -4,63 +4,64 @@
 
     <section class="section">
       <div class="container">
-        <div class="box boxA">
-          <div class="videoA" v-for="(item,i) in videolists.info_list" :key="i" v-if="item.location=='A'">
+        <ul class="box boxA">
+          <li class="video-item" v-for="(item,i) in videolists.info_list" :key="i" v-if="item.location=='A'">
             <section_video :data="item"></section_video>
-          </div>
-
-          <banner class="page" :custom="true" :total="pagelists.length" :isBtnShow="true" :isPaginShow="false">
-            <swiper-slide class="page-item" v-for="(item,i) in pagelists" :key="i">
-              <div class="page-item-img" @click="goToDetail(item.article_id)">
-                <img class="width100"  style="height:auto;" :src="item.header_img" alt="item.title">
-              </div>
-              <div class="page-item-content">
-                <h4 class="page-item-h4">{{item.title}}</h4>
-                <p class="page-item-text">{{item.introduce}}</p>
-                <span>{{item.create_time}}</span>
-              </div>
-            </swiper-slide>
-          </banner>
-        </div>
-
+          </li>
+        </ul>
         <ul class="box boxB">
           <li class="video-item" v-for="(item,i) in videolists.info_list" :key="i" v-if="item.location=='B'">
             <section_video :data="item"></section_video>
           </li>
         </ul>
 
-        <ul class="box boxC">
-          <li class="video-item" v-for="(item,i) in videolists.info_list" :key="i" v-if="item.location=='C'">
-            <section_video :data="item"></section_video>
-          </li>
-        </ul>
+
       </div>
     </section>
+
+
+    <section class="section paintmedia-content">
+      <div class="container">
+      <section_swiper_group v-if="pagelists&&pagelists.length" class="pagelists" :total="pagelists.length" :swiperOption="{'slidesPerView':4,'slidesPerGroup':4}">
+        <swiper-slide v-for="(d,i) in pagelists" :key="i">
+          <div class="swiper-slide-container" @click="goToDetail(d.article_id)">
+            <img class="width100" :src="d.header_img" style="height:auto;" :alt="d.first_title">
+            <div class="swiper-slide-content">
+              <h4>{{d.title}}</h4>
+              <p v-if="SCWTag<1">{{d.introduce}}</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </section_swiper_group>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script>
   import banner from '../../../components/section-nybanner/section-nybanner'
   import section_video from '../paintmedia-video/paintmedia-video'
-  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+  import section_swiper_group from '../../../components/section-swiper/section-swiper-group'
+
   export default {
     name: "paintmedia-index",
     components: {
       banner,
-      swiper, swiperSlide,
-      section_video
+      section_video,
+      section_swiper_group
     },
-    computed:{
-      SCWTag(){
+    computed: {
+      SCWTag() {
         return this.$store.state.SCWTag;
       },
-      topbanner(){
+      topbanner() {
         return this.$store.state.paintmedia.topbanner
       },
-      videolists(){
+      videolists() {
         return this.$store.state.paintmedia.videolists
       },
-      pagelists(){
+      pagelists() {
         return this.$store.state.paintmedia.pagelists
       }
     },
@@ -68,8 +69,8 @@
       this.$store.dispatch("dataPaintMedia")
     },
     methods: {
-      goToDetail(id){
-        this.$router.push({name: 'paintmediaDetail',params: {id: id}});
+      goToDetail(id) {
+        this.$router.push({name: 'paintmediaDetail', params: {id: id}});
       }
     }
   }
@@ -77,66 +78,54 @@
 
 <style lang="scss" scoped>
 
-  .box{
+  .box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
-    &.boxA{
-      .videoA{
-        width: 53.5%;
-      }
-      .page{
-        width: 43%;
-      }
-    }
-    &.boxB{
-      li{
-        width: 49.5%;
-        flex: 0 0 49.5%;
-      }
-    }
-    &.boxC{
-      li{
+    &.boxA {
+      li {
         width: 32.5%;
         flex: 0 0 32.5%;
       }
     }
+    &.boxB {
+      li {
+        width: 49.5%;
+        flex: 0 0 49.5%;
+      }
+    }
 
-    .page-item{
+    .page-item {
       cursor: pointer;
-
       background: $ffColor;
-      color:$f9EColor;
-      /*display: flex;*/
-      /*flex-direction: column;*/
-      &-content{
+      color: $f9EColor;
+      &-content {
         padding: 14px;
         box-sizing: border-box;
       }
-      &-h4{
+      &-h4 {
         font-size: 36px;
-        color:$fMColor;
+        color: $fMColor;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      &-text{
+      &-text {
         font-size: $FS18;
         margin: 20px 0;
       }
     }
   }
 
-
   .boxArea {
     &-small {
-      .box{
-        li,.videoA,.page{
+      .box {
+        li {
           width: 100%;
           flex: 0 0 100%;
           margin: 10px 0;
@@ -145,5 +134,68 @@
     }
   }
 
+
+  .paintmedia-content {
+    .container{
+      padding-top: 0;
+    }
+    .swiper-slide {
+      transition: all .3s;
+      &:hover {
+        transform: scale(1.01);
+        .swiper-slide-container {
+          box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        }
+      }
+    }
+    .swiper-slide-container {
+      border: 1px solid $borderColor;
+      .swiper-slide-content {
+        padding: 14px 10px;
+        h4 {
+          font-size: $FS24;
+          color: $fMColor;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        p {
+          font-size: $FS18;
+          color: $f9EColor;
+          line-height: 1.6;
+          margin: 14px 0;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+
+  .boxArea {
+    &-small {
+      .paintmedia-content{
+        .container{
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+</style>
+<style lang="scss">
+  .pagelists {
+    .swiper-slide {
+      padding: 0 5px;
+      cursor: pointer;
+    }
+    .swiper-wrapper{
+      display: flex;
+      align-items: center;
+    }
+  }
 </style>
 

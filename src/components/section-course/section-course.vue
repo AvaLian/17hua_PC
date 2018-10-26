@@ -1,9 +1,9 @@
 <template>
   <div class="section-course" v-if="data">
-    <section_swiper_group :total="data.length">
+    <section_swiper_group :total="data.length" >
       <swiper-slide v-for="(d,i) in data" :key="i">
         <div class="swiper-slide-container">
-          <img class="width100" :src="d.img_url" alt="">
+          <img class="width100" :src="d.img_url" style="height:auto;"  :alt="d.first_title">
           <div class="swiper-slide-content">
             <h4>{{d.first_title}}</h4>
             <p v-if="SCWTag<1">{{d.second_title}}</p>
@@ -32,9 +32,6 @@
 </script>
 
 <style lang="scss" scoped>
-  /*.section-swiper-group {*/
-    /**/
-  /*}*/
   .section-course{
     .swiper-slide{
       padding: 1%;
@@ -53,18 +50,18 @@
         padding: 0 14%;
         position: absolute;
         top:50%;
-        color:$ffColor;
-
+        color:$fMColor;
         h4{
+          color:$themeColor;
           font-size: $FS28;
           text-align: center;
-          margin-bottom: 20px;
+          margin: 20px 0;
           font-weight: 700;
         }
         p{
           text-align: justify;
           font-family: PingFangSC-Light,"Microsoft YaHei", sans-serif;
-          line-height: 1.2;
+          line-height: 1.6;
         }
       }
     }
@@ -76,14 +73,15 @@
         .swiper-slide{
           &-content{
             padding: 0;
-            top:0;
             width: 100%;
             height: 100%;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            margin-top: -20px;
+            top:0;
+            margin-top: -40px;
             h4{
+              font-size: $FS18;
               margin-bottom: 0;
             }
           }

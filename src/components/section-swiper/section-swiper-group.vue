@@ -2,12 +2,12 @@
   <!--section-swiper-group组件（规定一行显示3个）-->
   <!--必要传参total：swpier-slide个数（若只有3个无鼠标拖动；若大于3个swiper轮播效果，并显示分页器及前进后退按钮）-->
   <!--可选传参swiperOption：swpier轮播效果个性化设置-->
-  <div class="section-swiper-group">
+  <div class="section-swiper-group" :class="{padding:isShow}">
     <swiper :options="options" ref="mySwiper">
       <slot></slot>
       <div class="swiper-button-prev swiper-button-prev" slot="button-prev" v-if="isShow"></div>
       <div class="swiper-button-next swiper-button-next" slot="button-next" v-if="isShow"></div>
-      <div class="swiper-pagination" slot="pagination"  v-if="isShow"></div>
+      <div class="swiper-pagination" slot="pagination" v-if="isShow"></div>
     </swiper>
   </div>
 </template>
@@ -20,7 +20,15 @@
     components: {
       swiper, swiperSlide
     },
-    props: ['swiperOption', 'total'],
+    // props: ['swiperOption', 'total'],
+    props:{
+      total:Number,
+      swiperOption:Object,
+      // slideNum:{
+      //   type:Number,
+      //   default: 3
+      // }
+    },
     data() {
       return {
         primaryOptions: {
@@ -40,22 +48,31 @@
       },
       options() {
         //小于等于3个鼠标拖动无效
-        if(this.total <= this.primaryOptions.slidesPerView) this.primaryOptions.simulateTouch = false;
+
+
+        if (this.total <= this.primaryOptions.slidesPerView) this.primaryOptions.simulateTouch = false;
         return Object.assign({}, this.primaryOptions, this.swiperOption);
       },
       isShow() {
         return this.total > this.primaryOptions.slidesPerView ? true : false;
       }
-    }
+    },
+    // watch(){
+    //   primaryOptions:{
+    //     deep:true
+    //   }
+    // }
   }
 </script>
 
 <style lang="scss">
+  .padding{
+    padding: 0 50px 20px;
+  }
   /*轮播图*/
   .section-swiper-group {
     position: relative;
-    padding:0 50px 20px;
-    /*padding: 0 50px;*/
+    padding-bottom: 20px;
     .swiper-container {
       width: 100%;
       height: 100%;
@@ -69,15 +86,15 @@
       }
     }
   }
+
   .boxArea {
     &-small {
-      .section-swiper-group{
+      .section-swiper-group {
         padding: 0;
-        .swiper-pagination,.swiper-button-next, .swiper-button-prev {
+        .swiper-pagination, .swiper-button-next, .swiper-button-prev {
           display: none;
         }
       }
-
     }
   }
 </style>
@@ -92,6 +109,7 @@
     background: none;
     opacity: 1;
   }
+
   .swiper-pagination-bullet-active {
     width: 20px !important;
     background: $themeColor;
@@ -101,6 +119,7 @@
   .swiper-button-prev {
     background-image: url("images/swiper-button-prev.png");
   }
+
   .swiper-button-next {
     background-image: url("images/swiper-button-next.png");
   }

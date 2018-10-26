@@ -272,7 +272,7 @@ const actions = {
       console.log("err:", err);
     })
 
-    $http.get(api.pagelist+"&cat_id=2&page_no=1&page_size=4").then(res => {
+    $http.get(api.pagelist+"&cat_id=2&page_no=1&page_size=10").then(res => {
       // console.log("画媒体文章数据：",res);
       commit("cPaintMediaPageList", res.data.records)
     }).catch(err => {
