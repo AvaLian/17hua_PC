@@ -19,7 +19,7 @@
       return {
         playerOptions: {
           // playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
-          autoplay: true, // 如果true,浏览器准备好时开始回放。
+          autoplay: false, // 如果true,浏览器准备好时开始回放。
           muted: false, // 默认情况下将会消除任何音频。
           loop: false, // 导致视频一结束就重新开始。
           preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
@@ -33,7 +33,8 @@
           // poster: 'https://surmon-china.github.io/vue-quill-editor/static/images/surmon-3.jpg', // 你的封面地址
           width: document.documentElement.clientWidth,
           // heigth:document.documentElement.clientHeight,
-          notSupportedMessage: '此视频暂无法播放，请稍后再试'// 允许覆盖Video.js无法播放媒体源时显示的默认信息。
+          notSupportedMessage: '此视频暂无法播放，请稍后再试',// 允许覆盖Video.js无法播放媒体源时显示的默认信息。
+          // isFullscreen: true,
         }
       }
     },
@@ -42,7 +43,7 @@
       videoUrl(val) {
         if (val !== '') {
           // this.$refs.videoPlayer.player.src(val)
-          this.player.src(val)
+          this.player.src(val);
         }
       },
       state(val) {
@@ -79,7 +80,11 @@
 <style>
   /*@import '../../../../node_modules/video.js/dist/video-js.css';*/
   /*@import '../../../../node_modules/vue-video-player/src/custom-theme.css';*/
-  .video-js .vjs-big-play-button {
-    display: none !important;
+  .video-js .vjs-big-play-button[title="Play Video"] {
+    position: absolute;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%,-50%) !important;
   }
+
 </style>

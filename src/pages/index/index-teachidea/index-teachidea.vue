@@ -55,7 +55,7 @@
       line-height: 1.2;
       align-items: center;
       justify-content: space-between;
-      font-size: $FS24;
+      font-size: $FS22;
       &-div {
         box-sizing: border-box;
       }

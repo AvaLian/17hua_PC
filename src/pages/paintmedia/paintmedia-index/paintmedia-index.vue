@@ -14,25 +14,24 @@
             <section_video :data="item"></section_video>
           </li>
         </ul>
-
-
       </div>
     </section>
 
 
     <section class="section paintmedia-content">
       <div class="container">
-      <section_swiper_group v-if="pagelists&&pagelists.length" class="pagelists" :total="pagelists.length" :swiperOption="{'slidesPerView':4,'slidesPerGroup':4}">
-        <swiper-slide v-for="(d,i) in pagelists" :key="i">
-          <div class="swiper-slide-container" @click="goToDetail(d.article_id)">
-            <img class="width100" :src="d.header_img" style="height:auto;" :alt="d.first_title">
-            <div class="swiper-slide-content">
-              <h4>{{d.title}}</h4>
-              <p v-if="SCWTag<1">{{d.introduce}}</p>
+        <section_swiper_group v-if="pagelists&&pagelists.length" class="pagelists" :total="pagelists.length"
+                              :swiperOption="{'slidesPerView':4,'slidesPerGroup':4}">
+          <swiper-slide v-for="(d,i) in pagelists" :key="i">
+            <div class="swiper-slide-container" @click="goToDetail(d.article_id)">
+              <img class="width100" :src="d.header_img" style="height:auto;" :alt="d.first_title">
+              <div class="swiper-slide-content">
+                <h4>{{d.title}}</h4>
+                <p v-if="SCWTag<1">{{d.introduce}}</p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
-      </section_swiper_group>
+          </swiper-slide>
+        </section_swiper_group>
       </div>
     </section>
 
@@ -99,27 +98,6 @@
         flex: 0 0 49.5%;
       }
     }
-
-    .page-item {
-      cursor: pointer;
-      background: $ffColor;
-      color: $f9EColor;
-      &-content {
-        padding: 14px;
-        box-sizing: border-box;
-      }
-      &-h4 {
-        font-size: 36px;
-        color: $fMColor;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-      &-text {
-        font-size: $FS18;
-        margin: 20px 0;
-      }
-    }
   }
 
   .boxArea {
@@ -134,9 +112,8 @@
     }
   }
 
-
   .paintmedia-content {
-    .container{
+    .container {
       padding-top: 0;
     }
     .swiper-slide {
@@ -151,9 +128,9 @@
     .swiper-slide-container {
       border: 1px solid $borderColor;
       .swiper-slide-content {
-        padding: 14px 10px;
+        padding: 14px 20px;
         h4 {
-          font-size: $FS24;
+          font-size: 22px;
           color: $fMColor;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -173,11 +150,10 @@
     }
   }
 
-
   .boxArea {
     &-small {
-      .paintmedia-content{
-        .container{
+      .paintmedia-content {
+        .container {
           padding-left: 0;
           padding-right: 0;
         }
@@ -192,7 +168,7 @@
       padding: 0 5px;
       cursor: pointer;
     }
-    .swiper-wrapper{
+    .swiper-wrapper {
       display: flex;
       align-items: center;
     }

@@ -57,7 +57,7 @@
     }
     &-text {
       width: 100%;
-      font-size: 36px;
+      font-size: $FS28;
       position: absolute;
       left: 0;
       bottom: 0;

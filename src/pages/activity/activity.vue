@@ -152,7 +152,7 @@
       &-btn{
         width: 20%;
         text-align: center;
-        font-size: 24px;
+        font-size: $FS20;
         color:$ffColor;
         line-height: $search-bar-value-height;
         background: $themeColor;
