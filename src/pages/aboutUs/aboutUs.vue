@@ -36,25 +36,25 @@
         <div slot="content" id="joinus_box">
           <div>
             <label for="j_name"><span>*</span>姓名：</label>
-            <input v-model="j_name" id="j_name" maxlength="20" placeholder="不能为空">
+            <input v-model="j_name" id="j_name" maxlength="20" placeholder="">
           </div>
           <div>
             <label for="j_phone"><span>*</span>电话：</label>
-            <input v-model="j_phone" id="j_phone" maxlength="11" placeholder="不能为空">
+            <input v-model="j_phone" id="j_phone" maxlength="11" placeholder="">
           </div>
           <div>
             <label for="j_email"><span>*</span>邮箱：</label>
-            <input v-model="j_email" id="j_email" maxlength="30" placeholder="不能少于6个字符">
+            <input v-model="j_email" id="j_email" maxlength="30" placeholder="">
           </div>
 
           <div>
             <label for="j_position"><span>*</span>职位：</label>
-            <input v-model="j_position" id="j_position" maxlength="10" placeholder="不能为空">
+            <input v-model="j_position" id="j_position" maxlength="10" placeholder="">
           </div>
 
           <div class="flex100">
             <label for="j_description"><span>*</span>自我描述：</label>
-            <textarea v-model="j_description" id="j_description" maxlength="120" placeholder="不能少于20个字符"></textarea>
+            <textarea v-model="j_description" id="j_description" maxlength="120" placeholder=""></textarea>
           </div>
           <div>
             <label></label>
@@ -73,6 +73,7 @@
   import section_allcon from "../../components/section-allcon/section-allcon"
   import section_coller from '../../components/section-coller/section-coller'
   import section_linkus from '../../components/section-linkus/section-linkus'
+  import api from '../../assets/utils/api'
   export default {
     name: "about-us",
     components: {
@@ -109,14 +110,6 @@
     },
     methods:{
       joinUsDP(){
-        console.log(this.j_name,this.j_phone,this.j_email,this.j_position,this.j_description);
-        if(this.j_name==''||this.j_phone.length<11||this.j_email.length<6||this.j_position==''||this.j_description.length<20){
-          this.$message({
-            message: '请填写完整信息',
-            type: 'warning'
-          });
-          return false
-        }
         let w = {
           name: this.j_name,
           phone: this.j_phone,
@@ -124,7 +117,45 @@
           position: this.j_position,
           description: this.j_description
         };
-        this.$store.dispatch("joinus",w);
+        let regM=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        let regP=/^1[3456789]\d{9}$/;
+
+        if(w.name==''||w.phone.length==0||w.email==0||w.position==''||w.description.length==0){
+          this.$message({
+            message: '请填写完整信息',
+            type: 'warning'
+          });
+          return false
+        }
+        if(!regM.test(this.j_email)){
+          this.$message({
+            message: '请输入有效的邮箱',
+            type: 'warning'
+          });
+          return false
+        }
+        if(!regP.test(this.j_phone)){
+          this.$message({
+            message: '请输入有效的手机号码',
+            type: 'warning'
+          });
+          return false
+        }
+
+        this.$http.get(api.joinus,w).then(res => {
+          this.$message({
+            message: '提交成功，我们尽快联系你',
+            type: 'success'
+          });
+          this.j_name='';
+          this.j_phone='';
+          this.j_email='';
+          this.j_position='';
+          this.j_description='';
+        }).catch(err => {
+          this.$message.error('网络离家出走啦');
+          console.log("err:", err);
+        })
       }
     },
   }

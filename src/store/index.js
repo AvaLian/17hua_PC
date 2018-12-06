@@ -1,7 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import router from '../router/index'
-
 Vue.use(Vuex)
 
 
@@ -358,19 +357,24 @@ const actions = {
 
 
   //“加入我们”提交表单信息
-  joinus({state, commit}, param){
-    $http.get(api.joinus,param).then(res => {
-     console.log("OK");
-      this.$message({
-        message: '提交成功，我们尽快联系你',
-        type: 'success'
-      });
-    }).catch(err => {
-      console.log("No");
-      this.$message.error('网络离家出走啦');
-      console.log("err:", err);
-    })
-  },
+  // joinus({state, commit}, param){
+  //   $http.get(api.joinus,param).then(res => {
+  //    // console.log("OK");
+  //     Message({
+  //       message: '提交成功，我们尽快联系你',
+  //       type: 'success'
+  //     });
+  //     // this.$message({
+  //     //   message: '提交成功，我们尽快联系你',
+  //     //   type: 'success'
+  //     // });
+  //   }).catch(err => {
+  //     // console.log("No");
+  //     // this.$message.error('网络离家出走啦');
+  //     Message.error('网络离家出走啦');
+  //     console.log("err:", err);
+  //   })
+  // },
 
   qrcodeUrl(param){
     return api.qrcode+param
